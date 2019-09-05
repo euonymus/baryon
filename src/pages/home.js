@@ -1,6 +1,7 @@
 // react
 import React, { Component } from 'react'
 import NameForm from '../components/name-form'
+import Baryon from '../components/baryon'
 
 class Home extends Component {
   render () {
@@ -8,7 +9,7 @@ class Home extends Component {
       <div>
         {
           this.props.match.params.name ? (
-            <p>Here {this.props.match.params.name}</p>
+            <Baryon quark_name={this.props.match.params.name} />
           ) : (
             <NameForm />
           )
