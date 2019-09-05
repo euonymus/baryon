@@ -1,7 +1,9 @@
 .baryon-body {
+    text-align: left;
+    padding: 10px;
 }
 
-.baryon-subject-body {
+.baryon-subject {
 }
 
 .baryon-subject-image-wrapper {
