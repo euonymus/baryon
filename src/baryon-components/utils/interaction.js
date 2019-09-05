@@ -55,7 +55,7 @@ class Interaction {
        }
 
  	   } else {
- 	     return '';
+ 	     return ''
      }
 
      return (

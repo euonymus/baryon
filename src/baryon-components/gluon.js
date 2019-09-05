@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import './assets/styles/baryon.css'
+// Material UI
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import Avatar from '@material-ui/core/Avatar'
 
 class Gluon extends Component {
   render () {
@@ -9,13 +14,16 @@ class Gluon extends Component {
     const { gluon, object } = interaction
     return (
       <div className="baryon-gluon-body">
-        <Link to={`/${object.properties.name}`}>
-          <img className="baryon-gluon-image" src={object.properties.image_path} alt={object.properties.name} />
-        </Link>
-        <div className="baryon-interaction-body">
-          {interaction.relationText}
-          <p>{gluon.period_str}</p>
-        </div>
+        <ListItem>
+          <Link to={`/${object.properties.name}`}>
+            <ListItemAvatar>
+              <Avatar>
+                <img className="baryon-gluon-image" src={object.properties.image_path} alt={object.properties.name} />
+              </Avatar>
+            </ListItemAvatar>
+          </Link>
+          <ListItemText primary={interaction.relationText} secondary={gluon.period_str} />
+        </ListItem>
       </div>
     )
   }
