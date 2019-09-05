@@ -1,9 +1,12 @@
 import React from 'react'
 import AppRoutes from './routes'
+import './assets/styles/App.css'
 
 function App() {
   return (
-    <AppRoutes />
+    <div className="App" >
+      <AppRoutes />
+    </div>
   )
 }
 

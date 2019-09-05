@@ -1,5 +1,6 @@
 // react
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import NameForm from '../components/name-form'
 
 class Home extends Component {
   render () {
@@ -9,7 +10,7 @@ class Home extends Component {
           this.props.match.params.name ? (
             <p>Here {this.props.match.params.name}</p>
           ) : (
-            <p>Please select a quark</p>
+            <NameForm />
           )
         }
       </div>
