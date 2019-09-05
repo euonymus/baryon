@@ -1,9 +1,11 @@
 // react
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import MainQuark from './main-quark'
 
 class Baryon extends Component {
   state = {
+    isNoData: true,
     quark_name: null,
     subject: null,
     gluons: []
@@ -41,23 +43,47 @@ class Baryon extends Component {
     )
     resultPromise.then(result => {
       session.close()
-      const gluons = result.records
+
+      let gluons = result.records
       const singleRecord = gluons[0]
-      const subject = singleRecord.get(0)
+
+      let subject = null
+      let isNoData = true
+
+      if (singleRecord) {
+        subject = singleRecord.get(0)
+        isNoData = false
+      } else {
+        gluons = []
+      }
       this.setState({subject})
       this.setState({gluons})
+      this.setState({isNoData})
     })
   }
 
   render () {
-    console.log(this.state.subject)
-    console.log(this.state.gluons)
+    const { subject, gluons, isNoData } = this.state
     const { quark_name } = this.props
-	  return (
+
+    if (!subject) {
+      let message = 'Loading...'
+      if (isNoData) {
+        message = 'Not Found'
+      }
+	    return (
+        <div>
+          <h1>{quark_name}</h1>
+          <p>{message}</p>
+        </div>
+	    )
+    }
+
+    return (
       <div>
-        <h1>{quark_name}</h1>
+        <MainQuark subject={subject} />
       </div>
-	  )
+    )
   }
 }
 Baryon.propTypes = {
