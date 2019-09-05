@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 // utils
-import Util from './utils/common';
+import Util from './utils/common'
 // Material UI
 import LinkIcon from '@material-ui/icons/Link'
 
 class MainQuark extends Component {
   render () {
-    const { subject } = this.props;
+    const { subject } = this.props
 
-	  let util = new Util();
- 	  const period_str = util.period2str(subject.properties);
+	  let util = new Util()
+ 	  const period_str = util.period2str(subject.properties)
 
 	  return (
       <div>
@@ -37,7 +37,7 @@ class MainQuark extends Component {
           )}
         </div>
       </div>
-	  );
+	  )
   }
 }
 
