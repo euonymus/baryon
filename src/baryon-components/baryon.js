@@ -32,7 +32,7 @@ class Baryon extends Component {
 
   componentDidUpdate(prevProps, prevState){
     if (prevProps.quark_name !== this.props.quark_name) {
-      this.readGraph(prevProps.quark_name)
+      this.readGraph(this.props.quark_name)
     }
   }
 

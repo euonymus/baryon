@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 // utils
-import Util from './utils/common'
+import QuarkUtil from './utils/quark'
 // Material UI
 import LinkIcon from '@material-ui/icons/Link'
 
 class MainQuark extends Component {
   render () {
-    const { subject } = this.props
-
-	  let util = new Util()
- 	  const period_str = util.period2str(subject.properties)
-
+	  const subject = new QuarkUtil(this.props.subject)
 	  return (
       <div>
         { subject.properties.image_path && (
@@ -27,7 +23,7 @@ class MainQuark extends Component {
                 </sub>
             )}
           </h1>
-          <p>{period_str}</p>
+          <p>{subject.period_str}</p>
           <p>{subject.properties.description}</p>
 
           { subject.properties.affiliate && (

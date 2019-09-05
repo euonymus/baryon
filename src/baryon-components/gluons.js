@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Gluon from './gluon'
+import Interaction from './utils/interaction'
+import { LANGTYPE_JP_LIKE } from './constants/langtypes'
 
 class Gluons extends Component {
   render () {
     const { gluons } = this.props
-    console.log(gluons)
-    return gluons.map(gluon => {
-      console.log(gluon._fieldLookup.gluon)
-      console.log(gluon._fields[gluon._fieldLookup.gluon].identity)
+    return gluons.map(interactionRaw => {
+      const interaction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
       return (
-        <Gluon key={gluon._fields[gluon._fieldLookup.gluon].identity} gluon={gluon} />
+        <Gluon key={interaction.gluon.identity} interaction={interaction} />
       )
     })
   }

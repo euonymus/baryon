@@ -1,13 +1,13 @@
 import moment from 'moment'
 class Util {
-  period2str(quark) {
-	  if (!quark.start && !quark.end) return ''
+  period2str(data) {
+	  if (!data.start && !data.end) return ''
 
-	  let start_str = this.date2str(quark.start, quark.start_accuracy)
-	  let end_str = this.date2str(quark.end, quark.end_accuracy)
+	  let start_str = this.date2str(data.start, data.start_accuracy)
+	  let end_str = this.date2str(data.end, data.end_accuracy)
 
 	  let ret = ''
-	  if (quark.is_momentary) {
+	  if (data.is_momentary) {
 	    ret = '(' + start_str + ')'
 	  } else {
 	    ret = '(' + start_str
