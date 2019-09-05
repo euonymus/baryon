@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-// import { FormattedMessage } from 'react-intl';
 // utils
-// import Util from '../utils/common';
+import Util from './utils/common';
+// Material UI
+import LinkIcon from '@material-ui/icons/Link'
 
 class MainQuark extends Component {
   render () {
     const { subject } = this.props;
-    if (!subject) {
-	    return <div>Loading...</div>;
-    }
-	  // let util = new Util();
-    // 	  const period_str = util.period2str(subject.properties);
+
+	  let util = new Util();
+ 	  const period_str = util.period2str(subject.properties);
 
 	  return (
       <div>
@@ -22,12 +21,20 @@ class MainQuark extends Component {
         )}
         <div>
           <h1>{subject.properties.name}
-            {(() => { if (subject.properties.url) return (
-               <sub>
-                 <a href={subject.properties.url} target="_blank" rel="noopener noreferrer"> </a>
-               </sub>
- 	          );})()}
+            { subject.properties.url && (
+                <sub>
+                  <a href={subject.properties.url} target="_blank" rel="noopener noreferrer"><LinkIcon /></a>
+                </sub>
+            )}
           </h1>
+          <p>{period_str}</p>
+          <p>{subject.properties.description}</p>
+
+          { subject.properties.affiliate && (
+ 	            <p>
+                <a href={subject.properties.affiliate} target="_blank" rel="noopener noreferrer" >Buy Now</a>
+              </p>
+          )}
         </div>
       </div>
 	  );
@@ -38,14 +45,3 @@ MainQuark.propTypes = {
   subject: PropTypes.object.isRequired
 }
 export default MainQuark
-// 
-//   <p>{period_str}</p>
-//   <p>{subject.properties.description}</p>
-// 
-//   {(() => { if (subject.properties.affiliate) return (
-// 		         <p><a href={subject.properties.affiliate} target="_blank" rel="noopener noreferrer" >
-//        <FormattedMessage id="button_buy" defaultMessage={`Buy Now`} />
-//    		       </a></p>
-// 	        );})()}
-// 
-// </div>
