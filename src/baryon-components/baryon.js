@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import MainQuark from './main-quark'
+import Gluons from './gluons'
 
 class Baryon extends Component {
   state = {
@@ -82,6 +83,7 @@ class Baryon extends Component {
     return (
       <div>
         <MainQuark subject={subject} />
+        <Gluons gluons={gluons} />
       </div>
     )
   }
