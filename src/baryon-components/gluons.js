@@ -7,12 +7,18 @@ import { LANGTYPE_JP_LIKE } from './constants/langtypes'
 class Gluons extends Component {
   render () {
     const { gluons } = this.props
-    return gluons.map(interactionRaw => {
+    const gluonsList = gluons.map(interactionRaw => {
       const interaction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
       return (
         <Gluon key={interaction.gluon.identity} interaction={interaction} />
       )
     })
+
+    return (
+      <div className="baryon-gluons">
+        { gluonsList }
+      </div>
+    )
   }
 }
 

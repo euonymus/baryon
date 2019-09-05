@@ -81,7 +81,7 @@ class Baryon extends Component {
     }
 
     return (
-      <div>
+      <div className="baryon-body">
         <MainQuark subject={subject} />
         <Gluons gluons={gluons} />
       </div>

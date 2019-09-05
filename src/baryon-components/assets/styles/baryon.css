@@ -1,6 +1,32 @@
-.baryon-gluon-image {
-    width: 100px;
-    height: 100px;
+.baryon-body {
 }
+
+.baryon-subject-body {
+}
+
+.baryon-subject-image-wrapper {
+}
+
+.baryon-subject-image {
+    width: 400px;
+    /* height: 300px; */
+    object-fit: cover;
+}
+
+.baryon-gluons {
+}
+
+.baryon-gluon-body {
+}
+
+.baryon-gluon-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.baryon-interaction-body {
+}
+
 .baryon-strong-interaction {
 }

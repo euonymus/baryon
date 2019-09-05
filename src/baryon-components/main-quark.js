@@ -9,11 +9,11 @@ class MainQuark extends Component {
   render () {
 	  const subject = new QuarkUtil(this.props.subject)
 	  return (
-      <div>
+      <div className="baryon-subject-body">
         { subject.properties.image_path && (
-          <div>
-            <img src={subject.properties.image_path} alt={subject.properties.name} />
-          </div>
+            <div className="baryon-subject-image-wrapper">
+              <img className="baryon-subject-image" src={subject.properties.image_path} alt={subject.properties.name} />
+            </div>
         )}
         <div>
           <h1>{subject.properties.name}
