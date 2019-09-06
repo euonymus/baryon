@@ -10,7 +10,8 @@ import List from '@material-ui/core/List'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#f5e6e6'
   },
 }))
 
