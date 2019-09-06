@@ -14,9 +14,6 @@ import Typography from '@material-ui/core/Typography'
 import LinkIcon from '@material-ui/icons/Link'
 
 const useStyles = makeStyles({
-  card: {
-    maxWidth: 400,
-  },
   media: {
     height: 300,
   },
@@ -26,7 +23,7 @@ const MainQuark = (props) => {
 	const subject = new QuarkUtil(props.subject)
   const classes = useStyles()
 	return (
-    <div className="baryon-subject">
+    <div className="baryon-subject baryon-grid">
       <Card className={classes.card}>
         <CardActionArea>
           { subject.properties.image_path && (

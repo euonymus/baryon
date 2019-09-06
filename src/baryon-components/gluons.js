@@ -9,8 +9,6 @@ import List from '@material-ui/core/List'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '100%',
-    maxWidth: 400,
     backgroundColor: theme.palette.background.paper,
   },
 }))
@@ -27,7 +25,7 @@ const Gluons = (props) => {
   })
 
   return (
-    <div className="baryon-gluons">
+    <div className="baryon-gluons baryon-grid">
       <List className={classes.root}>
         { gluonsList }
       </List>

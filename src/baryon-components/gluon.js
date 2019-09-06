@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import './assets/styles/baryon.css'
 // Material UI
 import { makeStyles } from '@material-ui/styles'
+import Card from '@material-ui/core/Card'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
@@ -25,6 +26,7 @@ const Gluon = (props) => {
   const classes = useStyles()
   return (
     <div className="baryon-gluon-body">
+      <Card className={classes.card}>
       <ListItem>
         <Link to={`/${object.properties.name}`}>
           <ListItemAvatar className={classes.avatarListItem} >
@@ -35,6 +37,7 @@ const Gluon = (props) => {
         </Link>
         <ListItemText primary={interaction.relationText} secondary={gluon.period_str} />
       </ListItem>
+      </Card>
     </div>
   )
 }

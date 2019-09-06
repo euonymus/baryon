@@ -1,11 +1,31 @@
 .baryon-body {
     text-align: left;
-    padding: 10px;
+    padding: 20px;
 }
+.baryon-body:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.baryon-grid {
+    min-width: 400px;
+    float: left;
+}
+@media(max-width: 1200px) {
+  .baryon-grid {
+      float: none;
+  }
+}
+@media(min-width: 1200px) {
+  .baryon-gluons{
+      max-width: 700px;
+  }
+}
+
 
 .baryon-subject {
 }
-
 .baryon-subject-image-wrapper {
 }
 
@@ -16,9 +36,12 @@
 }
 
 .baryon-gluons {
+    position: relative;
 }
 
 .baryon-gluon-body {
+
+    background-color: red;
 }
 
 .baryon-gluon-image {
