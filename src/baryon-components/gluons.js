@@ -4,6 +4,7 @@ import Gluon from './gluon'
 import Interaction from './utils/interaction'
 import { LANGTYPE_JP_LIKE } from './constants/langtypes'
 // Material UI
+import Card from '@material-ui/core/Card'
 import { makeStyles } from '@material-ui/core/styles'
 import List from '@material-ui/core/List'
 
@@ -25,11 +26,13 @@ const Gluons = (props) => {
   })
 
   return (
+    <Card className={classes.card}>
     <div className="baryon-gluons baryon-grid">
       <List className={classes.root}>
         { gluonsList }
       </List>
     </div>
+    </Card>
   )
 }
 

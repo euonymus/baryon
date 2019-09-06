@@ -18,11 +18,13 @@
   }
 }
 @media(min-width: 1200px) {
+  .baryon-subject {
+      margin-right:20px;
+  }
   .baryon-gluons{
       max-width: 700px;
   }
 }
-
 
 .baryon-subject {
 }
@@ -40,8 +42,6 @@
 }
 
 .baryon-gluon-body {
-
-    background-color: red;
 }
 
 .baryon-gluon-image {

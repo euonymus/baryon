@@ -26,7 +26,6 @@ const Gluon = (props) => {
   const classes = useStyles()
   return (
     <div className="baryon-gluon-body">
-      <Card className={classes.card}>
       <ListItem>
         <Link to={`/${object.properties.name}`}>
           <ListItemAvatar className={classes.avatarListItem} >
@@ -37,7 +36,6 @@ const Gluon = (props) => {
         </Link>
         <ListItemText primary={interaction.relationText} secondary={gluon.period_str} />
       </ListItem>
-      </Card>
     </div>
   )
 }
