@@ -11,6 +11,10 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
 
 const useStyles = makeStyles({
+  card: {
+    margin: '20px',
+    display: 'block',
+  },
   avatarListItem: {
     width: 150,
   },
@@ -26,16 +30,18 @@ const Gluon = (props) => {
   const classes = useStyles()
   return (
     <div className="baryon-gluon-body">
-      <ListItem>
-        <Link to={`/${object.properties.name}`}>
-          <ListItemAvatar className={classes.avatarListItem} >
-            <Avatar className={classes.avatar} >
-              <img className="baryon-gluon-image" src={object.properties.image_path} alt={object.properties.name} />
-            </Avatar>
-          </ListItemAvatar>
-        </Link>
-        <ListItemText primary={interaction.relationText} secondary={gluon.period_str} />
-      </ListItem>
+      <Card className={classes.card}>
+        <ListItem>
+          <Link to={`/${object.properties.name}`}>
+            <ListItemAvatar className={classes.avatarListItem} >
+              <Avatar className={classes.avatar} >
+                <img className="baryon-gluon-image" src={object.properties.image_path} alt={object.properties.name} />
+              </Avatar>
+            </ListItemAvatar>
+          </Link>
+          <ListItemText primary={interaction.relationText} secondary={gluon.period_str} />
+        </ListItem>
+      </Card>
     </div>
   )
 }

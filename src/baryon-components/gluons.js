@@ -26,13 +26,13 @@ const Gluons = (props) => {
   })
 
   return (
-    <Card className={classes.card}>
     <div className="baryon-gluons baryon-grid">
-      <List className={classes.root}>
-        { gluonsList }
-      </List>
+      <Card className={classes.card}>
+        <List className={classes.root}>
+          { gluonsList }
+        </List>
+      </Card>
     </div>
-    </Card>
   )
 }
 

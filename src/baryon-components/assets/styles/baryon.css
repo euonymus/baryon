@@ -16,6 +16,9 @@
   .baryon-grid {
       float: none;
   }
+  .baryon-gluons{
+      margin-top: 20px;
+  }
 }
 @media(min-width: 1200px) {
   .baryon-subject {
