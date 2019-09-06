@@ -6,7 +6,7 @@ import Gluons from './gluons'
 
 class Baryon extends Component {
   state = {
-    isNoData: true,
+    isNoData: false,  // NOTE: Default has to be false, so user will see Loading..., when loading.
     quark_name: null,
     subject: null,
     gluons: []
