@@ -57,9 +57,7 @@ class Baryon extends Component {
       } else {
         gluons = []
       }
-      this.setState({subject})
-      this.setState({gluons})
-      this.setState({isNoData})
+      this.setState({subject, gluons, isNoData})
     })
   }
 
@@ -67,7 +65,7 @@ class Baryon extends Component {
     const { subject, gluons, isNoData } = this.state
     const { quark_name } = this.props
 
-    if (!subject) {
+    if (!subject || (gluons.length === 0)) {
       let message = 'Loading...'
       if (isNoData) {
         message = 'Not Found'
