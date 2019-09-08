@@ -19,9 +19,10 @@ const Gluons = (props) => {
   const classes = useStyles()
   const { gluons } = props
 
-  // gluons.forEach(gluon => {
-  //   console.log(gluon)
-  // })
+  console.log(new Interaction(gluons[0], LANGTYPE_JP_LIKE).subject.labels[0])
+  gluons.forEach(interactionRaw => {
+    console.log(new Interaction(interactionRaw, LANGTYPE_JP_LIKE).gluon.type)
+  })
 
   const gluonsList = gluons.map(interactionRaw => {
     const interaction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
