@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Gluon from './gluon'
 import Interaction from './utils/interaction'
+import Properties from './utils/properties'
 import { LANGTYPE_JP_LIKE } from './constants/langtypes'
 // Material UI
 import Card from '@material-ui/core/Card'
@@ -19,10 +20,7 @@ const Gluons = (props) => {
   const classes = useStyles()
   const { gluons } = props
 
-  console.log(new Interaction(gluons[0], LANGTYPE_JP_LIKE).subject.labels[0])
-  gluons.forEach(interactionRaw => {
-    console.log(new Interaction(interactionRaw, LANGTYPE_JP_LIKE).gluon.type)
-  })
+  new Properties(gluons)
 
   const gluonsList = gluons.map(interactionRaw => {
     const interaction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
