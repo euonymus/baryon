@@ -9,7 +9,7 @@
 }
 
 .baryon-grid {
-    min-width: 400px;
+    min-width: 350px;
     float: left;
 }
 @media(max-width: 1200px) {
@@ -25,10 +25,10 @@
       margin-right:20px;
   }
   .baryon-subject {
-      width: 400px;
+      width: 350px;
   }
   .baryon-properties {
-      width: 700px;
+      width: 750px;
   }
 }
 
@@ -38,7 +38,7 @@
 }
 
 .baryon-subject-image {
-    width: 400px;
+    width: 350px;
     /* height: 300px; */
     object-fit: cover;
 }

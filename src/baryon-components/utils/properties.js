@@ -25,14 +25,6 @@ class Properties {
       })
     })
     
-    data.push({
-      property: {
-        caption: 'others',
-        caption_ja: 'その他',
-      },
-      gluonsRelated: []
-    })
-
     gluons.forEach(interactionRaw => {
       const currentInteraction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
       let notInArray = true
@@ -49,6 +41,16 @@ class Properties {
         // if (!notInArray) break
       })
       if (notInArray) {
+        // Add others record when the first other-interection hits
+        if ((data.length === 0) ||data.slice(-1)[0].property.caption !== 'others') {
+          data.push({
+            property: {
+              caption: 'others',
+              caption_ja: 'その他',
+            },
+            gluonsRelated: []
+          })
+        }
         data.slice(-1)[0].gluonsRelated.push(currentInteraction)
       }
     })

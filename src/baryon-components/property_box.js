@@ -9,9 +9,6 @@ import Card from '@material-ui/core/Card'
 import List from '@material-ui/core/List'
 
 const useStyles = makeStyles({
-  property: {
-    margin: '20px',
-  },
   root: {
     // backgroundColor: theme.palette.background.paper,
     backgroundColor: '#f5e6e6'
@@ -28,7 +25,7 @@ const PropertyBox = (props) => {
     )
   })
   return (
-    <div className={classes.property}>
+    <div>
       <h3>{propertyResource.property.caption_ja}</h3>
       <Card className={classes.card}>
         <List className={classes.root}>
