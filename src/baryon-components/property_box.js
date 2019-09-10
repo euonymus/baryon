@@ -1,51 +1,42 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import Gluon from './gluon'
 // import { Link } from 'react-router-dom'
-// import './assets/styles/baryon.css'
+import './assets/styles/baryon.css'
 // Material UI
-// import { makeStyles } from '@material-ui/styles'
-// import Card from '@material-ui/core/Card'
-// import ListItem from '@material-ui/core/ListItem'
-// import ListItemText from '@material-ui/core/ListItemText'
-// import ListItemAvatar from '@material-ui/core/ListItemAvatar'
-// import Avatar from '@material-ui/core/Avatar'
-// 
-// const useStyles = makeStyles({
-//   card: {
-//     margin: '20px',
-//     display: 'block',
-//   },
-//   avatarListItem: {
-//     width: 150,
-//   },
-//   avatar: {
-//     width: 130,
-//     height: 130,
-//   },
-// })
-// 
+import { makeStyles } from '@material-ui/styles'
+import Card from '@material-ui/core/Card'
+import List from '@material-ui/core/List'
+
+const useStyles = makeStyles({
+  property: {
+    margin: '20px',
+  },
+  root: {
+    // backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#f5e6e6'
+  },
+})
+
 const PropertyBox = (props) => {
   const { propertyResource } = props
-  // const classes = useStyles()
-  console.log(propertyResource)
-  return null
-  // return (
-  //   <div className="baryon-gluon-body">
-  //     <Card className={classes.card}>
-  //       <ListItem>
-  //         <Link to={`/${object.properties.name}`}>
-  //           <ListItemAvatar className={classes.avatarListItem} >
-  //             <Avatar className={classes.avatar} >
-  //               <img className="baryon-gluon-image" src={object.properties.image_path} alt={object.properties.name} />
-  //             </Avatar>
-  //           </ListItemAvatar>
-  //         </Link>
-  //         <ListItemText primary={interaction.relationText} secondary={gluon.period_str} />
-  //       </ListItem>
-  //     </Card>
-  //   </div>
-  // )
+  const classes = useStyles()
+  console.log()
+  const gluonsList = propertyResource.gluonsRelated.map((interaction, key) => {
+    return (
+      <Gluon key={key} interaction={interaction} />
+    )
+  })
+  return (
+    <div className={classes.property}>
+      <h3>{propertyResource.property.caption_ja}</h3>
+      <Card className={classes.card}>
+        <List className={classes.root}>
+          {gluonsList}
+        </List>
+      </Card>
+    </div>
+  )
 }
 
 PropertyBox.propTypes = {

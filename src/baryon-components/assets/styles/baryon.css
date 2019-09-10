@@ -16,7 +16,7 @@
   .baryon-grid {
       float: none;
   }
-  .baryon-gluons{
+  .baryon-properties {
       margin-top: 20px;
   }
 }
@@ -27,7 +27,7 @@
   .baryon-subject {
       width: 400px;
   }
-  .baryon-gluons{
+  .baryon-properties {
       width: 700px;
   }
 }
@@ -41,10 +41,6 @@
     width: 400px;
     /* height: 300px; */
     object-fit: cover;
-}
-
-.baryon-gluons {
-    position: relative;
 }
 
 .baryon-gluon-body {

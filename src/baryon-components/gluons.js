@@ -1,48 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Gluon from './gluon'
 import PropertyBox from './property_box'
-import Interaction from './utils/interaction'
 import Properties from './utils/properties'
-import { LANGTYPE_JP_LIKE } from './constants/langtypes'
-// Material UI
-import Card from '@material-ui/core/Card'
-import { makeStyles } from '@material-ui/core/styles'
-import List from '@material-ui/core/List'
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    // backgroundColor: theme.palette.background.paper,
-    backgroundColor: '#f5e6e6'
-  },
-}))
 
 const Gluons = (props) => {
-  const classes = useStyles()
   const { gluons } = props
 
   const targetProperties = new Properties(gluons)
-  // console.log(targetProperties)
   const propertyList = targetProperties.data.map((propertyResource, key) => {
     return (
       <PropertyBox key={key} propertyResource={propertyResource} />
     )
   })
 
-  const gluonsList = gluons.map(interactionRaw => {
-    const interaction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
-    return (
-      <Gluon key={interaction.gluon.identity} interaction={interaction} />
-    )
-  })
-
   return (
-    <div className="baryon-gluons baryon-grid">
-      <Card className={classes.card}>
-        <List className={classes.root}>
-          { gluonsList }
-        </List>
-      </Card>
+    <div className="baryon-properties baryon-grid">
+      { propertyList }
     </div>
   )
 }
