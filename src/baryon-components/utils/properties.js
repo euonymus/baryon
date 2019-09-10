@@ -66,9 +66,6 @@ class Properties {
         return true // as to continue
       }
       targetPropertyGtypes.forEach(targetPropertyGtype => {
-        // console.log(targetPropertyGtype.gluon_type)
-        // console.log(targetPropertyGtype.direction)
-
         if (currentInteraction.gluon.type === targetPropertyGtype.gluon_type) {
           if (targetPropertyGtype.direction === 0) {
             ret.push(currentInteraction)

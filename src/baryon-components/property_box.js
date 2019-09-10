@@ -18,7 +18,6 @@ const useStyles = makeStyles({
 const PropertyBox = (props) => {
   const { propertyResource } = props
   const classes = useStyles()
-  console.log()
   const gluonsList = propertyResource.gluonsRelated.map((interaction, key) => {
     return (
       <Gluon key={key} interaction={interaction} />
