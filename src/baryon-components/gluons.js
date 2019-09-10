@@ -20,7 +20,8 @@ const Gluons = (props) => {
   const classes = useStyles()
   const { gluons } = props
 
-  new Properties(gluons)
+  const targetProperties = new Properties(gluons)
+  console.log(targetProperties)
 
   const gluonsList = gluons.map(interactionRaw => {
     const interaction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)

@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { properties } from '../constants/properties'
-import { gluon_types } from '../constants/gluon_types'
+// import { gluon_types } from '../constants/gluon_types'
 import { qtype_properties } from '../constants/qtype_properties'
 import { property_gtypes } from '../constants/property_gtypes'
 import { LANGTYPE_JP_LIKE } from '../constants/langtypes'
@@ -10,44 +10,77 @@ class Properties {
   constructor(gluons) {
     this.subject = new Interaction(gluons[0], LANGTYPE_JP_LIKE).subject
 
-    console.log(this.subject.labels[0])
-    console.log(qtype_properties[this.subject.labels[0]])
-    // _.forEach(qtype_properties, (qtype_property, i) => {
-    //   console.log(i)
-    //   console.log(qtype_property)
-    // })
+    const targetProperties = qtype_properties[this.subject.labels[0]]
 
-    // gluons.forEach(interactionRaw => {
-    //   const currentInteraction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
-    //   const subject = currentInteraction
-    //   const object = currentInteraction
-    //   console.log()
-    //   console.log(new Interaction(interactionRaw, LANGTYPE_JP_LIKE).gluon.type)
-    // })
+    const data = []
+    _.forEach(targetProperties, (qtype_property, i) => {
+      const property_id = qtype_property.property_id
+      const gluonsRelated = this.getGluonTypesRelated(property_id, gluons)
+      if (gluonsRelated.length === 0) {
+        return true // as to continue
+      }
+      data.push({
+        property: properties[property_id],
+        gluonsRelated
+      })
+    })
     
+    data.push({
+      property: {
+        caption: 'others',
+        caption_ja: 'その他',
+      },
+      gluonsRelated: []
+    })
 
-    // foreach ($result->getRecords() as $key => $record) {
-    //     $active = self::getActiveNode($record);
-    //     $passive = self::getPassiveNode($record);
-    //     $relation = $record->value('relation');
-    // 
-    //     $ret['relations'][] = [
-    //         'relation' => self::buildRelationshipArr($relation),
-    //         'active' => self::buildNodeArr($active),
-    //         'passive' => self::buildNodeArr($passive),
-    //     ];
-    // }
-
-
-    // console.log(qtype_properties)
-    // console.log(properties)
-    // console.log(property_gtypes)
-    // 
-    // console.log(gluon_types)
-
+    gluons.forEach(interactionRaw => {
+      const currentInteraction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
+      let notInArray = true
+      data.forEach(listedProperty => {
+        if (listedProperty.gluonsRelated.length === 0) {
+          return true // as to continue
+        }
+        listedProperty.gluonsRelated.forEach(gluonRelated => {
+          if (gluonRelated.gluon.properties.id === currentInteraction.gluon.properties.id) {
+            notInArray = false
+            // break
+          }
+        })
+        // if (!notInArray) break
+      })
+      if (notInArray) {
+        data.slice(-1)[0].gluonsRelated.push(currentInteraction)
+      }
+    })
+    this.data = data
   }
 
-  relationText() {
+  getGluonTypesRelated(property_id, gluons) {
+    const targetPropertyGtypes = property_gtypes[property_id]
+    const ret = []
+    gluons.forEach(interactionRaw => {
+      const currentInteraction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
+      if (currentInteraction.gluon.type === 'HAS_RELATION_TO') {
+        return true // as to continue
+      }
+      targetPropertyGtypes.forEach(targetPropertyGtype => {
+        // console.log(targetPropertyGtype.gluon_type)
+        // console.log(targetPropertyGtype.direction)
+
+        if (currentInteraction.gluon.type === targetPropertyGtype.gluon_type) {
+          if (targetPropertyGtype.direction === 0) {
+            ret.push(currentInteraction)
+          } else if ((targetPropertyGtype.direction === 1) &&
+                     (this.subject.identity.toString() === currentInteraction.gluon.start.toString()) ) {
+            ret.push(currentInteraction)
+          } else if ((targetPropertyGtype.direction === 2) &&
+                     (this.subject.identity.toString() === currentInteraction.gluon.end.toString()) ) {
+            ret.push(currentInteraction)
+          }
+        }
+      })
+    })
+    return ret
   }
 }
 export default Properties
