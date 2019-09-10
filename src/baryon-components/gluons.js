@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Gluon from './gluon'
+import PropertyBox from './property_box'
 import Interaction from './utils/interaction'
 import Properties from './utils/properties'
 import { LANGTYPE_JP_LIKE } from './constants/langtypes'
@@ -21,7 +22,12 @@ const Gluons = (props) => {
   const { gluons } = props
 
   const targetProperties = new Properties(gluons)
-  console.log(targetProperties)
+  // console.log(targetProperties)
+  const propertyList = targetProperties.data.map((propertyResource, key) => {
+    return (
+      <PropertyBox key={key} propertyResource={propertyResource} />
+    )
+  })
 
   const gluonsList = gluons.map(interactionRaw => {
     const interaction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
