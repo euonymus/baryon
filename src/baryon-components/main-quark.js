@@ -16,6 +16,7 @@ import LinkIcon from '@material-ui/icons/Link'
 const useStyles = makeStyles({
   media: {
     height: 300,
+    backgroundPosition: '50% 0%',
   },
 })
 
