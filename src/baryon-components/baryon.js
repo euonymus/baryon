@@ -16,7 +16,7 @@ class Baryon extends Component {
   }
 
   componentDidMount() {
-    const domainString = document.domain;
+    const domainString = document.domain
     const domainFirstPart = domainString.split('.')[0]
     let langType = this.state.langType
     if (domainFirstPart === LANG_SUBDOMAIN_JP_LIKE) {

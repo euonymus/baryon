@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
 import QuarkUtil from './quark'
 import GluonUtil from './gluon'
 import { LANGTYPE_ENG_LIKE } from '../constants/langtypes'
@@ -61,7 +59,7 @@ class Interaction {
      return (
        <p className="baryon-strong-interaction">
          {glue_sentence_before_link}
-         <Link to={`/${this.object.getName()}`}>{this.object.getName()}</Link>
+         {this.object.getLinkPath()}
          {glue_sentence_after_link}
        </p>
  	   )
