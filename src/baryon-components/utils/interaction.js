@@ -45,7 +45,7 @@ class Interaction {
 
        glue_sentence_before_link = ''
  	     if (langType === LANGTYPE_ENG_LIKE) {
-  		   glue_sentence_after_link += this.gluon.getRelation() + ' ' + this.subject.properties.name + ' '
+         glue_sentence_after_link += this.gluon.getRelation() + ' ' + this.subject.getName() + ' '
   	   } else {
   		   glue_sentence_after_link += 'は' + this.subject.getName() + this.gluon.getRelation()
   	   }

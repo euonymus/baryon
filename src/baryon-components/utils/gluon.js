@@ -14,9 +14,9 @@ class GluonUtil {
 
   getRelation = () => {
     if (this.langType === LANGTYPE_JP_LIKE) {
-      return this.properties.relation ? this.properties.relation : this.type
+      return this.properties.relation ? this.properties.relation : this.type.replace(/_/g, ' ').toLowerCase()
     } else {
-      return this.type ? this.type.replace('_', ' ').toLowerCase(): this.properties.relation
+      return this.type ? this.type.replace(/_/g, ' ').toLowerCase(): this.properties.relation
     }
   }
 }

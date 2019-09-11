@@ -18,8 +18,10 @@ class Baryon extends Component {
   componentDidMount() {
     const domainString = document.domain;
     const domainFirstPart = domainString.split('.')[0]
+    let langType = this.state.langType
     if (domainFirstPart === LANG_SUBDOMAIN_JP_LIKE) {
-      this.setState({langType: LANGTYPE_JP_LIKE})
+      langType = LANGTYPE_JP_LIKE
+      this.setState({langType})
     }
 
     const neo4j = require('neo4j-driver').v1
@@ -29,7 +31,7 @@ class Baryon extends Component {
     const password = process.env.REACT_APP_NEO4J_PASSWORD
     
     this.driver = neo4j.driver(uri, neo4j.auth.basic(user, password))
-    this.readGraph(this.props.quark_name)
+    this.readGraph(this.props.quark_name, langType)
   }
 
   componentWillUnmount() {
@@ -41,14 +43,18 @@ class Baryon extends Component {
 
   componentDidUpdate(prevProps, prevState){
     if (prevProps.quark_name !== this.props.quark_name) {
-      this.readGraph(this.props.quark_name)
+      this.readGraph(this.props.quark_name, this.state.langType)
     }
   }
 
-  readGraph(name) {
+  readGraph(name, langType) {
+    let name_field = 'en_name'
+    if (langType === LANGTYPE_JP_LIKE) {
+      name_field = 'name'
+    }
     const session = this.driver.session()
     const resultPromise = session.run(
-      'MATCH (subject {name: $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC',
+      `MATCH (subject {${name_field}: $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`,
       {name}
     )
     resultPromise.then(result => {

@@ -30,6 +30,10 @@ class Properties {
       })
     })
     
+    let property = 'others'
+    if (langType === LANGTYPE_JP_LIKE) {
+      property = 'その他'
+    }
     gluons.forEach(interactionRaw => {
       const currentInteraction = new Interaction(interactionRaw, langType)
       let notInArray = true
@@ -47,11 +51,7 @@ class Properties {
       })
       if (notInArray) {
         // Add others record when the first other-interection hits
-        if ((data.length === 0) ||data.slice(-1)[0].property !== 'others') {
-          let property = 'others'
-          if (langType === LANGTYPE_JP_LIKE) {
-            property = 'その他'
-          }
+        if ((data.length === 0) || data.slice(-1)[0].property !== property) {
           data.push({
             property,
             gluonsRelated: []
