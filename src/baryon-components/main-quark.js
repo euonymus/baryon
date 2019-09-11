@@ -30,7 +30,7 @@ const MainQuark = (props) => {
               <CardMedia
                 className={classes.media}
                 image={subject.properties.image_path}
-                title={subject.properties.name}
+                title={subject.getName()}
               />
           )}
           <CardContent>
