@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 })
 
 const MainQuark = (props) => {
-	const subject = new QuarkUtil(props.subject)
+	const subject = new QuarkUtil(props.subject, props.langType)
   const classes = useStyles()
 	return (
     <div className="baryon-subject baryon-grid">
@@ -35,11 +35,11 @@ const MainQuark = (props) => {
           )}
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {subject.properties.name}
+              {subject.getName()}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               {subject.period_str}<br />
-              {subject.properties.description}
+              {subject.getDescription()}
             </Typography>
           </CardContent>
         </CardActionArea>

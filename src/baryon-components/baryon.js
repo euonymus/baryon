@@ -3,9 +3,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import MainQuark from './main-quark'
 import Gluons from './gluons'
+import { LANG_SUBDOMAIN_JP_LIKE } from './constants/lang-subdomain'
+import { LANGTYPE_ENG_LIKE, LANGTYPE_JP_LIKE } from './constants/langtypes'
 
 class Baryon extends Component {
   state = {
+    langType: LANGTYPE_ENG_LIKE,
     isNoData: false,  // NOTE: Default has to be false, so user will see Loading..., when loading.
     quark_name: null,
     subject: null,
@@ -13,6 +16,12 @@ class Baryon extends Component {
   }
 
   componentDidMount() {
+    const domainString = document.domain;
+    const domainFirstPart = domainString.split('.')[0]
+    if (domainFirstPart === LANG_SUBDOMAIN_JP_LIKE) {
+      this.setState({langType: LANGTYPE_JP_LIKE})
+    }
+
     const neo4j = require('neo4j-driver').v1
     
     const uri = process.env.REACT_APP_NEO4J_URI
@@ -62,7 +71,7 @@ class Baryon extends Component {
   }
 
   render () {
-    const { subject, gluons, isNoData } = this.state
+    const { langType, subject, gluons, isNoData } = this.state
     const { quark_name } = this.props
 
     if (!subject || (gluons.length === 0)) {
@@ -80,8 +89,8 @@ class Baryon extends Component {
 
     return (
       <div className="baryon-body">
-        <MainQuark subject={subject} />
-        <Gluons gluons={gluons} />
+        <MainQuark subject={subject} langType={langType} />
+        <Gluons gluons={gluons} langType={langType} />
       </div>
     )
   }

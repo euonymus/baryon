@@ -35,7 +35,7 @@ const Gluon = (props) => {
           <Link to={`/${object.properties.name}`}>
             <ListItemAvatar className={classes.avatarListItem} >
               <Avatar className={classes.avatar} >
-                <img className="baryon-gluon-image" src={object.properties.image_path} alt={object.properties.name} />
+                <img className="baryon-gluon-image" src={object.properties.image_path} alt={object.getName()} />
               </Avatar>
             </ListItemAvatar>
           </Link>

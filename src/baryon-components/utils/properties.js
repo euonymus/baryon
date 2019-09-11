@@ -3,12 +3,13 @@ import { properties } from '../constants/properties'
 // import { gluon_types } from '../constants/gluon_types'
 import { qtype_properties } from '../constants/qtype_properties'
 import { property_gtypes } from '../constants/property_gtypes'
-import { LANGTYPE_JP_LIKE } from '../constants/langtypes'
+import { LANGTYPE_ENG_LIKE, LANGTYPE_JP_LIKE } from '../constants/langtypes'
 import Interaction from './interaction'
 
 class Properties {
-  constructor(gluons) {
-    this.subject = new Interaction(gluons[0], LANGTYPE_JP_LIKE).subject
+  constructor(gluons, langType = LANGTYPE_ENG_LIKE) {
+    this.langType = langType
+    this.subject = new Interaction(gluons[0], langType).subject
 
     const targetProperties = qtype_properties[this.subject.labels[0]]
 
@@ -19,14 +20,18 @@ class Properties {
       if (gluonsRelated.length === 0) {
         return true // as to continue
       }
+      let property = properties[property_id].caption
+      if (langType === LANGTYPE_JP_LIKE) {
+        property = properties[property_id].caption_ja
+      }
       data.push({
-        property: properties[property_id],
+        property,
         gluonsRelated
       })
     })
     
     gluons.forEach(interactionRaw => {
-      const currentInteraction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
+      const currentInteraction = new Interaction(interactionRaw, langType)
       let notInArray = true
       data.forEach(listedProperty => {
         if (listedProperty.gluonsRelated.length === 0) {
@@ -42,12 +47,13 @@ class Properties {
       })
       if (notInArray) {
         // Add others record when the first other-interection hits
-        if ((data.length === 0) ||data.slice(-1)[0].property.caption !== 'others') {
+        if ((data.length === 0) ||data.slice(-1)[0].property !== 'others') {
+          let property = 'others'
+          if (langType === LANGTYPE_JP_LIKE) {
+            property = 'その他'
+          }
           data.push({
-            property: {
-              caption: 'others',
-              caption_ja: 'その他',
-            },
+            property,
             gluonsRelated: []
           })
         }
@@ -61,7 +67,7 @@ class Properties {
     const targetPropertyGtypes = property_gtypes[property_id]
     const ret = []
     gluons.forEach(interactionRaw => {
-      const currentInteraction = new Interaction(interactionRaw, LANGTYPE_JP_LIKE)
+      const currentInteraction = new Interaction(interactionRaw, this.langType)
       if (currentInteraction.gluon.type === 'HAS_RELATION_TO') {
         return true // as to continue
       }

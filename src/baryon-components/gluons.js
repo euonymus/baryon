@@ -4,9 +4,9 @@ import PropertyBox from './property_box'
 import Properties from './utils/properties'
 
 const Gluons = (props) => {
-  const { gluons } = props
+  const { gluons, langType } = props
 
-  const targetProperties = new Properties(gluons)
+  const targetProperties = new Properties(gluons, langType)
   const propertyList = targetProperties.data.map((propertyResource, key) => {
     return (
       <PropertyBox key={key} propertyResource={propertyResource} />
