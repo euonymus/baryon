@@ -13,7 +13,6 @@ class GluonUtil {
   }
 
   getRelation = () => {
-    console.log(this)
     if (this.langType === LANGTYPE_JP_LIKE) {
       return this.properties.relation ? this.properties.relation : this.type
     } else {
