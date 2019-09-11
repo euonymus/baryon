@@ -28,7 +28,7 @@ class Util {
 	  } else {
 	    format = 'YYYY-MM-DD'
 	  }
-	  return moment(date).format(format)
+	  return moment(date.toString()).format(format)
   }
   fCamelToSnake(p) {
     //大文字を_+小文字にする(例:A を _a)
