@@ -193,5 +193,8 @@ export const property_gtypes = {
  { gluon_type: 'BOARD_MEMBER_OF', direction: 2 }, 
  { gluon_type: 'HEAD_OF', direction: 2 }, 
  { gluon_type: 'MINISTER_OF', direction: 2 },
+],
+50 :[
+ { gluon_type: 'ACTOR_OF', direction: 1 },
 ]
 }

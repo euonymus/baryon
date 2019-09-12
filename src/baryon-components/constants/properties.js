@@ -48,4 +48,5 @@ export const properties = {
 47 :{ caption: 'manufacturer', caption_ja: '製造機関' },
 48 :{ caption: 'job', caption_ja: '仕事' },
 49 :{ caption: 'boardMember', caption_ja: '役員' },
+50 :{ caption: 'Filmographies', caption_ja: '出演作' },
   }

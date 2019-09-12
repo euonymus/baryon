@@ -16,6 +16,7 @@ Person :[
  { property_id: 14 , is_required: false }, 
  { property_id: 39 , is_required: false }, 
  { property_id: 48 , is_required: false }, 
+ { property_id: 50 , is_required: false }, 
 ],
 CreativeWork :[
  { property_id: 15 , is_required: false }, 
