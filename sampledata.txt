@@ -1,0 +1,510 @@
+CREATE (TheMatrix:Movie {en_name:'The Matrix', name: 'マトリックス', image_path: 'https://images.ciatr.jp/2017/07/w_828/0kDnZaTrd4xrWWav8PB8XIVBRXoQGsWGgNSdnp2E.jpeg',  start: datetime("1999-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Welcome to the Real World'})
+CREATE (Keanu:Person {en_name:'Keanu Reeves', name: 'キアヌ・リーブス', image_path: 'https://eiga.k-img.com/images/person/25800/42f4404d90650ae2/320.jpg',  start: datetime("1964-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Carrie:Person {en_name:'Carrie-Anne Moss', name: 'キャリー・アン・モス', image_path: 'https://pmctvline2.files.wordpress.com/2019/07/carrie-anne-moss.jpg',  start: datetime("1967-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Laurence:Person {en_name:'Laurence Fishburne', name: 'ローレンス・フィッシュバーン', image_path: 'https://reseuro.magzter.com/1165x1367/articles/12423/348096/5ce6974c606c5/Laurence-Fishburne.jpg',  start: datetime("1961-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Hugo:Person {en_name:'Hugo Weaving', name: 'ヒューゴ・ウィービング', image_path: 'http://img.izismile.com/img/img5/20120426/640/fantastic_movie_creatures_unmasked_640_07.jpg',  start: datetime("1960-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (LillyW:Person {en_name:'Lilly Wachowski', name: 'リリー・ワコースキ', image_path: 'https://www.chicagotribune.com/resizer/csTTILAIwFMgUv9HQPrLzracJh8=/800x533/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/K77UZPKLNNB73PCSZI4QFTFKXQ.jpg',  start: datetime("1967-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (LanaW:Person {en_name:'Lana Wachowski', name: 'ラナ・ワコースキ', image_path: 'http://img.etonline.com/1242911076001/201603/1627/1242911076001_4793779316001_flashback-lana-wachoski-0309-lands.jpg',  start: datetime("1965-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JoelS:Person {en_name:'Joel Silver', name: 'ジョエル・シルバー', image_path: 'https://specials-images.forbesimg.com/imageserve/966630562/960x0.jpg',  start: datetime("1952-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (Keanu)-[:ACTOR_OF {roles:['Neo']}]->(TheMatrix),
+  (Carrie)-[:ACTOR_OF {roles:['Trinity']}]->(TheMatrix),
+  (Laurence)-[:ACTOR_OF {roles:['Morpheus']}]->(TheMatrix),
+  (Hugo)-[:ACTOR_OF {roles:['Agent Smith']}]->(TheMatrix),
+  (LillyW)-[:DIRECTOR_OF]->(TheMatrix),
+  (LanaW)-[:DIRECTOR_OF]->(TheMatrix),
+  (JoelS)-[:PRODUCER_OF]->(TheMatrix)
+
+CREATE (Emil:Person {en_name:"Emil Eifrem", name: 'エミル・エイフレム', image_path: 'https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/Emil_Eifrem-300x300.png',  start: datetime("1978-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Emil)-[:ACTOR_OF {roles:["Emil"]}]->(TheMatrix)
+
+CREATE (TheMatrixReloaded:Movie {en_name:'The Matrix Reloaded', name: 'マトリックス・リローデッド', image_path: 'https://s3-ap-southeast-2.amazonaws.com/fna-wordpress-website06/wp-content/uploads/2018/09/05151330/matrixreloaded-1440x960.jpg',  start: datetime("2003-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Free your mind'})
+CREATE
+  (Keanu)-[:ACTOR_OF {roles:['Neo']}]->(TheMatrixReloaded),
+  (Carrie)-[:ACTOR_OF {roles:['Trinity']}]->(TheMatrixReloaded),
+  (Laurence)-[:ACTOR_OF {roles:['Morpheus']}]->(TheMatrixReloaded),
+  (Hugo)-[:ACTOR_OF {roles:['Agent Smith']}]->(TheMatrixReloaded),
+  (LillyW)-[:DIRECTOR_OF]->(TheMatrixReloaded),
+  (LanaW)-[:DIRECTOR_OF]->(TheMatrixReloaded),
+  (JoelS)-[:PRODUCER_OF]->(TheMatrixReloaded)
+
+CREATE (TheMatrixRevolutions:Movie {en_name:'The Matrix Revolutions', name: 'マトリックス・レボリューションズ', image_path: 'https://cdn11.bigcommerce.com/s-lj8wphc2lt/images/stencil/1280x1280/products/269/661/matrixrevolutions-Web__73253.1526582695.jpg',  start: datetime("2003-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Everything that has a beginning has an end'})
+CREATE
+  (Keanu)-[:ACTOR_OF {roles:['Neo']}]->(TheMatrixRevolutions),
+  (Carrie)-[:ACTOR_OF {roles:['Trinity']}]->(TheMatrixRevolutions),
+  (Laurence)-[:ACTOR_OF {roles:['Morpheus']}]->(TheMatrixRevolutions),
+  (Hugo)-[:ACTOR_OF {roles:['Agent Smith']}]->(TheMatrixRevolutions),
+  (LillyW)-[:DIRECTOR_OF]->(TheMatrixRevolutions),
+  (LanaW)-[:DIRECTOR_OF]->(TheMatrixRevolutions),
+  (JoelS)-[:PRODUCER_OF]->(TheMatrixRevolutions)
+
+CREATE (TheDevilsAdvocate:Movie {en_name:"The Devil's Advocate", name: 'ディアボロス・悪魔の扉', image_path: 'https://images-na.ssl-images-amazon.com/images/I/412V45HSJTL._SY445_.jpg',  start: datetime("1997-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Evil has its winning ways'})
+CREATE (Charlize:Person {en_name:'Charlize Theron', name: 'シャーリーズ・セロン', image_path: 'https://img.etimg.com/thumb/height-450,width-800,msid-69108691,imgsize-87708/charlize-theron2-.jpg',  start: datetime("1975-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Al:Person {en_name:'Al Pacino', name: 'アル・パチーノ', image_path: 'https://www.biography.com/.image/t_share/MTE5NTU2MzE2MzM3MTEyNTg3/al-pacino-9431474-1-402.jpg',  start: datetime("1940-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Taylor:Person {en_name:'Taylor Hackford', name: 'テイラー・ハックフォード', image_path: 'https://upload.wikimedia.org/wikipedia/commons/5/55/TaylorHackfordHWOFJan2013.jpg',  start: datetime("1944-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (Keanu)-[:ACTOR_OF {roles:['Kevin Lomax']}]->(TheDevilsAdvocate),
+  (Charlize)-[:ACTOR_OF {roles:['Mary Ann Lomax']}]->(TheDevilsAdvocate),
+  (Al)-[:ACTOR_OF {roles:['John Milton']}]->(TheDevilsAdvocate),
+  (Taylor)-[:DIRECTOR_OF]->(TheDevilsAdvocate)
+
+CREATE (AFewGoodMen:Movie {en_name:"A Few Good Men", name: 'ア・フュー・グッドマン', image_path: 'https://images-na.ssl-images-amazon.com/images/I/51928WQPQ2L._SY445_.jpg',  start: datetime("1992-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"In the heart of the nation's capital, in a courthouse of the U.S. government, one man will stop at nothing to keep his honor, and one will stop at nothing to find the truth."})
+CREATE (TomC:Person {en_name:'Tom Cruise', name: 'トム・クルーズ', image_path: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Tom_Cruise_in_London%2C_2015_%28cropped%29.jpg',  start: datetime("1962-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JackN:Person {en_name:'Jack Nicholson', name: 'ジャック・ニコルソン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Jack_Nicholson_2001.jpg',  start: datetime("1937-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (DemiM:Person {en_name:'Demi Moore', name: 'デミ・ムーア', image_path: 'https://nyppagesix.files.wordpress.com/2019/08/gettyimages-1158051329.jpg',  start: datetime("1962-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (KevinB:Person {en_name:'Kevin Bacon', name: 'ケビン・ベーコン', image_path: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/magazine/2015/08_2015/kevin_bacon_magazine/650x350_kevin_bacon_magazine.jpg',  start: datetime("1958-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (KieferS:Person {en_name:'Kiefer Sutherland', name: 'キーファー・サザーランド', image_path: 'https://eiga.k-img.com/images/person/25785/300x.jpg',  start: datetime("1966-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (NoahW:Person {en_name:'Noah Wyle', name: 'ノア・ワイル', image_path: 'https://wwwimage-secure.cbsstatic.com/thumbnails/photos/w425/cast/a34f91adf7634a1d_redline_noahwyle_800x1000.jpg',  start: datetime("1971-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (CubaG:Person {en_name:'Cuba Gooding Jr.', name: 'キューバ・グッディング', image_path: 'https://nyppagesix.files.wordpress.com/2019/06/cuba-gooding-jr.jpg',  start: datetime("1968-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (KevinP:Person {en_name:'Kevin Pollak', name: 'ケビン・ポラーク', image_path: 'https://vignette.wikia.nocookie.net/disney/images/1/1c/Kevin_Pollak.jpg/revision/latest',  start: datetime("1957-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JTW:Person {en_name:'J.T. Walsh', name: 'J.T.ワルシュ', image_path: 'https://assets.mubi.com/images/cast_member/9411/image-original.jpg',  start: datetime("1943-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JamesM:Person {en_name:'James Marshall', name: 'ジェームズ・マーシャル', image_path: 'https://pixel.nymag.com/imgs/daily/vulture/2017/08/15/15-james-marshall-chatroom.w600.h315.2x.jpg',  start: datetime("1967-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (ChristopherG:Person {en_name:'Christopher Guest', name: 'クリストファー・ゲスト', image_path: 'https://www.goldderby.com/wp-content/uploads/2019/02/Christopher-Guest.jpg',  start: datetime("1948-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (RobR:Person {en_name:'Rob Reiner', name: 'ロブ・レイナー', image_path: 'https://cdn.britannica.com/86/190486-050-B618ED0D/Rob-Reiner-2013.jpg',  start: datetime("1947-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (AaronS:Person {en_name:'Aaron Sorkin', name: 'アーロン・ソーキン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Aaron_Sorkin_at_PaleyFest_2013.jpg',  start: datetime("1961-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomC)-[:ACTOR_OF {roles:['Lt. Daniel Kaffee']}]->(AFewGoodMen),
+  (JackN)-[:ACTOR_OF {roles:['Col. Nathan R. Jessup']}]->(AFewGoodMen),
+  (DemiM)-[:ACTOR_OF {roles:['Lt. Cdr. JoAnne Galloway']}]->(AFewGoodMen),
+  (KevinB)-[:ACTOR_OF {roles:['Capt. Jack Ross']}]->(AFewGoodMen),
+  (KieferS)-[:ACTOR_OF {roles:['Lt. Jonathan Kendrick']}]->(AFewGoodMen),
+  (NoahW)-[:ACTOR_OF {roles:['Cpl. Jeffrey Barnes']}]->(AFewGoodMen),
+  (CubaG)-[:ACTOR_OF {roles:['Cpl. Carl Hammaker']}]->(AFewGoodMen),
+  (KevinP)-[:ACTOR_OF {roles:['Lt. Sam Weinberg']}]->(AFewGoodMen),
+  (JTW)-[:ACTOR_OF {roles:['Lt. Col. Matthew Andrew Markinson']}]->(AFewGoodMen),
+  (JamesM)-[:ACTOR_OF {roles:['Pfc. Louden Downey']}]->(AFewGoodMen),
+  (ChristopherG)-[:ACTOR_OF {roles:['Dr. Stone']}]->(AFewGoodMen),
+  (AaronS)-[:ACTOR_OF {roles:['Man in Bar']}]->(AFewGoodMen),
+  (RobR)-[:DIRECTOR_OF]->(AFewGoodMen),
+  (AaronS)-[:AUTHOR_OF]->(AFewGoodMen)
+
+CREATE (TopGun:Movie {en_name:"Top Gun", name: 'トップガン', image_path: 'https://i0.wp.com/omfrappuccino.com/wp-content/uploads/2018/09/topgun1.jpg',  start: datetime("1986-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'I feel the need, the need for speed.'})
+CREATE (KellyM:Person {en_name:'Kelly McGillis', name: 'ケリー・マクギリス', image_path: 'https://img.huffingtonpost.com/asset/5d4023cb2400009d17936e73.jpeg?ops=scalefit_720_noupscale',  start: datetime("1957-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (ValK:Person {en_name:'Val Kilmer', name: 'ヴァル・キルマー', image_path: 'https://www.biography.com/.image/t_share/MTE1ODA0OTcxODM1MDk4NjM3/val-kilmer-9542051-1-402.jpg',  start: datetime("1959-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (AnthonyE:Person {en_name:'Anthony Edwards', name: 'アンソニー・エドワーズ', image_path: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/11/11/10/anthony-edwards.jpg',  start: datetime("1962-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (TomS:Person {en_name:'Tom Skerritt', name: 'トム・スケリット', image_path: 'http://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/masterrepository/performer%20images/p66091/tomskerritt-bonville-1.jpg',  start: datetime("1933-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (MegR:Person {en_name:'Meg Ryan', name: 'メグ・ライアン', image_path: 'https://www.biography.com/.image/t_share/MTE5NTU2MzE2MzYzNzg1NzM5/meg-ryan-9468255-1-402.jpg',  start: datetime("1961-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (TonyS:Person {en_name:'Tony Scott', name: 'トニー・スコット', image_path: 'https://s.france24.com/media/display/e552c9a8-0a1a-11e9-a61a-005056a964fe/w:1024/p:16x9/tony%20scott.jpg',  start: datetime("1944-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JimC:Person {en_name:'Jim Cash', name: 'ジム・キャッシュ', image_path: 'https://assets.boardroominsiders.com/attachments/cf61ca3e5cc1af7a5501919d16aafbf63fe84b69/store/cf9a4faf2d5c017748c85e34f13256271f91365fbb492f8cc57cba9b729c/1004905-2016-04-14_06-31-32.jpg',  start: datetime("1941-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomC)-[:ACTOR_OF {roles:['Maverick']}]->(TopGun),
+  (KellyM)-[:ACTOR_OF {roles:['Charlie']}]->(TopGun),
+  (ValK)-[:ACTOR_OF {roles:['Iceman']}]->(TopGun),
+  (AnthonyE)-[:ACTOR_OF {roles:['Goose']}]->(TopGun),
+  (TomS)-[:ACTOR_OF {roles:['Viper']}]->(TopGun),
+  (MegR)-[:ACTOR_OF {roles:['Carole']}]->(TopGun),
+  (TonyS)-[:DIRECTOR_OF]->(TopGun),
+  (JimC)-[:AUTHOR_OF]->(TopGun)
+
+CREATE (JerryMaguire:Movie {en_name:'Jerry Maguire', name: 'ザ・エージェント', image_path: 'https://images-na.ssl-images-amazon.com/images/I/41eQG9OlbbL._SY445_.jpg',  start: datetime("2000-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'The rest of his life begins now.'})
+CREATE (ReneeZ:Person {en_name:'Renee Zellweger', name: 'レニー・ゼルウェガー', image_path: 'https://www.goldderby.com/wp-content/uploads/2019/04/renee-Zellweger-Movies-Ranked.jpg',  start: datetime("1969-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (KellyP:Person {en_name:'Kelly Preston', name: 'ケリー・プレストン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Kelly_Preston_Cannes_2018.jpg',  start: datetime("1962-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JerryO:Person {en_name:"Jerry O'Connell", name: 'ジェリー・オコネル', image_path: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/JerryO%27ConnellHWOFJune2013.jpg',  start: datetime("1974-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JayM:Person {en_name:'Jay Mohr', name: 'ジェイ・モーア', image_path: 'https://www.carlsoncomedy.com/wp-content/uploads/2019/01/jay-moore-e1547672382502-834x675.jpg',  start: datetime("1970-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (BonnieH:Person {en_name:'Bonnie Hunt', name: 'ボニー・ハント', image_path: 'https://www.emmys.com/sites/default/files/styles/bio_pics_detail/public/bios/bonnie-hunt-photofest-450x600.jpg',  start: datetime("1961-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (ReginaK:Person {en_name:'Regina King', name: 'レジーナ・キング', image_path: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Regina_King_2010.jpg/170px-Regina_King_2010.jpg',  start: datetime("1971-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JonathanL:Person {en_name:'Jonathan Lipnicki', name: 'ジョナサン・リプニキー', image_path: 'https://toofab.akamaized.net/2017/03/15/0315-jonathanlipnicki-main2-810x610.jpg',  start: datetime("1996-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (CameronC:Person {en_name:'Cameron Crowe', name: 'キャメロン・クロウィ', image_path: 'https://m.media-amazon.com/images/M/MV5BMTMxOTIyNDA3OF5BMl5BanBnXkFtZTcwOTU5NDcxNg@@._V1_.jpg',  start: datetime("1957-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomC)-[:ACTOR_OF {roles:['Jerry Maguire']}]->(JerryMaguire),
+  (CubaG)-[:ACTOR_OF {roles:['Rod Tidwell']}]->(JerryMaguire),
+  (ReneeZ)-[:ACTOR_OF {roles:['Dorothy Boyd']}]->(JerryMaguire),
+  (KellyP)-[:ACTOR_OF {roles:['Avery Bishop']}]->(JerryMaguire),
+  (JerryO)-[:ACTOR_OF {roles:['Frank Cushman']}]->(JerryMaguire),
+  (JayM)-[:ACTOR_OF {roles:['Bob Sugar']}]->(JerryMaguire),
+  (BonnieH)-[:ACTOR_OF {roles:['Laurel Boyd']}]->(JerryMaguire),
+  (ReginaK)-[:ACTOR_OF {roles:['Marcee Tidwell']}]->(JerryMaguire),
+  (JonathanL)-[:ACTOR_OF {roles:['Ray Boyd']}]->(JerryMaguire),
+  (CameronC)-[:DIRECTOR_OF]->(JerryMaguire),
+  (CameronC)-[:PRODUCER_OF]->(JerryMaguire),
+  (CameronC)-[:AUTHOR_OF]->(JerryMaguire)
+
+CREATE (StandByMe:Movie {en_name:"Stand By Me", name: 'スタンド・バイ・ミー', image_path: 'https://image.middle-edge.jp/medium/0b519b543be96ff9ab884edef5b3f73d.jpg',  start: datetime("1986-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"For some, it's the last real taste of innocence, and the first real taste of life. But for everyone, it's the time that memories are made of."})
+CREATE (RiverP:Person {en_name:'River Phoenix', name: 'リバー・フェニックス', image_path: 'https://www.biography.com/.image/t_share/MTIwNjA4NjMzNjYzNDg5NTQ4/river-phoenix-372698-1-402.jpg',  start: datetime("1970-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (CoreyF:Person {en_name:'Corey Feldman', name: 'コーレイ・フェルドマン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Corey_Feldman_at_Vicki_Abelson%27s_Women_Who_Write_%28cropped%29.jpg',  start: datetime("1971-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (WilW:Person {en_name:'Wil Wheaton', name: 'ウィル・ウェートン', image_path: 'https://gazettereview.com/wp-content/uploads/2017/12/Wil-Wheaton-Featured-e1513980045351.jpg',  start: datetime("1972-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JohnC:Person {en_name:'John Cusack', name: 'ジョン・クサック', image_path: 'https://image.syracuse.com/home/syr-media/width600/img/parade/photo/2018/09/12/john-cusack-bd77e9ff8e6cf257.jpg',  start: datetime("1966-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (MarshallB:Person {en_name:'Marshall Bell', name: 'マーシャル・ベル', image_path: 'https://pbs.twimg.com/profile_images/1099116954/skymarshsteve1_400x400.jpg',  start: datetime("1942-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (WilW)-[:ACTOR_OF {roles:['Gordie Lachance']}]->(StandByMe),
+  (RiverP)-[:ACTOR_OF {roles:['Chris Chambers']}]->(StandByMe),
+  (JerryO)-[:ACTOR_OF {roles:['Vern Tessio']}]->(StandByMe),
+  (CoreyF)-[:ACTOR_OF {roles:['Teddy Duchamp']}]->(StandByMe),
+  (JohnC)-[:ACTOR_OF {roles:['Denny Lachance']}]->(StandByMe),
+  (KieferS)-[:ACTOR_OF {roles:['Ace Merrill']}]->(StandByMe),
+  (MarshallB)-[:ACTOR_OF {roles:['Mr. Lachance']}]->(StandByMe),
+  (RobR)-[:DIRECTOR_OF]->(StandByMe)
+
+CREATE (AsGoodAsItGets:Movie {en_name:'As Good as It Gets', name: '恋愛小説家', image_path: 'https://vmimg.vm-movie.jp/image/ktai/en_name/111/a111043.jpg',  start: datetime("1997-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'A comedy from the heart that goes for the throat.'})
+CREATE (HelenH:Person {en_name:'Helen Hunt', name: 'ヘレン・ハント', image_path: 'https://www.biography.com/.image/t_share/MTE4MDAzNDEwNzU5Mjg4MzM0/helen-hunt-9542341-1-402.jpg',  start: datetime("1963-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (GregK:Person {en_name:'Greg Kinnear', name: 'グレッグ・キーナー', image_path: 'https://m.media-amazon.com/images/M/MV5BMTcwNzE5MDM1NV5BMl5BanBnXkFtZTcwMTAzMjM3NA@@._V1_.jpg',  start: datetime("1963-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JamesB:Person {en_name:'James L. Brooks', name: 'ジェームズ・L・ブルックス', image_path: 'https://resizing.flixster.com/oV7M9fKQyDjHbuIauYJHgbe90pU=/300x300/v1.cjs0MjA7ajsxODE4MDsxMjAwOzQ4Nzs2NTI',  start: datetime("1940-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (JackN)-[:ACTOR_OF {roles:['Melvin Udall']}]->(AsGoodAsItGets),
+  (HelenH)-[:ACTOR_OF {roles:['Carol Connelly']}]->(AsGoodAsItGets),
+  (GregK)-[:ACTOR_OF {roles:['Simon Bishop']}]->(AsGoodAsItGets),
+  (CubaG)-[:ACTOR_OF {roles:['Frank Sachs']}]->(AsGoodAsItGets),
+  (JamesB)-[:DIRECTOR_OF]->(AsGoodAsItGets)
+
+CREATE (WhatDreamsMayCome:Movie {en_name:'What Dreams May Come', name: '奇蹟の輝き', image_path: 'https://pds.exblog.jp/pds/1/201704/03/86/d0354986_01223553.jpg',  start: datetime("1998-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'After life there is more. The end is just the beginning.'})
+CREATE (AnnabellaS:Person {en_name:'Annabella Sciorra', name: 'アナベラ・スキオラ', image_path: 'https://www.thewrap.com/wp-content/uploads/2017/10/AnnabellaSciorra.jpg',  start: datetime("1960-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (MaxS:Person {en_name:'Max von Sydow', name: 'マックス・フォン・シドウ', image_path: 'https://www.ingmarbergman.se/sites/default/files/von_Sydow_Max_002.jpg',  start: datetime("1929-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (WernerH:Person {en_name:'Werner Herzog', name: 'ウェーナー・ハーゾグ', image_path: 'https://i1.wp.com/talkeasypod.com/wp-content/uploads/2019/05/14-Werner-Herzog-Clean.jpg',  start: datetime("1942-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Robin:Person {en_name:'Robin Williams', name: 'ロビン・ウィリアムズ', image_path: 'https://www.biography.com/.image/t_share/MTE5NTU2MzE2NDA2NDQ5Njc1/robin-williams-9532797-1-402.jpg',  start: datetime("1951-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (VincentW:Person {en_name:'Vincent Ward', name: 'ヴィンセント・ワード', image_path: 'https://www.nzonscreen.com/content/images/0028/6759/Kaleidoscope---Vincent-Ward-thumb.jpg.540x405.jpg',  start: datetime("1956-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (Robin)-[:ACTOR_OF {roles:['Chris Nielsen']}]->(WhatDreamsMayCome),
+  (CubaG)-[:ACTOR_OF {roles:['Albert Lewis']}]->(WhatDreamsMayCome),
+  (AnnabellaS)-[:ACTOR_OF {roles:['Annie Collins-Nielsen']}]->(WhatDreamsMayCome),
+  (MaxS)-[:ACTOR_OF {roles:['The Tracker']}]->(WhatDreamsMayCome),
+  (WernerH)-[:ACTOR_OF {roles:['The Face']}]->(WhatDreamsMayCome),
+  (VincentW)-[:DIRECTOR_OF]->(WhatDreamsMayCome)
+
+CREATE (SnowFallingonCedars:Movie {en_name:'Snow Falling on Cedars', name: 'ヒマラヤ杉に降る雪', image_path: 'https://images-na.ssl-images-amazon.com/images/I/51ZEQFQHS0L._SY445_.jpg',  start: datetime("1999-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'First loves last. Forever.'})
+CREATE (EthanH:Person {en_name:'Ethan Hawke', name: 'イーサン・ホーク', image_path: 'https://www.biography.com/.image/t_share/MTE5NDg0MDYwNDczNjU2ODQ3/ethan-hawke-editedjpg.jpg',  start: datetime("1970-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (RickY:Person {en_name:'Rick Yune', name: 'リック・ユーン', image_path: 'https://www.famousbirthdays.com/faces/yune-rick-image.jpg',  start: datetime("1971-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JamesC:Person {en_name:'James Cromwell', name: 'ジェームズ・クロムウェル', image_path: 'https://pmcvariety.files.wordpress.com/2017/06/james-cromwell-arrest.jpg',  start: datetime("1940-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (ScottH:Person {en_name:'Scott Hicks', name: 'スコット・ヒックス', image_path: 'https://image.tmdb.org/t/p/w235_and_h235_face/saA36yAQYyTs0kzmH5hBprEszJX.jpg',  start: datetime("1953-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (EthanH)-[:ACTOR_OF {roles:['Ishmael Chambers']}]->(SnowFallingonCedars),
+  (RickY)-[:ACTOR_OF {roles:['Kazuo Miyamoto']}]->(SnowFallingonCedars),
+  (MaxS)-[:ACTOR_OF {roles:['Nels Gudmundsson']}]->(SnowFallingonCedars),
+  (JamesC)-[:ACTOR_OF {roles:['Judge Fielding']}]->(SnowFallingonCedars),
+  (ScottH)-[:DIRECTOR_OF]->(SnowFallingonCedars)
+
+CREATE (YouveGotMail:Movie {en_name:"You've Got Mail", name: 'ユー・ガット・メール', image_path: 'https://i1.wp.com/kaigai-drama-eiga.com/wp-content/uploads/2017/01/eyecatch-5.png',  start: datetime("1998-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'At odds in life... in love on-line.'})
+CREATE (ParkerP:Person {en_name:'Parker Posey', name: 'パーカー・ポーセイ', image_path: 'https://cdn1.thr.com/sites/default/files/imagecache/NFE_portrait/2011/08/parker-posey---thr.jpg',  start: datetime("1968-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (DaveC:Person {en_name:'Dave Chappelle', name: 'デイヴ・チャッペリー', image_path: 'https://www.biography.com/.image/t_share/MTQzMzA3MzU5NDg4MzIxMDk2/dave-chappelle_gettyimages-481295252jpg.jpg',  start: datetime("1973-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (SteveZ:Person {en_name:'Steve Zahn', name: 'スティーブ・ザーン', image_path: 'https://cdn1.thr.com/sites/default/files/imagecache/NFE_portrait/2013/02/carl_zahn_headshot_a_p.jpg',  start: datetime("1967-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (TomH:Person {en_name:'Tom Hanks', name: 'トム・ハンクス', image_path: 'https://timedotcom.files.wordpress.com/2018/01/tom-hanks.jpg',  start: datetime("1956-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (NoraE:Person {en_name:'Nora Ephron', name: 'ノラ・エプロン', image_path: 'https://thenypost.files.wordpress.com/2015/09/nora-ephron.jpg',  start: datetime("1941-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Joe Fox']}]->(YouveGotMail),
+  (MegR)-[:ACTOR_OF {roles:['Kathleen Kelly']}]->(YouveGotMail),
+  (GregK)-[:ACTOR_OF {roles:['Frank Navasky']}]->(YouveGotMail),
+  (ParkerP)-[:ACTOR_OF {roles:['Patricia Eden']}]->(YouveGotMail),
+  (DaveC)-[:ACTOR_OF {roles:['Kevin Jackson']}]->(YouveGotMail),
+  (SteveZ)-[:ACTOR_OF {roles:['George Pappas']}]->(YouveGotMail),
+  (NoraE)-[:DIRECTOR_OF]->(YouveGotMail)
+
+CREATE (SleeplessInSeattle:Movie {en_name:'Sleepless in Seattle', name: '巡り会えたら', image_path: 'https://discoverbeaumont.com/wp-content/uploads/2018/01/web-thumb-1.jpg',  start: datetime("1993-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'What if someone you never met, someone you never saw, someone you never knew was the only someone for you?'})
+CREATE (RitaW:Person {en_name:'Rita Wilson', name: 'リタ・ウィルソン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Rita_Wilson_by_Gage_Skidmore_2.jpg',  start: datetime("1956-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (BillPull:Person {en_name:'Bill Pullman', name: 'ビル・プルマン', image_path: 'https://cdn.thestage.co.uk/wp-content/uploads/2019/05/07113826/BP-2-july12-700x455.jpg',  start: datetime("1953-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (VictorG:Person {en_name:'Victor Garber', name: 'ヴィクター・ガーバー', image_path: 'https://timedotcom.files.wordpress.com/2015/06/victor-garber.jpg',  start: datetime("1949-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (RosieO:Person {en_name:"Rosie O'Donnell", name: 'ロージー・オドネル', image_path: 'https://m.media-amazon.com/images/M/MV5BNTcwNzk5NjkwNF5BMl5BanBnXkFtZTcwNzQ2ODQwMg@@._V1_UY317_CR17,0,214,317_AL_.jpg',  start: datetime("1962-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Sam Baldwin']}]->(SleeplessInSeattle),
+  (MegR)-[:ACTOR_OF {roles:['Annie Reed']}]->(SleeplessInSeattle),
+  (RitaW)-[:ACTOR_OF {roles:['Suzy']}]->(SleeplessInSeattle),
+  (BillPull)-[:ACTOR_OF {roles:['Walter']}]->(SleeplessInSeattle),
+  (VictorG)-[:ACTOR_OF {roles:['Greg']}]->(SleeplessInSeattle),
+  (RosieO)-[:ACTOR_OF {roles:['Becky']}]->(SleeplessInSeattle),
+  (NoraE)-[:DIRECTOR_OF]->(SleeplessInSeattle)
+
+CREATE (JoeVersustheVolcano:Movie {en_name:'Joe Versus the Volcano', name: 'ジョー満月の島へ行く', image_path: 'https://cdn.vox-cdn.com/thumbor/37aPciIK5dffHVeRP2wR6IlZlHI=/0x0:1200x870/1200x800/filters:focal(427x220:619x412)/cdn.vox-cdn.com/uploads/chorus_image/image/65095825/1856091.0.jpg',  start: datetime("1990-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'A story of love, lava and burning desire.'})
+CREATE (JohnS:Person {en_name:'John Patrick Stanley', name: 'ジョン・パトリック・スタンレー', image_path: 'https://upload.wikimedia.org/wikipedia/commons/5/55/JohnPatrickShanley-2011.jpg',  start: datetime("1950-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Nathan:Person {en_name:'Nathan Lane', name: 'ネイサン・レーン', image_path: 'https://cloudimages.broadwayworld.com/headshots/3364sm.jpg',  start: datetime("1956-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Joe Banks']}]->(JoeVersustheVolcano),
+  (MegR)-[:ACTOR_OF {roles:['DeDe', 'Angelica Graynamore', 'Patricia Graynamore']}]->(JoeVersustheVolcano),
+  (Nathan)-[:ACTOR_OF {roles:['Baw']}]->(JoeVersustheVolcano),
+  (JohnS)-[:DIRECTOR_OF]->(JoeVersustheVolcano)
+
+CREATE (WhenHarryMetSally:Movie {en_name:'When Harry Met Sally', name: '恋人たちの予感', image_path: 'https://pmcvariety.files.wordpress.com/2019/04/when-harry-met-sally.jpg',  start: datetime("1998-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Can two friends sleep together and still love each other in the morning?'})
+CREATE (BillyC:Person {en_name:'Billy Crystal', name: 'ビル・クリスタル', image_path: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Billy_Crystal_by_Gage_Skidmore.jpg',  start: datetime("1948-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (CarrieF:Person {en_name:'Carrie Fisher', name: 'キャリー・フィッシャー', image_path: 'https://i.pinimg.com/originals/7c/65/1a/7c651a278aa3ce764207d40ec1c59693.jpg',  start: datetime("1956-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (BrunoK:Person {en_name:'Bruno Kirby', name: 'ブルーノ・カービー', image_path: 'https://www.denverpost.com/wp-content/uploads/2016/05/20060816_095314_ol16kriby.jpg?w=300',  start: datetime("1949-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (BillyC)-[:ACTOR_OF {roles:['Harry Burns']}]->(WhenHarryMetSally),
+  (MegR)-[:ACTOR_OF {roles:['Sally Albright']}]->(WhenHarryMetSally),
+  (CarrieF)-[:ACTOR_OF {roles:['Marie']}]->(WhenHarryMetSally),
+  (BrunoK)-[:ACTOR_OF {roles:['Jess']}]->(WhenHarryMetSally),
+  (RobR)-[:DIRECTOR_OF]->(WhenHarryMetSally),
+  (RobR)-[:PRODUCER_OF]->(WhenHarryMetSally),
+  (NoraE)-[:PRODUCER_OF]->(WhenHarryMetSally),
+  (NoraE)-[:AUTHOR_OF]->(WhenHarryMetSally)
+
+CREATE (ThatThingYouDo:Movie {en_name:'That Thing You Do', name: 'すべてをあなたに', image_path: 'https://images-na.ssl-images-amazon.com/images/I/71Pe2-39a1L._SL1500_.jpg',  start: datetime("1996-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'In every life there comes a time when that thing you dream becomes that thing you do'})
+CREATE (LivT:Person {en_name:'Liv Tyler', name: 'リヴ・タイラー', image_path: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/09/25/10/Liv-Tyler.jpg',  start: datetime("1977-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Mr. White']}]->(ThatThingYouDo),
+  (LivT)-[:ACTOR_OF {roles:['Faye Dolan']}]->(ThatThingYouDo),
+  (Charlize)-[:ACTOR_OF {roles:['Tina']}]->(ThatThingYouDo),
+  (TomH)-[:DIRECTOR_OF]->(ThatThingYouDo)
+
+CREATE (TheReplacements:Movie {en_name:'The Replacements', name: 'リプレイスメント', image_path: 'https://townsquare.media/site/295/files/2013/09/replacements.jpg',  start: datetime("2000-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Pain heals, Chicks dig scars... Glory lasts forever'})
+CREATE (Brooke:Person {en_name:'Brooke Langton', name: 'ブルック・ラングトン', image_path: 'https://netstorage-legit.akamaized.net/images/38b604e3dc4c4929.png',  start: datetime("1970-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Gene:Person {en_name:'Gene Hackman', name: 'ジーン・ハックマン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/GeneHackmanJun2108.jpg/220px-GeneHackmanJun2108.jpg',  start: datetime("1930-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Orlando:Person {en_name:'Orlando Jones', name: 'オーランド・ジョーンズ', image_path: 'https://pmcvariety.files.wordpress.com/2015/03/orlando-jones-devil-deep-blue-sea.jpg',  start: datetime("1968-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Howard:Person {en_name:'Howard Deutch', name: 'ホワード・ドイチュ', image_path: 'https://i.pinimg.com/originals/dc/74/0d/dc740d43e7d805112c5831d26b7ade43.jpg',  start: datetime("1950-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (Keanu)-[:ACTOR_OF {roles:['Shane Falco']}]->(TheReplacements),
+  (Brooke)-[:ACTOR_OF {roles:['Annabelle Farrell']}]->(TheReplacements),
+  (Gene)-[:ACTOR_OF {roles:['Jimmy McGinty']}]->(TheReplacements),
+  (Orlando)-[:ACTOR_OF {roles:['Clifford Franklin']}]->(TheReplacements),
+  (Howard)-[:DIRECTOR_OF]->(TheReplacements)
+
+CREATE (RescueDawn:Movie {en_name:'RescueDawn', name: '戦場からの脱出', image_path: 'https://d.line-scdn.net/lcp-prod-photo/20181103_25/800000289_1541224085646Rydua_JPEG/netoff_0010845108.jpg',  start: datetime("2006-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"Based on the extraordinary true story of one man's fight for freedom"})
+CREATE (ChristianB:Person {en_name:'Christian Bale', name: 'クリスチャン・バール', image_path: 'https://www.biography.com/.image/t_share/MTQzMjc4OTI3ODc4NTYzNjk0/christian-bale_gettyimages-504405052jpg.jpg',  start: datetime("1974-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (ZachG:Person {en_name:'Zach Grenier', name: 'ザック・グレニアー', image_path: 'https://articlebio.com/uploads/bio/2016/01/01/zach-grenier.jpg',  start: datetime("1954-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (MarshallB)-[:ACTOR_OF {roles:['Admiral']}]->(RescueDawn),
+  (ChristianB)-[:ACTOR_OF {roles:['Dieter Dengler']}]->(RescueDawn),
+  (ZachG)-[:ACTOR_OF {roles:['Squad Leader']}]->(RescueDawn),
+  (SteveZ)-[:ACTOR_OF {roles:['Duane']}]->(RescueDawn),
+  (WernerH)-[:DIRECTOR_OF]->(RescueDawn)
+
+CREATE (TheBirdcage:Movie {en_name:'The Birdcage', name: 'バードケージ', image_path: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/76/Birdcage_imp.jpg/250px-Birdcage_imp.jpg',  start: datetime("1996-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Come as you are'})
+CREATE (MikeN:Person {en_name:'Mike Nichols', name: 'マイク・ニコールズ', image_path: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Mikenichols.jpg/190px-Mikenichols.jpg',  start: datetime("1931-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (Robin)-[:ACTOR_OF {roles:['Armand Goldman']}]->(TheBirdcage),
+  (Nathan)-[:ACTOR_OF {roles:['Albert Goldman']}]->(TheBirdcage),
+  (Gene)-[:ACTOR_OF {roles:['Sen. Kevin Keeley']}]->(TheBirdcage),
+  (MikeN)-[:DIRECTOR_OF]->(TheBirdcage)
+
+CREATE (Unforgiven:Movie {en_name:'Unforgiven', name: '許されざる者', image_path: 'https://images-na.ssl-images-amazon.com/images/I/91zSM%2BVQ%2BoL._SX342_.jpg',  start: datetime("1992-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"It's a hell of a thing, killing a man"})
+CREATE (RichardH:Person {en_name:'Richard Harris', name: 'リチャード・ハリス', image_path: 'https://www.thefamouspeople.com/profiles/images/richard-harris-9.jpg',  start: datetime("1930-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (ClintE:Person {en_name:'Clint Eastwood', name: 'クリント・イーストウッド', image_path: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Clint_Eastwood_at_2010_New_York_Film_Festival.jpg',  start: datetime("1930-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (RichardH)-[:ACTOR_OF {roles:['English Bob']}]->(Unforgiven),
+  (ClintE)-[:ACTOR_OF {roles:['Bill Munny']}]->(Unforgiven),
+  (Gene)-[:ACTOR_OF {roles:['Little Bill Daggett']}]->(Unforgiven),
+  (ClintE)-[:DIRECTOR_OF]->(Unforgiven)
+
+CREATE (JohnnyMnemonic:Movie {en_name:'Johnny Mnemonic', name: 'JM', image_path: 'https://cdn-static.denofgeek.com/sites/denofgeek/files/styles/main_wide/public/1/71/johnny-main.jpg',  start: datetime("1995-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'The hottest data on earth. In the coolest head in town'})
+CREATE (Takeshi:Person {en_name:'Takeshi Kitano', name: '北野武', image_path: 'https://i2.cdn.turner.com/cnn/2008/WORLD/asiapcf/09/26/ta.kitano/art.kitano.getty.jpg',  start: datetime("1947-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Dina:Person {en_name:'Dina Meyer', name: 'ダイナ・メイヤー', image_path: 'https://heightline.com/wp-content/uploads/Dina-Meyer-640x480.jpg',  start: datetime("1968-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (IceT:Person {en_name:'Ice-T', name: 'アイス・T', image_path: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Ice_T_SVU_March_2011_%28cropped%29.jpg',  start: datetime("1958-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (RobertL:Person {en_name:'Robert Longo', name: 'ロバート・ロンゴ', image_path: 'https://www.interviewmagazine.com/wp-content/uploads/2014/04/img-robert-longo_172106942783-749x1000.jpg',  start: datetime("1953-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (Keanu)-[:ACTOR_OF {roles:['Johnny Mnemonic']}]->(JohnnyMnemonic),
+  (Takeshi)-[:ACTOR_OF {roles:['Takahashi']}]->(JohnnyMnemonic),
+  (Dina)-[:ACTOR_OF {roles:['Jane']}]->(JohnnyMnemonic),
+  (IceT)-[:ACTOR_OF {roles:['J-Bone']}]->(JohnnyMnemonic),
+  (RobertL)-[:DIRECTOR_OF]->(JohnnyMnemonic)
+
+CREATE (CloudAtlas:Movie {en_name:'Cloud Atlas', name: 'クラウド・アトラス', image_path: 'https://images-fe.ssl-images-amazon.com/images/I/51l1vvILGhL.jpg',  start: datetime("2012-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Everything is connected'})
+CREATE (HalleB:Person {en_name:'Halle Berry', name: 'ハーレー・ベリー', image_path: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Halle_Berry_by_Gage_Skidmore_2.jpg',  start: datetime("1966-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JimB:Person {en_name:'Jim Broadbent', name: 'ジムブロードベント', image_path: 'https://townsquare.media/site/442/files/2017/03/jim-broadbent-harry-potter.jpg',  start: datetime("1949-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (TomT:Person {en_name:'Tom Tykwer', name: 'トム・タイクワー', image_path: 'https://m.media-amazon.com/images/M/MV5BMTU2NzIzNDI2NF5BMl5BanBnXkFtZTcwOTYzMDE0Nw@@._V1_.jpg',  start: datetime("1965-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (DavidMitchell:Person {en_name:'David Mitchell', name: 'デヴィッド・ミッチェル', image_path: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/David_mitchell.jpg',  start: datetime("1969-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (StefanArndt:Person {en_name:'Stefan Arndt', name: 'ステファン・アーンド', image_path: 'https://m.media-amazon.com/images/M/MV5BOTIzNzQ0MTU4NV5BMl5BanBnXkFtZTgwNDA0MDcxMDE@._V1_.jpg',  start: datetime("1961-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Zachry', 'Dr. Henry Goose', 'Isaac Sachs', 'Dermot Hoggins']}]->(CloudAtlas),
+  (Hugo)-[:ACTOR_OF {roles:['Bill Smoke', 'Haskell Moore', 'Tadeusz Kesselring', 'Nurse Noakes', 'Boardman Mephi', 'Old Georgie']}]->(CloudAtlas),
+  (HalleB)-[:ACTOR_OF {roles:['Luisa Rey', 'Jocasta Ayrs', 'Ovid', 'Meronym']}]->(CloudAtlas),
+  (JimB)-[:ACTOR_OF {roles:['Vyvyan Ayrs', 'Captain Molyneux', 'Timothy Cavendish']}]->(CloudAtlas),
+  (TomT)-[:DIRECTOR_OF]->(CloudAtlas),
+  (LillyW)-[:DIRECTOR_OF]->(CloudAtlas),
+  (LanaW)-[:DIRECTOR_OF]->(CloudAtlas),
+  (DavidMitchell)-[:AUTHOR_OF]->(CloudAtlas),
+  (StefanArndt)-[:PRODUCER_OF]->(CloudAtlas)
+
+CREATE (TheDaVinciCode:Movie {en_name:'The Da Vinci Code', name: 'ダヴィンチ・コード', image_path: 'https://prodimage.images-bn.com/pimages/0043396483835_p0_v1_s550x406.jpg',  start: datetime("2006-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Break The Codes'})
+CREATE (IanM:Person {en_name:'Ian McKellen', name: 'イアン・マッケレン', image_path: 'https://www.biography.com/.image/t_share/MTE4MDAzNDEwNjA5NDczMDM4/sir-ian-mckellen-9392833-1-402.jpg',  start: datetime("1939-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (AudreyT:Person {en_name:'Audrey Tautou', name: 'オウドレイ・タウトー', image_path: 'https://stat.ameba.jp/user_images/20120805/03/theyuki0320/d2/0d/j/o0332040012116891252.jpg',  start: datetime("1976-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (PaulB:Person {en_name:'Paul Bettany', name: 'ポール・ベッタニー', image_path: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Paul_Bettany_SDCC_2014.jpg',  start: datetime("1971-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (RonH:Person {en_name:'Ron Howard', name: 'ロン・ホワード', image_path: 'https://cdn.britannica.com/96/198896-050-42D8197A/Ron-Howard-2009.jpg',  start: datetime("1954-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Dr. Robert Langdon']}]->(TheDaVinciCode),
+  (IanM)-[:ACTOR_OF {roles:['Sir Leight Teabing']}]->(TheDaVinciCode),
+  (AudreyT)-[:ACTOR_OF {roles:['Sophie Neveu']}]->(TheDaVinciCode),
+  (PaulB)-[:ACTOR_OF {roles:['Silas']}]->(TheDaVinciCode),
+  (RonH)-[:DIRECTOR_OF]->(TheDaVinciCode)
+
+CREATE (VforVendetta:Movie {en_name:'V for Vendetta', name: 'Vフォーヴェンデッタ', image_path: 'https://stat.ameba.jp/user_images/20180112/21/irusutyuu/0f/5b/j/o0771103714110672798.jpg',  start: datetime("2006-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Freedom! Forever!'})
+CREATE (NatalieP:Person {en_name:'Natalie Portman', name: 'ナタリー・ポートマン', image_path: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/29/15/natalie-portman.jpg',  start: datetime("1981-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (StephenR:Person {en_name:'Stephen Rea', name: 'ステファン・レア', image_path: 'https://in.bmscdn.com/iedb/artist/images/website/poster/large/stephen-rea-2236-09-10-2017-11-17-38.jpg',  start: datetime("1946-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JohnH:Person {en_name:'John Hurt', name: 'ジョン・ハート', image_path: 'https://ichef.bbci.co.uk/news/660/cpsprodpb/1E59/production/_90296770_mediaitem77787509.jpg',  start: datetime("1940-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (BenM:Person {en_name: 'Ben Miles', name: 'ベン・マイルズ', image_path: 'https://www.hellomagazine.com/imagenes/profiles//ben-miles/3729-ben-miles-prof1b.jpg',  start: datetime("1967-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (Hugo)-[:ACTOR_OF {roles:['V']}]->(VforVendetta),
+  (NatalieP)-[:ACTOR_OF {roles:['Evey Hammond']}]->(VforVendetta),
+  (StephenR)-[:ACTOR_OF {roles:['Eric Finch']}]->(VforVendetta),
+  (JohnH)-[:ACTOR_OF {roles:['High Chancellor Adam Sutler']}]->(VforVendetta),
+  (BenM)-[:ACTOR_OF {roles:['Dascomb']}]->(VforVendetta),
+  (JamesM)-[:DIRECTOR_OF]->(VforVendetta),
+  (LillyW)-[:PRODUCER_OF]->(VforVendetta),
+  (LanaW)-[:PRODUCER_OF]->(VforVendetta),
+  (JoelS)-[:PRODUCER_OF]->(VforVendetta),
+  (LillyW)-[:AUTHOR_OF]->(VforVendetta),
+  (LanaW)-[:AUTHOR_OF]->(VforVendetta)
+
+CREATE (SpeedRacer:Movie {en_name:'Speed Racer', name: 'スピードレーサー', image_path: 'https://i.kinja-img.com/gawker-media/image/upload/s--lU2c6wqD--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/18s40nnlajibgjpg.jpg',  start: datetime("2008-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Speed has no limits'})
+CREATE (EmileH:Person {en_name:'Emile Hirsch', name: 'エミール・ハーシェ', image_path: 'https://www.indiewire.com/wp-content/uploads/2016/12/emile.png',  start: datetime("1985-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JohnG:Person {en_name:'John Goodman', name: 'ジョン・グッドマン', image_path: 'https://www.biography.com/.image/t_share/MTE4MDAzNDEwMzkwNTE3MjYy/john-goodman-476702-1-402.jpg',  start: datetime("1960-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (SusanS:Person {en_name:'Susan Sarandon', name: 'スーザン・サランドン', image_path: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/05/16/15/susan-sarandon.jpg',  start: datetime("1946-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (MatthewF:Person {en_name:'Matthew Fox', name: 'マシュー・フォックス', image_path: 'https://gazettereview.com/wp-content/uploads/2015/06/matthew-fox-young.png',  start: datetime("1966-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (ChristinaR:Person {en_name:'Christina Ricci', name: 'クリスティーナ・リッチ', image_path: 'https://www.indiewire.com/wp-content/uploads/2019/01/shutterstock_10053106d.jpg?w=780',  start: datetime("1980-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (Rain:Person {en_name:'Rain', name: 'レイン', image_path: 'https://4.bp.blogspot.com/-8_EtVr2mPcU/TW4c1BLniXI/AAAAAAAAADU/lkHYkmqvzjg/s1600/tn_JooJiHoon_2.jpg',  start: datetime("1982-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (EmileH)-[:ACTOR_OF {roles:['Speed Racer']}]->(SpeedRacer),
+  (JohnG)-[:ACTOR_OF {roles:['Pops']}]->(SpeedRacer),
+  (SusanS)-[:ACTOR_OF {roles:['Mom']}]->(SpeedRacer),
+  (MatthewF)-[:ACTOR_OF {roles:['Racer X']}]->(SpeedRacer),
+  (ChristinaR)-[:ACTOR_OF {roles:['Trixie']}]->(SpeedRacer),
+  (Rain)-[:ACTOR_OF {roles:['Taejo Togokahn']}]->(SpeedRacer),
+  (BenM)-[:ACTOR_OF {roles:['Cass Jones']}]->(SpeedRacer),
+  (LillyW)-[:DIRECTOR_OF]->(SpeedRacer),
+  (LanaW)-[:DIRECTOR_OF]->(SpeedRacer),
+  (LillyW)-[:AUTHOR_OF]->(SpeedRacer),
+  (LanaW)-[:AUTHOR_OF]->(SpeedRacer),
+  (JoelS)-[:PRODUCER_OF]->(SpeedRacer)
+
+CREATE (NinjaAssassin:Movie {en_name:'Ninja Assassin', name: '忍者・アサシン', image_path: 'https://i.pinimg.com/originals/65/0d/e8/650de80a4a0cc951f4eaf157217f925a.jpg',  start: datetime("2009-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Prepare to enter a secret world of assassins'})
+CREATE (NaomieH:Person {en_name:'Naomie Harris', name: 'ナオミ・ハリス', image_path: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Naomie_Harris_2014.jpg'})
+CREATE
+  (Rain)-[:ACTOR_OF {roles:['Raizo']}]->(NinjaAssassin),
+  (NaomieH)-[:ACTOR_OF {roles:['Mika Coretti']}]->(NinjaAssassin),
+  (RickY)-[:ACTOR_OF {roles:['Takeshi']}]->(NinjaAssassin),
+  (BenM)-[:ACTOR_OF {roles:['Ryan Maslow']}]->(NinjaAssassin),
+  (JamesM)-[:DIRECTOR_OF]->(NinjaAssassin),
+  (LillyW)-[:PRODUCER_OF]->(NinjaAssassin),
+  (LanaW)-[:PRODUCER_OF]->(NinjaAssassin),
+  (JoelS)-[:PRODUCER_OF]->(NinjaAssassin)
+
+CREATE (TheGreenMile:Movie {en_name:'The Green Mile', name: 'グリーン・マイル', image_path: 'https://www.thecollegeview.com/wp-content/uploads/2018/02/TheGreenmilecreditVryheidherald-2.jpg',  start: datetime("1999-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"Walk a mile you'll never forget."})
+CREATE (MichaelD:Person {en_name:'Michael Clarke Duncan', name: 'マイケル・クラーク・ダンカン', image_path: 'https://s.blogcdn.com/news.aol.jp/media/2012/09/s-michael-clarke-duncan-dead-large300.jpeg',  start: datetime("1957-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (DavidM:Person {en_name:'David Morse', name: 'デーヴィッド・モース', image_path: 'https://i.pinimg.com/originals/08/68/02/08680243b8628bca3cb3c8cc227d41a6.jpg',  start: datetime("1953-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (SamR:Person {en_name:'Sam Rockwell', name: 'サム・ロックウェル', image_path: 'https://www.goldenglobes.com/sites/default/files/articles/cover_images/sam_rockwell_gg75_0788.jpg',  start: datetime("1968-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (GaryS:Person {en_name:'Gary Sinise', name: 'ゲーリー・シニセ', image_path: 'https://upload.wikimedia.org/wikipedia/commons/2/25/GarySiniseOct09.jpg',  start: datetime("1955-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (PatriciaC:Person {en_name:'Patricia Clarkson', name: 'パトリシア・クラークソン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Patricia_Clarkson_Press_Conference_The_Party_Berlinale_2017_01_%28cropped_2%29.jpg',  start: datetime("1959-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (FrankD:Person {en_name:'Frank Darabont', name: 'フランク・ダラボント', image_path: 'https://www.austinchronicle.com/imager/b/newfeature/1375091/b92b/Frank_Darabont_1.jpeg',  start: datetime("1959-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Paul Edgecomb']}]->(TheGreenMile),
+  (MichaelD)-[:ACTOR_OF {roles:['John Coffey']}]->(TheGreenMile),
+  (DavidM)-[:ACTOR_OF {roles:['Brutus "Brutal" Howell']}]->(TheGreenMile),
+  (BonnieH)-[:ACTOR_OF {roles:['Jan Edgecomb']}]->(TheGreenMile),
+  (JamesC)-[:ACTOR_OF {roles:['Warden Hal Moores']}]->(TheGreenMile),
+  (SamR)-[:ACTOR_OF {roles:['"Wild Bill" Wharton']}]->(TheGreenMile),
+  (GaryS)-[:ACTOR_OF {roles:['Burt Hammersmith']}]->(TheGreenMile),
+  (PatriciaC)-[:ACTOR_OF {roles:['Melinda Moores']}]->(TheGreenMile),
+  (FrankD)-[:DIRECTOR_OF]->(TheGreenMile)
+
+CREATE (FrostNixon:Movie {en_name:'Frost/Nixon', name: 'フロスト／ニクソン', image_path: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Frost_nixon.jpg/220px-Frost_nixon.jpg',  start: datetime("2008-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'400 million people were waiting for the truth.'})
+CREATE (FrankL:Person {en_name:'Frank Langella', name: 'フランク・ランジェラ', image_path: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Frank_Langella_Deauville_2012.jpg',  start: datetime("1938-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (MichaelS:Person {en_name:'Michael Sheen', name: 'マイケル・シーン', image_path: 'https://img.rasset.ie/001278b5-500.jpg',  start: datetime("1969-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (OliverP:Person {en_name:'Oliver Platt', name: 'オリバー・プラット', image_path: 'https://in.bmscdn.com/iedb/artist/images/website/poster/large/oliver-platt-10502-24-03-2017-12-36-12.jpg',  start: datetime("1960-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (FrankL)-[:ACTOR_OF {roles:['Richard Nixon']}]->(FrostNixon),
+  (MichaelS)-[:ACTOR_OF {roles:['David Frost']}]->(FrostNixon),
+  (KevinB)-[:ACTOR_OF {roles:['Jack Brennan']}]->(FrostNixon),
+  (OliverP)-[:ACTOR_OF {roles:['Bob Zelnick']}]->(FrostNixon),
+  (SamR)-[:ACTOR_OF {roles:['James Reston, Jr.']}]->(FrostNixon),
+  (RonH)-[:DIRECTOR_OF]->(FrostNixon)
+
+CREATE (Hoffa:Movie {en_name:'Hoffa', name: 'ホッファ', image_path: 'https://m.media-amazon.com/images/M/MV5BMDg2MTQ0YzYtNmVhMy00OTA4LTg2YzgtNGI2M2ViNGIwODYwXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UX182_CR0,0,182,268_AL_.jpg',  start: datetime("1992-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"He didn't want law. He wanted justice."})
+CREATE (DannyD:Person {en_name:'Danny DeVito', name: 'ダニー・デヴィット', image_path: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Danny_DeVito_cropped_and_edited_for_brightness.jpg',  start: datetime("1944-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JohnR:Person {en_name:'John C. Reilly', name: 'ジョン・C・レイリー', image_path: 'https://in.bmscdn.com/iedb/artist/images/website/poster/large/john-c.-reilly-1020-24-03-2017-12-37-53.jpg',  start: datetime("1965-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (JackN)-[:ACTOR_OF {roles:['Hoffa']}]->(Hoffa),
+  (DannyD)-[:ACTOR_OF {roles:['Robert "Bobby" Ciaro']}]->(Hoffa),
+  (JTW)-[:ACTOR_OF {roles:['Frank Fitzsimmons']}]->(Hoffa),
+  (JohnR)-[:ACTOR_OF {roles:['Peter "Pete" Connelly']}]->(Hoffa),
+  (DannyD)-[:DIRECTOR_OF]->(Hoffa)
+
+CREATE (Apollo13:Movie {en_name:'Apollo 13', name: 'アポロ13', image_path: 'https://images-na.ssl-images-amazon.com/images/I/81cWPuoLwTL._SX342_.jpg',  start: datetime("1995-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Houston, we have a problem.'})
+CREATE (EdH:Person {en_name:'Ed Harris', name: 'エド・ハリス', image_path: 'https://images.fandango.com/ImageRenderer/0/0/redesign/static/img/default_poster.png/0/images/masterrepository/other/INTRO_GETTY_EdHarris.jpg',  start: datetime("1950-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (BillPax:Person {en_name:'Bill Paxton', name: 'ビル・パクストン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/5/55/Bill_Paxton_2014.jpg',  start: datetime("1955-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Jim Lovell']}]->(Apollo13),
+  (KevinB)-[:ACTOR_OF {roles:['Jack Swigert']}]->(Apollo13),
+  (EdH)-[:ACTOR_OF {roles:['Gene Kranz']}]->(Apollo13),
+  (BillPax)-[:ACTOR_OF {roles:['Fred Haise']}]->(Apollo13),
+  (GaryS)-[:ACTOR_OF {roles:['Ken Mattingly']}]->(Apollo13),
+  (RonH)-[:DIRECTOR_OF]->(Apollo13)
+
+CREATE (Twister:Movie {en_name:'Twister', name: 'ツイスター', image_path: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Twistermovieposter.jpg/220px-Twistermovieposter.jpg',  start: datetime("1996-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"Don't Breathe. Don't Look Back."})
+CREATE (PhilipH:Person {en_name:'Philip Seymour Hoffman', name: 'フィリップ・セイマー・ホフマン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Philip_Seymour_Hoffman_2011.jpg',  start: datetime("1967-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (JanB:Person {en_name:'Jan de Bont', name: 'ジャン・デ・ボント', image_path: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Jan_de_Bont%2C_premi%C3%A8re-voorstelling_Turks_Fruit_in_Tuschinski%2C_Amsterdam.jpg/400px-Jan_de_Bont%2C_premi%C3%A8re-voorstelling_Turks_Fruit_in_Tuschinski%2C_Amsterdam.jpg',  start: datetime("1943-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (BillPax)-[:ACTOR_OF {roles:['Bill Harding']}]->(Twister),
+  (HelenH)-[:ACTOR_OF {roles:['Dr. Jo Harding']}]->(Twister),
+  (ZachG)-[:ACTOR_OF {roles:['Eddie']}]->(Twister),
+  (PhilipH)-[:ACTOR_OF {roles:['Dustin "Dusty" Davis']}]->(Twister),
+  (JanB)-[:DIRECTOR_OF]->(Twister)
+
+CREATE (CastAway:Movie {en_name:'Cast Away', name: 'キャスト・アウェイ', image_path: 'https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2016/07/cast_away_still.jpg',  start: datetime("2000-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'At the edge of the world, his journey begins.'})
+CREATE (RobertZ:Person {en_name:'Robert Zemeckis', name: 'ロバート・ゼメキス', image_path: 'https://m.media-amazon.com/images/M/MV5BMTgyMTMzMDUyNl5BMl5BanBnXkFtZTcwODA0ODMyMw@@._V1_.jpg',  start: datetime("1951-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Chuck Noland']}]->(CastAway),
+  (HelenH)-[:ACTOR_OF {roles:['Kelly Frears']}]->(CastAway),
+  (RobertZ)-[:DIRECTOR_OF]->(CastAway)
+
+CREATE (OneFlewOvertheCuckoosNest:Movie {en_name:"One Flew Over the Cuckoo's Nest", name: 'カッコーの巣の上で', image_path: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/05/10/10/devito-lloyd-nest.jpg',  start: datetime("1975-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"If he's crazy, what does that make you?"})
+CREATE (MilosF:Person {en_name:'Milos Forman', name: 'マイロス・フォーマン', image_path: 'https://m.media-amazon.com/images/M/MV5BNDY5NDAyODM2Nl5BMl5BanBnXkFtZTcwMzgzNzg3OA@@._V1_.jpg',  start: datetime("1932-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (JackN)-[:ACTOR_OF {roles:['Randle McMurphy']}]->(OneFlewOvertheCuckoosNest),
+  (DannyD)-[:ACTOR_OF {roles:['Martini']}]->(OneFlewOvertheCuckoosNest),
+  (MilosF)-[:DIRECTOR_OF]->(OneFlewOvertheCuckoosNest)
+
+CREATE (SomethingsGottaGive:Movie {en_name:"Something's Gotta Give", name: '恋愛適齢期', image_path: 'https://images-na.ssl-images-amazon.com/images/I/71ikebMyatL._SY355_.jpg',  start: datetime("2003-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (DianeK:Person {en_name:'Diane Keaton', name: 'ダイアン・キートン', image_path: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Diane_Keaton_2012.jpg/200px-Diane_Keaton_2012.jpg',  start: datetime("1946-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (NancyM:Person {en_name:'Nancy Meyers', name: 'ナンシー・メイヤーズ', image_path: 'https://i.guim.co.uk/img/media/3de7e781c930818d71398b4ee24c400d906d0d75/695_923_2461_3076/master/2461.jpg',  start: datetime("1949-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (JackN)-[:ACTOR_OF {roles:['Harry Sanstart']}]->(SomethingsGottaGive),
+  (DianeK)-[:ACTOR_OF {roles:['Erica Barry']}]->(SomethingsGottaGive),
+  (Keanu)-[:ACTOR_OF {roles:['Julian Mercer']}]->(SomethingsGottaGive),
+  (NancyM)-[:DIRECTOR_OF]->(SomethingsGottaGive),
+  (NancyM)-[:PRODUCER_OF]->(SomethingsGottaGive),
+  (NancyM)-[:AUTHOR_OF]->(SomethingsGottaGive)
+
+CREATE (BicentennialMan:Movie {en_name:'Bicentennial Man', name: 'アンドリュー・NDR114', image_path: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Bicentennial_man_film_poster.jpg/215px-Bicentennial_man_film_poster.jpg',  start: datetime("1999-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"One robot's 200 year journey to become an ordinary man."})
+CREATE (ChrisC:Person {en_name:'Chris Columbus', name: 'クリス・コロンバス', image_path: 'https://vignette.wikia.nocookie.net/disney/images/1/14/Chris_Columbus.jpg',  start: datetime("1958-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (Robin)-[:ACTOR_OF {roles:['Andrew Marin']}]->(BicentennialMan),
+  (OliverP)-[:ACTOR_OF {roles:['Rupert Burns']}]->(BicentennialMan),
+  (ChrisC)-[:DIRECTOR_OF]->(BicentennialMan)
+
+CREATE (CharlieWilsonsWar:Movie {en_name:"Charlie Wilson's War", name: 'チャーリー・ウィルソンズ・ウォー', image_path: 'https://www.cliomuse.com/uploads/9/2/4/6/9246605/369009_orig.jpg',  start: datetime("2007-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:"A stiff drink. A little mascara. A lot of nerve. Who said they couldn't bring down the Soviet empire."})
+CREATE (JuliaR:Person {en_name:'Julia Roberts', name: 'ジュリア・ロバーツ', image_path: 'https://www.sundaypost.com/wp-content/uploads/sites/13/2016/04/503306591TM00402_66th_Annua-e1459943825706.jpg',  start: datetime("1967-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Rep. Charlie Wilson']}]->(CharlieWilsonsWar),
+  (JuliaR)-[:ACTOR_OF {roles:['Joanne Herring']}]->(CharlieWilsonsWar),
+  (PhilipH)-[:ACTOR_OF {roles:['Gust Avrakotos']}]->(CharlieWilsonsWar),
+  (MikeN)-[:DIRECTOR_OF]->(CharlieWilsonsWar)
+
+CREATE (ThePolarExpress:Movie {en_name:'The Polar Express', name: 'ポーラー・エクスプレス', image_path: 'https://images-na.ssl-images-amazon.com/images/I/81wqNtp0jLL._SY355_.jpg',  start: datetime("2004-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'This Holiday Season… Believe'})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Hero Boy', 'Father', 'Conductor', 'Hobo', 'Scrooge', 'Santa Claus']}]->(ThePolarExpress),
+  (RobertZ)-[:DIRECTOR_OF]->(ThePolarExpress)
+
+CREATE (ALeagueofTheirOwn:Movie {en_name:'A League of Their Own', name: 'プリティー・リーグ', image_path: 'https://pixel.nymag.com/imgs/daily/vulture/2018/12/18/18-a-league-of-their-own-2.w700.h700.jpg',  start: datetime("1992-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE, en_description:'Once in a lifetime you get a chance to do something different.'})
+CREATE (Madonna:Person {en_name:'Madonna', name: 'マドンナ', image_path: 'https://www.billboard.com/files/styles/article_main_image/public/media/Madonna-press-by-Ricardo-Gomes-2019-billboard-1548.jpg',  start: datetime("1954-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (GeenaD:Person {en_name:'Geena Davis', name: 'ジーナ・デイヴィス', image_path: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Geena_Davis_at_the_2009_Tribeca_Film_Festival.jpg',  start: datetime("1956-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (LoriP:Person {en_name:'Lori Petty', name: 'ロリ・ペッティー', image_path: 'https://media.nbcsandiego.com/images/652*652/94228.jpg',  start: datetime("1963-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE (PennyM:Person {en_name:'Penny Marshall', name: 'ペニー・マーシャル', image_path: 'https://www.biography.com/.image/t_share/MTIwNjA4NjM0MDU5NTIzNTk2/penny-marshall-9542495-1-402.jpg',  start: datetime("1943-01-01T00:00:00"), start_accuracy: "year", is_momentary: TRUE})
+CREATE
+  (TomH)-[:ACTOR_OF {roles:['Jimmy Dugan']}]->(ALeagueofTheirOwn),
+  (GeenaD)-[:ACTOR_OF {roles:['Dottie Hinson']}]->(ALeagueofTheirOwn),
+  (LoriP)-[:ACTOR_OF {roles:['Kit Keller']}]->(ALeagueofTheirOwn),
+  (RosieO)-[:ACTOR_OF {roles:['Doris Murphy']}]->(ALeagueofTheirOwn),
+  (Madonna)-[:ACTOR_OF {roles:['"All the Way" Mae Mordabito']}]->(ALeagueofTheirOwn),
+  (BillPax)-[:ACTOR_OF {roles:['Bob Hinson']}]->(ALeagueofTheirOwn),
+  (PennyM)-[:DIRECTOR_OF]->(ALeagueofTheirOwn)
+
+CREATE (PaulBlythe:Person {en_name:'Paul Blythe', name: 'ポール・ブライス', image_path: 'https://static.thenounproject.com/png/17235-200.png'})
+CREATE (AngelaScope:Person {en_name:'Angela Scope', name: 'アンジェラ・スコープ', image_path: 'https://static.thenounproject.com/png/17235-200.png'})
+CREATE (JessicaThompson:Person {en_name:'Jessica Thompson', name: 'ジェシカ・トンプソン', image_path: 'https://static.thenounproject.com/png/17235-200.png'})
+CREATE (JamesThompson:Person {en_name:'James Thompson', name: 'ジェームズ・トンプソン', image_path: 'https://static.thenounproject.com/png/17235-200.png'})
+
+CREATE
+  (JamesThompson)-[:FOLLOWS]->(JessicaThompson),
+  (AngelaScope)-[:FRIEND_OF]->(JessicaThompson),
+  (PaulBlythe)-[:FRIEND_OF]->(AngelaScope)
+
+CREATE
+  (JessicaThompson)-[:REVIEWED {summary:'An amazing journey', rating:95}]->(CloudAtlas),
+  (JessicaThompson)-[:REVIEWED {summary:'Silly, but fun', rating:65}]->(TheReplacements),
+  (JamesThompson)-[:REVIEWED {summary:'The coolest football movie ever', rating:100}]->(TheReplacements),
+  (AngelaScope)-[:REVIEWED {summary:'Pretty funny at times', rating:62}]->(TheReplacements),
+  (JessicaThompson)-[:REVIEWED {summary:'Dark, but compelling', rating:85}]->(Unforgiven),
+  (JessicaThompson)-[:REVIEWED {summary:"Slapstick redeemed only by the Robin Williams and Gene Hackman's stellar performances", rating:45}]->(TheBirdcage),
+  (JessicaThompson)-[:REVIEWED {summary:'A solid romp', rating:68}]->(TheDaVinciCode),
+  (JamesThompson)-[:REVIEWED {summary:'Fun, but a little far fetched', rating:65}]->(TheDaVinciCode),
+  (JessicaThompson)-[:REVIEWED {summary:'You had me at Jerry', rating:92}]->(JerryMaguire)
+
+WITH TomH as a
+MATCH (a)-[:ACTOR_OF]->(m)<-[:DIRECTOR_OF]-(d) RETURN a,m,d LIMIT 10
+;
+
