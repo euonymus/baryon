@@ -65,6 +65,9 @@ class Properties {
 
   getGluonTypesRelated(property_id, gluons) {
     const targetPropertyGtypes = property_gtypes[property_id]
+    if (!targetPropertyGtypes) {
+      return []
+    }
     const ret = []
     gluons.forEach(interactionRaw => {
       const currentInteraction = new Interaction(interactionRaw, this.langType)
