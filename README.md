@@ -4,20 +4,25 @@ This enables users to explore further relations from one node to another.
 ## Steps to Run
 
 1. Setup your neo4j [sandbox](https://neo4j.com/sandbox-v2/)
-1. Import my sample graph data into your neo4j sandbox
-1. git clone this project
-1. Set your neo4j connection infomation in .env.local
-1. Install node modules
-1. Start npm project
 
+2. Import my sample graph data into your neo4j sandbox
 
-### Sample Graph data is here
+Sample Graph data is here
 
 ```
 sampledata.txt
 ```
 
-### sample .env.local settings
+3. git clone this project
+
+```
+$ git clone git@github.com:graphhack/baryon.git
+$ cd baryon
+```
+
+4. Set your neo4j connection infomation in .env.local
+
+sample .env.local settings
 
 ```
 # neo4j connection
@@ -26,13 +31,16 @@ REACT_APP_NEO4J_USER=neo4j
 REACT_APP_NEO4J_PASSWORD=measurement-intakes-bells
 ```
 
-## Installation
+5. Install node modules
 
 ```
-$ git clone git@github.com:graphhack/baryon.git
-$ cd baryon
-$ vim .env.local
 $ npm install
+```
+
+6. Start npm project
+
+
+```
 $ npm start
 ```
 
