@@ -20,7 +20,7 @@ $ git clone git@github.com:graphhack/baryon.git
 $ cd baryon
 ```
 
-4. Set your neo4j connection infomation in .env.local
+4. Setup your neo4j connection in .env.local
 
 sample .env.local settings
 
