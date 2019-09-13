@@ -1,5 +1,5 @@
 Baryon is a react component that allows you to inspect neo4j graph in a simple and intuitive manner.
-This enables users to drill down to seek further relations from one node to another.
+This enables users to explore further relations from one node to another.
 
 ## Steps to Run
 
