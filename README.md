@@ -1,3 +1,7 @@
+
+![Baryon Component](https://raw.githubusercontent.com/graphhack/baryon/materials/screen_shots/alice_perry_grew.jpg "Baryon Component")
+
+
 Baryon is a react component that allows you to inspect neo4j graph in a simple and intuitive manner.
 This enables users to explore further relations from one node to another.
 
