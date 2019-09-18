@@ -26,20 +26,20 @@ const useStyles = makeStyles({
 
 const Gluon = (props) => {
   const { interaction } = props
-  const { gluon, object } = interaction
+  const { objectName, objectImagePath, relationText, relationPeriod } = interaction
   const classes = useStyles()
   return (
     <div className="baryon-gluon-body">
       <Card className={classes.card}>
         <ListItem>
-          <Link to={`/${object.getName()}`}>
+          <Link to={`/${objectName}`}>
             <ListItemAvatar className={classes.avatarListItem} >
               <Avatar className={classes.avatar} >
-                <img className="baryon-gluon-image" src={object.properties.image_path} alt={object.getName()} />
+                <img className="baryon-gluon-image" src={objectImagePath} alt={objectName} />
               </Avatar>
             </ListItemAvatar>
           </Link>
-          <ListItemText primary={interaction.relationText} secondary={gluon.period_str} />
+          <ListItemText primary={relationText} secondary={relationPeriod} />
         </ListItem>
       </Card>
     </div>
@@ -47,6 +47,12 @@ const Gluon = (props) => {
 }
 
 Gluon.propTypes = {
-  interaction: PropTypes.object.isRequired
+  interaction: PropTypes.shape({
+    objectName: PropTypes.string.isRequired,
+    objectImagePath: PropTypes.string.isRequired,
+    relationText: PropTypes.object.isRequired,
+    relationPeriod: PropTypes.string.isRequired,
+  }),
 }
+
 export default Gluon
