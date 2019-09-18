@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Switch } from 'react-router-dom'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
+// import { action } from '@storybook/addon-actions'
 
 import Gluon from '../baryon-components/gluon'
 
@@ -14,10 +14,10 @@ export const interaction = {
   relationPeriod: '(2019-10-16 - 2019-12-15)'
 }
 
-export const actions = {
-    onPinTask: action('onPinTask'),
-    onArchiveTask: action('onArchiveTask'),
-}
+// export const actions = {
+//     onPinTask: action('onPinTask'),
+//     onArchiveTask: action('onArchiveTask'),
+// }
 
 storiesOf('Gluon', module)
   .addDecorator(story => <BrowserRouter><Switch>{story()}</Switch></BrowserRouter>)

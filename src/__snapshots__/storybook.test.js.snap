@@ -35,7 +35,11 @@ exports[`Storyshots Gluon default 1`] = `
         <span
           className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
         >
-          The Matrix is directed by euonymus
+          <p
+            className="baryon-strong-interaction"
+          >
+            The Matrix is directed by euonymus
+          </p>
         </span>
         <p
           className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
@@ -44,6 +48,120 @@ exports[`Storyshots Gluon default 1`] = `
         </p>
       </div>
     </li>
+  </div>
+</div>
+`;
+
+exports[`Storyshots PropertyBox default 1`] = `
+<div>
+  <h2>
+    Directed
+  </h2>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+  >
+    <ul
+      className="MuiList-root makeStyles-root-84 MuiList-padding"
+    >
+      <div
+        className="baryon-gluon-body"
+      >
+        <div
+          className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-117 MuiPaper-rounded"
+        >
+          <li
+            className="MuiListItem-root MuiListItem-gutters"
+            disabled={false}
+          >
+            <a
+              href="/name 1"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiListItemAvatar-root makeStyles-avatarListItem-118"
+              >
+                <div
+                  className="MuiAvatar-root makeStyles-avatar-119 MuiAvatar-colorDefault"
+                >
+                  <img
+                    alt="name 1"
+                    className="baryon-gluon-image"
+                    src="https://images.ciatr.jp/2017/07/w_828/0kDnZaTrd4xrWWav8PB8XIVBRXoQGsWGgNSdnp2E.jpeg"
+                  />
+                </div>
+              </div>
+            </a>
+            <div
+              className="MuiListItemText-root MuiListItemText-multiline"
+            >
+              <span
+                className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              >
+                <p
+                  className="baryon-strong-interaction"
+                >
+                  The Matrix is directed by euonymus
+                </p>
+              </span>
+              <p
+                className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                (2019-10-16 - 2019-12-15)
+              </p>
+            </div>
+          </li>
+        </div>
+      </div>
+      <div
+        className="baryon-gluon-body"
+      >
+        <div
+          className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-117 MuiPaper-rounded"
+        >
+          <li
+            className="MuiListItem-root MuiListItem-gutters"
+            disabled={false}
+          >
+            <a
+              href="/name 2"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiListItemAvatar-root makeStyles-avatarListItem-118"
+              >
+                <div
+                  className="MuiAvatar-root makeStyles-avatar-119 MuiAvatar-colorDefault"
+                >
+                  <img
+                    alt="name 2"
+                    className="baryon-gluon-image"
+                    src="https://s3-ap-southeast-2.amazonaws.com/fna-wordpress-website06/wp-content/uploads/2018/09/05151330/matrixreloaded-1440x960.jpg"
+                  />
+                </div>
+              </div>
+            </a>
+            <div
+              className="MuiListItemText-root MuiListItemText-multiline"
+            >
+              <span
+                className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              >
+                <p
+                  className="baryon-strong-interaction"
+                >
+                  The Matrix is directed by euonymus
+                </p>
+              </span>
+              <p
+                className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                (2017-03)
+              </p>
+            </div>
+          </li>
+        </div>
+      </div>
+    </ul>
   </div>
 </div>
 `;
