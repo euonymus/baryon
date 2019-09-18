@@ -19,10 +19,6 @@ export const interaction = {
     period_str: '(2019-10-16 - 2019-12-15)'
   },
   relationText: 'The Matrix is directed by euonymus'
-  // id: '1',
-  // title: 'Test Task',
-  // state: 'TASK_INBOX',
-  // updatedAt: new Date(2018, 0, 1, 9, 0),
 }
 
 export const actions = {

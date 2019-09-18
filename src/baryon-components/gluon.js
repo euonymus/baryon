@@ -32,7 +32,7 @@ const Gluon = (props) => {
     <div className="baryon-gluon-body">
       <Card className={classes.card}>
         <ListItem>
-          <Link to={`/${object.properties.name}`}>
+          <Link to={`/${object.getName()}`}>
             <ListItemAvatar className={classes.avatarListItem} >
               <Avatar className={classes.avatar} >
                 <img className="baryon-gluon-image" src={object.properties.image_path} alt={object.getName()} />
