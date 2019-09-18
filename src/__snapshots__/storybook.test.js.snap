@@ -45,6 +45,41 @@ exports[`Storyshots Button Text 1`] = `
 </button>
 `;
 
+exports[`Storyshots Gluon default 1`] = `
+<div
+  className="baryon-gluon-body"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1 MuiPaper-rounded"
+  >
+    <li
+      className="MuiListItem-root MuiListItem-gutters"
+      disabled={false}
+    >
+      <a
+        href="/undefined"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiListItemAvatar-root makeStyles-avatarListItem-2"
+        >
+          <div
+            className="MuiAvatar-root makeStyles-avatar-3 MuiAvatar-colorDefault"
+          >
+            <img
+              className="baryon-gluon-image"
+            />
+          </div>
+        </div>
+      </a>
+      <div
+        className="MuiListItemText-root"
+      />
+    </li>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Welcome To Storybook 1`] = `
 <article
   style={
