@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch } from 'react-router-dom'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 
 import PropertyBox from '../baryon-components/property_box'
 import { interaction } from './gluon.stories'

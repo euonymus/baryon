@@ -52,6 +52,8 @@ exports[`Storyshots Gluon default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Gluons default 1`] = `"1"`;
+
 exports[`Storyshots PropertyBox default 1`] = `
 <div>
   <h2>
