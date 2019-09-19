@@ -281,6 +281,134 @@ exports[`Storyshots Gluons default 1`] = `
 </div>
 `;
 
+exports[`Storyshots MainQuark default 1`] = `
+<div
+  className="baryon-subject baryon-grid"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+  >
+    <button
+      className="MuiButtonBase-root MuiCardActionArea-root"
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="MuiCardMedia-root makeStyles-media-260"
+        style={
+          Object {
+            "backgroundImage": "url(\\"https://images.ciatr.jp/2017/07/w_828/0kDnZaTrd4xrWWav8PB8XIVBRXoQGsWGgNSdnp2E.jpeg\\")",
+          }
+        }
+        title="The Matrix"
+      />
+      <div
+        className="MuiCardContent-root"
+      >
+        <h2
+          className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+        >
+          The Matrix
+        </h2>
+        <p
+          className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+        >
+          (2019-10-16 - 2019-12-15)
+          <br />
+          This is a movie
+        </p>
+      </div>
+      <span
+        className="MuiCardActionArea-focusHighlight"
+      />
+    </button>
+    <div
+      className="MuiCardActions-root MuiCardActions-spacing"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <a
+            href="http://www.whatisthematrix.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"
+              />
+            </svg>
+          </a>
+        </span>
+      </button>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <a
+            href="http://www.whatisthematrix.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Buy Now
+          </a>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots PropertyBox default 1`] = `
 <div>
   <h2>
