@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { storiesOf } from '@storybook/react'
 
-import MainQuark from '../baryon-components/main-quark'
+import MainQuark from '../baryon/main-quark'
 
 export const subject = {
  	name: 'The Matrix',

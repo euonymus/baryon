@@ -3,7 +3,7 @@ import { BrowserRouter, Switch } from 'react-router-dom'
 import { storiesOf } from '@storybook/react'
 // import { action } from '@storybook/addon-actions'
 
-import Gluon from '../baryon-components/gluon'
+import Gluon from '../baryon/gluon'
 
 export const interaction = {
   objectName: 'name 1',

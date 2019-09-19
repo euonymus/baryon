@@ -1,7 +1,7 @@
 // react
 import React, { Component } from 'react'
 import NameForm from '../components/name-form'
-import Baryon from '../baryon-components/baryon'
+import Baryon from '../baryon'
 
 class Home extends Component {
   render () {
