@@ -36,8 +36,8 @@ class QuarkUtil {
     return this.getByLang('description')
   }
   getLinkPath = (str) => {
-    if (((this.langType === LANGTYPE_JP_LIKE) && this.properties.name)
-        || ((this.langType === LANGTYPE_ENG_LIKE) && this.properties.en_name)) {
+    if (((this.langType === LANGTYPE_JP_LIKE) && this.properties.name && (this.properties.name !== 'NULL'))
+        || ((this.langType === LANGTYPE_ENG_LIKE) && this.properties.en_name && (this.properties.en_name !== 'NULL'))) {
       // return <a href={`/${this.getName()}`}>{this.getName()}</a>
       return <Link to={`${this.graphPath}/${this.getName()}`}>{str}</Link>
     }
