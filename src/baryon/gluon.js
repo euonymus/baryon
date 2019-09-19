@@ -25,14 +25,14 @@ const useStyles = makeStyles({
 })
 
 const Gluon = (props) => {
-  const { interaction } = props
+  const { interaction, graphPath } = props
   const { objectName, objectImagePath, relationText, relationPeriod } = interaction
   const classes = useStyles()
   return (
     <div className="baryon-gluon-body">
       <Card className={classes.card}>
         <ListItem>
-          <Link to={`/${objectName}`}>
+          <Link to={`${graphPath}/${objectName}`}>
             <ListItemAvatar className={classes.avatarListItem} >
               <Avatar className={classes.avatar} >
                 <img className="baryon-gluon-image" src={objectImagePath} alt={objectName} />
@@ -53,6 +53,10 @@ Gluon.propTypes = {
     relationText: PropTypes.object.isRequired,
     relationPeriod: PropTypes.string.isRequired,
   }),
+  graphPath: PropTypes.string
+}
+Gluon.defaultProps = {
+  graphPath: '',
 }
 
 export default Gluon

@@ -81,7 +81,7 @@ class Baryon extends Component {
 
   render () {
     const { subject, targetProperties, isNoData } = this.state
-    const { quark_name } = this.props
+    const { quark_name, graphPath } = this.props
 
     if (!subject || (targetProperties.length === 0)) {
       let message = 'Loading...'
@@ -99,7 +99,7 @@ class Baryon extends Component {
     return (
       <div className="baryon-body">
         <MainQuark subject={subject} />
-        <Gluons targetProperties={targetProperties.data} />
+        <Gluons targetProperties={targetProperties.data} graphPath={graphPath} />
       </div>
     )
   }
@@ -111,5 +111,10 @@ Baryon.propTypes = {
     user: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
   }),
+  graphPath: PropTypes.string
 }
+Baryon.defaultProps = {
+  graphPath: '',
+}
+
 export default Baryon

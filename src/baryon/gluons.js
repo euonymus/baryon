@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import PropertyBox from './property_box'
 
 const Gluons = (props) => {
-  const { targetProperties } = props
+  const { targetProperties, graphPath } = props
 
   const propertyList = targetProperties.map((propertyResource, key) => {
     return (
-      <PropertyBox key={key} propertyResource={propertyResource} />
+      <PropertyBox key={key} propertyResource={propertyResource} graphPath={graphPath} />
     )
   })
 
@@ -19,6 +19,11 @@ const Gluons = (props) => {
 }
 
 Gluons.propTypes = {
-  targetProperties: PropTypes.array.isRequired
+  targetProperties: PropTypes.array.isRequired,
+  graphPath: PropTypes.string
 }
+Gluons.defaultProps = {
+  graphPath: '',
+}
+
 export default Gluons
