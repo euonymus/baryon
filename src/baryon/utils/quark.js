@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import Util from './common'
 import { LANGTYPE_ENG_LIKE, LANGTYPE_JP_LIKE } from '../constants/langtypes'
 class QuarkUtil {
-  constructor(quarkRaw, langType = LANGTYPE_ENG_LIKE) {
+  constructor(quarkRaw, langType = LANGTYPE_ENG_LIKE, graphPath = '') {
     this.langType = langType
+    this.graphPath = graphPath
 
     this.identity = quarkRaw.identity
     this.labels = quarkRaw.labels
@@ -35,23 +36,24 @@ class QuarkUtil {
     return this.getByLang('description')
   }
   getLinkPath = () => {
+    if (((this.langType === LANGTYPE_JP_LIKE) && this.properties.name)
+        || ((this.langType === LANGTYPE_ENG_LIKE) && this.properties.en_name)) {
+      // return <a href={`/${this.getName()}`}>{this.getName()}</a>
+      return <Link to={`${this.graphPath}/${this.getName()}`}>{this.getName()}</Link>
+    }
+
     let url = window.location.href
     let arr = url.split("/");
     const scheme = arr[0]
     const domainString = arr[2]
 
     let prefix = ''
-    if ((this.langType === LANGTYPE_JP_LIKE) && (!this.properties.name || this.properties.name === 'NULL')) {
+    if (this.langType === LANGTYPE_JP_LIKE) {
       prefix = `${scheme}//${domainString.split('.')[1]}`
-    } else if ((this.langType === LANGTYPE_ENG_LIKE) && (!this.properties.en_name || this.properties.en_name === 'NULL')) {
-      prefix = `${scheme}//ja.${domainString}`
     } else {
-      return <Link to={`/${this.getName()}`}>{this.getName()}</Link>
-      // return <a href={`/${this.getName()}`}>{this.getName()}</a>
+      prefix = `${scheme}//ja.${domainString}`
     }
-    return (
-        <a href={`${prefix}/${this.getName()}`}>{this.getName()}</a>
-    )
+    return <a href={`${prefix}${this.graphPath}/${this.getName()}`}>{this.getName()}</a>
   }
 }
 export default QuarkUtil

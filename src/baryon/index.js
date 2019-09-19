@@ -73,8 +73,8 @@ class Baryon extends Component {
       } else {
         gluons = []
       }
-	    const subject = new QuarkUtil(subjectRaw, langType)
-      const targetProperties = new Properties(gluons, langType)
+	    const subject = new QuarkUtil(subjectRaw, langType, this.props.graphPath)
+      const targetProperties = new Properties(gluons, langType, this.props.graphPath)
       this.setState({subject, targetProperties, isNoData})
     })
   }

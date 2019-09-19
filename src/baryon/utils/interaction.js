@@ -5,15 +5,15 @@ import { LANGTYPE_ENG_LIKE } from '../constants/langtypes'
 
 class Interaction {
   langType = LANGTYPE_ENG_LIKE
-  constructor(interactionRaw, langType = null) {
+  constructor(interactionRaw, langType = null, graphPath = '') {
     this.gluonKey = interactionRaw._fieldLookup.gluon
     this.gluon = new GluonUtil(interactionRaw.get(this.gluonKey), langType)
 
     this.subjectKey = interactionRaw._fieldLookup.subject
-    this.subject = new QuarkUtil(interactionRaw.get(this.subjectKey), langType)
+    this.subject = new QuarkUtil(interactionRaw.get(this.subjectKey), langType, graphPath)
 
     this.objectKey = interactionRaw._fieldLookup.object
-    this.object = new QuarkUtil(interactionRaw.get(this.objectKey), langType)
+    this.object = new QuarkUtil(interactionRaw.get(this.objectKey), langType, graphPath)
 
     if (langType) {
       this.langType = langType

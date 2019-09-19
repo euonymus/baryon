@@ -7,9 +7,10 @@ import { LANGTYPE_ENG_LIKE, LANGTYPE_JP_LIKE } from '../constants/langtypes'
 import Interaction from './interaction'
 
 class Properties {
-  constructor(gluons, langType = LANGTYPE_ENG_LIKE) {
+  constructor(gluons, langType = LANGTYPE_ENG_LIKE, graphPath = '') {
     this.langType = langType
-    this.subject = new Interaction(gluons[0], langType).subject
+    this.graphPath = graphPath
+    this.subject = new Interaction(gluons[0], langType, graphPath).subject
 
     const targetProperties = qtype_properties[this.subject.labels[0]]
 
@@ -35,7 +36,7 @@ class Properties {
       property = 'その他'
     }
     gluons.forEach(interactionRaw => {
-      const currentInteraction = new Interaction(interactionRaw, langType)
+      const currentInteraction = new Interaction(interactionRaw, langType, graphPath)
       let notInArray = true
       data.forEach(listedProperty => {
         if (listedProperty.gluonsRelated.length === 0) {
@@ -70,7 +71,7 @@ class Properties {
     }
     const ret = []
     gluons.forEach(interactionRaw => {
-      const currentInteraction = new Interaction(interactionRaw, this.langType)
+      const currentInteraction = new Interaction(interactionRaw, this.langType, this.graphPath)
       if (currentInteraction.gluon.type === 'HAS_RELATION_TO') {
         return true // as to continue
       }
