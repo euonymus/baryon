@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import MainQuark from './main-quark'
 import Gluons from './gluons'
+import Properties from './utils/properties'
 import { LANG_SUBDOMAIN_JP_LIKE } from './constants/lang-subdomain'
 import { LANGTYPE_ENG_LIKE, LANGTYPE_JP_LIKE } from './constants/langtypes'
 
@@ -12,7 +13,7 @@ class Baryon extends Component {
     isNoData: false,  // NOTE: Default has to be false, so user will see Loading..., when loading.
     quark_name: null,
     subject: null,
-    gluons: []
+    targetProperties: []
   }
 
   componentDidMount() {
@@ -72,15 +73,16 @@ class Baryon extends Component {
       } else {
         gluons = []
       }
-      this.setState({subject, gluons, isNoData})
+      const targetProperties = new Properties(gluons, langType)
+      this.setState({subject, targetProperties, isNoData})
     })
   }
 
   render () {
-    const { langType, subject, gluons, isNoData } = this.state
+    const { langType, subject, targetProperties, isNoData } = this.state
     const { quark_name } = this.props
 
-    if (!subject || (gluons.length === 0)) {
+    if (!subject || (targetProperties.length === 0)) {
       let message = 'Loading...'
       if (isNoData) {
         message = 'Not Found'
@@ -96,7 +98,7 @@ class Baryon extends Component {
     return (
       <div className="baryon-body">
         <MainQuark subject={subject} langType={langType} />
-        <Gluons gluons={gluons} langType={langType} />
+        <Gluons targetProperties={targetProperties.data} />
       </div>
     )
   }

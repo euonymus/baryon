@@ -6,7 +6,6 @@ import { LANGTYPE_ENG_LIKE } from '../constants/langtypes'
 class Interaction {
   langType = LANGTYPE_ENG_LIKE
   constructor(interactionRaw, langType = null) {
-    console.log(interactionRaw)
     this.gluonKey = interactionRaw._fieldLookup.gluon
     this.gluon = new GluonUtil(interactionRaw.get(this.gluonKey), langType)
 
