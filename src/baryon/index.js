@@ -20,6 +20,8 @@ class Baryon extends Component {
   }
 
   componentDidMount() {
+    const { quark_name, connection } = this.props
+
     const domainString = document.domain
     const domainFirstPart = domainString.split('.')[0]
     let langType = this.state.langType
@@ -29,13 +31,8 @@ class Baryon extends Component {
     }
 
     const neo4j = require('neo4j-driver').v1
-    
-    const uri = process.env.REACT_APP_NEO4J_URI
-    const user = process.env.REACT_APP_NEO4J_USER
-    const password = process.env.REACT_APP_NEO4J_PASSWORD
-    
-    this.driver = neo4j.driver(uri, neo4j.auth.basic(user, password))
-    this.readGraph(this.props.quark_name, langType)
+    this.driver = neo4j.driver(connection.uri, neo4j.auth.basic(connection.user, connection.password))
+    this.readGraph(quark_name, langType)
   }
 
   componentWillUnmount() {
@@ -108,6 +105,11 @@ class Baryon extends Component {
   }
 }
 Baryon.propTypes = {
-  quark_name: PropTypes.string.isRequired
+  quark_name: PropTypes.string.isRequired,
+  connection: PropTypes.shape({
+    uri: PropTypes.string.isRequired,
+    user: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+  }),
 }
 export default Baryon
