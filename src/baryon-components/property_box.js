@@ -37,6 +37,9 @@ const PropertyBox = (props) => {
 }
 
 PropertyBox.propTypes = {
-  propertyResource: PropTypes.object.isRequired
+  propertyResource: PropTypes.shape({
+    property: PropTypes.string.isRequired,
+    gluonsRelated: PropTypes.array.isRequired,
+  }),
 }
 export default PropertyBox

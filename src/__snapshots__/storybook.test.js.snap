@@ -1,0 +1,524 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Gluon default 1`] = `
+<div
+  className="baryon-gluon-body"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-1 MuiPaper-rounded"
+  >
+    <li
+      className="MuiListItem-root MuiListItem-gutters"
+      disabled={false}
+    >
+      <a
+        href="/name 1"
+        onClick={[Function]}
+      >
+        <div
+          className="MuiListItemAvatar-root makeStyles-avatarListItem-2"
+        >
+          <div
+            className="MuiAvatar-root makeStyles-avatar-3 MuiAvatar-colorDefault"
+          >
+            <img
+              alt="name 1"
+              className="baryon-gluon-image"
+              src="https://images.ciatr.jp/2017/07/w_828/0kDnZaTrd4xrWWav8PB8XIVBRXoQGsWGgNSdnp2E.jpeg"
+            />
+          </div>
+        </div>
+      </a>
+      <div
+        className="MuiListItemText-root MuiListItemText-multiline"
+      >
+        <span
+          className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+        >
+          <p
+            className="baryon-strong-interaction"
+          >
+            The Matrix is directed by euonymus
+          </p>
+        </span>
+        <p
+          className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
+        >
+          (2019-10-16 - 2019-12-15)
+        </p>
+      </div>
+    </li>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Gluons default 1`] = `
+<div
+  className="baryon-properties baryon-grid"
+>
+  <div>
+    <h2>
+      Directed
+    </h2>
+    <div
+      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+    >
+      <ul
+        className="MuiList-root makeStyles-root-172 MuiList-padding"
+      >
+        <div
+          className="baryon-gluon-body"
+        >
+          <div
+            className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-205 MuiPaper-rounded"
+          >
+            <li
+              className="MuiListItem-root MuiListItem-gutters"
+              disabled={false}
+            >
+              <a
+                href="/name 1"
+                onClick={[Function]}
+              >
+                <div
+                  className="MuiListItemAvatar-root makeStyles-avatarListItem-206"
+                >
+                  <div
+                    className="MuiAvatar-root makeStyles-avatar-207 MuiAvatar-colorDefault"
+                  >
+                    <img
+                      alt="name 1"
+                      className="baryon-gluon-image"
+                      src="https://images.ciatr.jp/2017/07/w_828/0kDnZaTrd4xrWWav8PB8XIVBRXoQGsWGgNSdnp2E.jpeg"
+                    />
+                  </div>
+                </div>
+              </a>
+              <div
+                className="MuiListItemText-root MuiListItemText-multiline"
+              >
+                <span
+                  className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+                >
+                  <p
+                    className="baryon-strong-interaction"
+                  >
+                    The Matrix is directed by euonymus
+                  </p>
+                </span>
+                <p
+                  className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
+                >
+                  (2019-10-16 - 2019-12-15)
+                </p>
+              </div>
+            </li>
+          </div>
+        </div>
+        <div
+          className="baryon-gluon-body"
+        >
+          <div
+            className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-205 MuiPaper-rounded"
+          >
+            <li
+              className="MuiListItem-root MuiListItem-gutters"
+              disabled={false}
+            >
+              <a
+                href="/name 2"
+                onClick={[Function]}
+              >
+                <div
+                  className="MuiListItemAvatar-root makeStyles-avatarListItem-206"
+                >
+                  <div
+                    className="MuiAvatar-root makeStyles-avatar-207 MuiAvatar-colorDefault"
+                  >
+                    <img
+                      alt="name 2"
+                      className="baryon-gluon-image"
+                      src="https://s3-ap-southeast-2.amazonaws.com/fna-wordpress-website06/wp-content/uploads/2018/09/05151330/matrixreloaded-1440x960.jpg"
+                    />
+                  </div>
+                </div>
+              </a>
+              <div
+                className="MuiListItemText-root MuiListItemText-multiline"
+              >
+                <span
+                  className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+                >
+                  <p
+                    className="baryon-strong-interaction"
+                  >
+                    The Matrix is directed by euonymus
+                  </p>
+                </span>
+                <p
+                  className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
+                >
+                  (2017-03)
+                </p>
+              </div>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <h2>
+      Directed
+    </h2>
+    <div
+      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+    >
+      <ul
+        className="MuiList-root makeStyles-root-172 MuiList-padding"
+      >
+        <div
+          className="baryon-gluon-body"
+        >
+          <div
+            className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-205 MuiPaper-rounded"
+          >
+            <li
+              className="MuiListItem-root MuiListItem-gutters"
+              disabled={false}
+            >
+              <a
+                href="/name 1"
+                onClick={[Function]}
+              >
+                <div
+                  className="MuiListItemAvatar-root makeStyles-avatarListItem-206"
+                >
+                  <div
+                    className="MuiAvatar-root makeStyles-avatar-207 MuiAvatar-colorDefault"
+                  >
+                    <img
+                      alt="name 1"
+                      className="baryon-gluon-image"
+                      src="https://images.ciatr.jp/2017/07/w_828/0kDnZaTrd4xrWWav8PB8XIVBRXoQGsWGgNSdnp2E.jpeg"
+                    />
+                  </div>
+                </div>
+              </a>
+              <div
+                className="MuiListItemText-root MuiListItemText-multiline"
+              >
+                <span
+                  className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+                >
+                  <p
+                    className="baryon-strong-interaction"
+                  >
+                    The Matrix is directed by euonymus
+                  </p>
+                </span>
+                <p
+                  className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
+                >
+                  (2019-10-16 - 2019-12-15)
+                </p>
+              </div>
+            </li>
+          </div>
+        </div>
+        <div
+          className="baryon-gluon-body"
+        >
+          <div
+            className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-205 MuiPaper-rounded"
+          >
+            <li
+              className="MuiListItem-root MuiListItem-gutters"
+              disabled={false}
+            >
+              <a
+                href="/name 2"
+                onClick={[Function]}
+              >
+                <div
+                  className="MuiListItemAvatar-root makeStyles-avatarListItem-206"
+                >
+                  <div
+                    className="MuiAvatar-root makeStyles-avatar-207 MuiAvatar-colorDefault"
+                  >
+                    <img
+                      alt="name 2"
+                      className="baryon-gluon-image"
+                      src="https://s3-ap-southeast-2.amazonaws.com/fna-wordpress-website06/wp-content/uploads/2018/09/05151330/matrixreloaded-1440x960.jpg"
+                    />
+                  </div>
+                </div>
+              </a>
+              <div
+                className="MuiListItemText-root MuiListItemText-multiline"
+              >
+                <span
+                  className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+                >
+                  <p
+                    className="baryon-strong-interaction"
+                  >
+                    The Matrix is directed by euonymus
+                  </p>
+                </span>
+                <p
+                  className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
+                >
+                  (2017-03)
+                </p>
+              </div>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots MainQuark default 1`] = `
+<div
+  className="baryon-subject baryon-grid"
+>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+  >
+    <button
+      className="MuiButtonBase-root MuiCardActionArea-root"
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="MuiCardMedia-root makeStyles-media-260"
+        style={
+          Object {
+            "backgroundImage": "url(\\"https://images.ciatr.jp/2017/07/w_828/0kDnZaTrd4xrWWav8PB8XIVBRXoQGsWGgNSdnp2E.jpeg\\")",
+          }
+        }
+        title="The Matrix"
+      />
+      <div
+        className="MuiCardContent-root"
+      >
+        <h2
+          className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+        >
+          The Matrix
+        </h2>
+        <p
+          className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+        >
+          (2019-10-16 - 2019-12-15)
+          <br />
+          This is a movie
+        </p>
+      </div>
+      <span
+        className="MuiCardActionArea-focusHighlight"
+      />
+    </button>
+    <div
+      className="MuiCardActions-root MuiCardActions-spacing"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <a
+            href="http://www.whatisthematrix.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"
+              />
+            </svg>
+          </a>
+        </span>
+      </button>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <a
+            href="http://www.whatisthematrix.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Buy Now
+          </a>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots PropertyBox default 1`] = `
+<div>
+  <h2>
+    Directed
+  </h2>
+  <div
+    className="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+  >
+    <ul
+      className="MuiList-root makeStyles-root-84 MuiList-padding"
+    >
+      <div
+        className="baryon-gluon-body"
+      >
+        <div
+          className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-117 MuiPaper-rounded"
+        >
+          <li
+            className="MuiListItem-root MuiListItem-gutters"
+            disabled={false}
+          >
+            <a
+              href="/name 1"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiListItemAvatar-root makeStyles-avatarListItem-118"
+              >
+                <div
+                  className="MuiAvatar-root makeStyles-avatar-119 MuiAvatar-colorDefault"
+                >
+                  <img
+                    alt="name 1"
+                    className="baryon-gluon-image"
+                    src="https://images.ciatr.jp/2017/07/w_828/0kDnZaTrd4xrWWav8PB8XIVBRXoQGsWGgNSdnp2E.jpeg"
+                  />
+                </div>
+              </div>
+            </a>
+            <div
+              className="MuiListItemText-root MuiListItemText-multiline"
+            >
+              <span
+                className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              >
+                <p
+                  className="baryon-strong-interaction"
+                >
+                  The Matrix is directed by euonymus
+                </p>
+              </span>
+              <p
+                className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                (2019-10-16 - 2019-12-15)
+              </p>
+            </div>
+          </li>
+        </div>
+      </div>
+      <div
+        className="baryon-gluon-body"
+      >
+        <div
+          className="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-117 MuiPaper-rounded"
+        >
+          <li
+            className="MuiListItem-root MuiListItem-gutters"
+            disabled={false}
+          >
+            <a
+              href="/name 2"
+              onClick={[Function]}
+            >
+              <div
+                className="MuiListItemAvatar-root makeStyles-avatarListItem-118"
+              >
+                <div
+                  className="MuiAvatar-root makeStyles-avatar-119 MuiAvatar-colorDefault"
+                >
+                  <img
+                    alt="name 2"
+                    className="baryon-gluon-image"
+                    src="https://s3-ap-southeast-2.amazonaws.com/fna-wordpress-website06/wp-content/uploads/2018/09/05151330/matrixreloaded-1440x960.jpg"
+                  />
+                </div>
+              </div>
+            </a>
+            <div
+              className="MuiListItemText-root MuiListItemText-multiline"
+            >
+              <span
+                className="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              >
+                <p
+                  className="baryon-strong-interaction"
+                >
+                  The Matrix is directed by euonymus
+                </p>
+              </span>
+              <p
+                className="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary"
+              >
+                (2017-03)
+              </p>
+            </div>
+          </li>
+        </div>
+      </div>
+    </ul>
+  </div>
+</div>
+`;

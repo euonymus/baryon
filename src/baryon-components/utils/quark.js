@@ -10,7 +10,14 @@ class QuarkUtil {
     this.labels = quarkRaw.labels
     this.properties = quarkRaw.properties
 	  let util = new Util()
+
+    // These are needed in main-quark component
+ 	  this.name = this.getName()
+ 	  this.description = this.getDescription()
+ 	  this.image_path = this.properties.image_path
  	  this.period_str = util.period2str(quarkRaw.properties)
+ 	  this.url = this.properties.url
+ 	  this.affiliate = this.properties.affiliate
   }
 
   getByLang = (field) => {

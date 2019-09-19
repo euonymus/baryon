@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PropertyBox from './property_box'
-import Properties from './utils/properties'
 
 const Gluons = (props) => {
-  const { gluons, langType } = props
+  const { targetProperties } = props
 
-  const targetProperties = new Properties(gluons, langType)
-  const propertyList = targetProperties.data.map((propertyResource, key) => {
+  const propertyList = targetProperties.map((propertyResource, key) => {
     return (
       <PropertyBox key={key} propertyResource={propertyResource} />
     )
@@ -21,6 +19,6 @@ const Gluons = (props) => {
 }
 
 Gluons.propTypes = {
-  gluons: PropTypes.array.isRequired
+  targetProperties: PropTypes.array.isRequired
 }
 export default Gluons

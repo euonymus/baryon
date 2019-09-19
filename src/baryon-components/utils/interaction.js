@@ -18,10 +18,15 @@ class Interaction {
     if (langType) {
       this.langType = langType
     }
+
+    // These are needed in gluon component
+    this.objectName = this.object.getName()
+    this.objectImagePath = this.object.properties.image_path
     this.relationText = this.relationText(this.langType)
+    this.relationPeriod = this.gluon.period_str
   }
 
-   relationText(langType) {
+  relationText(langType) {
      let glue_sentence_before_link = ''
  	   let glue_sentence_after_link = ' '
 

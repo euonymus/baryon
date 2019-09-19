@@ -1,0 +1,63 @@
+.baryon-body {
+    text-align: left;
+    padding: 20px;
+}
+.baryon-body:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.baryon-grid {
+    min-width: 350px;
+    float: left;
+}
+@media(max-width: 1200px) {
+  .baryon-grid {
+      float: none;
+  }
+  .baryon-properties {
+      margin-top: 20px;
+  }
+}
+@media(min-width: 1200px) {
+  .baryon-subject {
+      margin-right:20px;
+  }
+  .baryon-subject {
+      width: 350px;
+  }
+  .baryon-properties {
+      width: 750px;
+  }
+}
+
+.baryon-subject {
+}
+.baryon-subject-image-wrapper {
+}
+
+.baryon-subject-image {
+    width: 350px;
+    /* height: 300px; */
+    object-fit: cover;
+}
+
+.baryon-gluon-body {
+}
+
+.baryon-gluon-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: 50% 0%
+}
+
+.baryon-interaction-body {
+}
+
+.baryon-strong-interaction {
+}
+
+
+/*# sourceMappingURL=main.css.map*/
