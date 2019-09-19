@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import MainQuark from './main-quark'
 import Gluons from './gluons'
+// utils
+import QuarkUtil from './utils/quark'
 import Properties from './utils/properties'
+// constants
 import { LANG_SUBDOMAIN_JP_LIKE } from './constants/lang-subdomain'
 import { LANGTYPE_ENG_LIKE, LANGTYPE_JP_LIKE } from './constants/langtypes'
 
@@ -64,22 +67,23 @@ class Baryon extends Component {
       let gluons = result.records
       const singleRecord = gluons[0]
 
-      let subject = null
+      let subjectRaw = null
       let isNoData = true
 
       if (singleRecord) {
-        subject = singleRecord.get(0)
+        subjectRaw = singleRecord.get(0)
         isNoData = false
       } else {
         gluons = []
       }
+	    const subject = new QuarkUtil(subjectRaw, langType)
       const targetProperties = new Properties(gluons, langType)
       this.setState({subject, targetProperties, isNoData})
     })
   }
 
   render () {
-    const { langType, subject, targetProperties, isNoData } = this.state
+    const { subject, targetProperties, isNoData } = this.state
     const { quark_name } = this.props
 
     if (!subject || (targetProperties.length === 0)) {
@@ -97,7 +101,7 @@ class Baryon extends Component {
 
     return (
       <div className="baryon-body">
-        <MainQuark subject={subject} langType={langType} />
+        <MainQuark subject={subject} />
         <Gluons targetProperties={targetProperties.data} />
       </div>
     )

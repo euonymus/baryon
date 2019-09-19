@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// utils
-import QuarkUtil from './utils/quark'
 // Material UI
 import { makeStyles } from '@material-ui/styles'
 import Card from '@material-ui/core/Card'
@@ -21,7 +19,7 @@ const useStyles = makeStyles({
 })
 
 const MainQuark = (props) => {
-	const subject = new QuarkUtil(props.subject, props.langType)
+  const { subject } = props
   const classes = useStyles()
 	return (
     <div className="baryon-subject baryon-grid">
