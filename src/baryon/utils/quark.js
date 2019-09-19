@@ -46,9 +46,8 @@ class QuarkUtil {
     } else if ((this.langType === LANGTYPE_ENG_LIKE) && (!this.properties.en_name || this.properties.en_name === 'NULL')) {
       prefix = `${scheme}//ja.${domainString}`
     } else {
-      return (
-        <Link to={`/${this.getName()}`}>{this.getName()}</Link>
-      )
+      return <Link to={`/${this.getName()}`}>{this.getName()}</Link>
+      // return <a href={`/${this.getName()}`}>{this.getName()}</a>
     }
     return (
         <a href={`${prefix}/${this.getName()}`}>{this.getName()}</a>

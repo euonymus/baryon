@@ -23,4 +23,4 @@ storiesOf('Gluon', module)
   .addDecorator(story => <BrowserRouter><Switch>{story()}</Switch></BrowserRouter>)
   .add('default', () => <Gluon interaction={interaction} />)
 // .add('pinned', () => <Gluon interaction={{ ...interaction, state: 'TASK_PINNED' }} {...actions} />)
-// .add('archived', () => <Gluon interaction={{ ...interaction, state: 'TASK_ARCHIVED' }} {...actions} />)
+

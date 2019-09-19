@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Gluon from './gluon'
-// import { Link } from 'react-router-dom'
 import './assets/styles/baryon.css'
 // Material UI
 import { makeStyles } from '@material-ui/styles'
