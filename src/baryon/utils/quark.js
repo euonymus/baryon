@@ -35,11 +35,11 @@ class QuarkUtil {
   getDescription = () => {
     return this.getByLang('description')
   }
-  getLinkPath = () => {
+  getLinkPath = (str) => {
     if (((this.langType === LANGTYPE_JP_LIKE) && this.properties.name)
         || ((this.langType === LANGTYPE_ENG_LIKE) && this.properties.en_name)) {
       // return <a href={`/${this.getName()}`}>{this.getName()}</a>
-      return <Link to={`${this.graphPath}/${this.getName()}`}>{this.getName()}</Link>
+      return <Link to={`${this.graphPath}/${this.getName()}`}>{str}</Link>
     }
 
     let url = window.location.href
@@ -53,7 +53,7 @@ class QuarkUtil {
     } else {
       prefix = `${scheme}//ja.${domainString}`
     }
-    return <a href={`${prefix}${this.graphPath}/${this.getName()}`}>{this.getName()}</a>
+    return <a href={`${prefix}${this.graphPath}/${this.getName()}`}>{str}</a>
   }
 }
 export default QuarkUtil

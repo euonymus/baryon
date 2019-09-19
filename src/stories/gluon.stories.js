@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Switch } from 'react-router-dom'
+import { BrowserRouter, Switch, Link } from 'react-router-dom'
 import { storiesOf } from '@storybook/react'
 // import { action } from '@storybook/addon-actions'
+import { makeStyles } from '@material-ui/styles'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import Avatar from '@material-ui/core/Avatar'
 
 import Gluon from '../baryon/gluon'
 
@@ -11,7 +14,14 @@ export const interaction = {
   relationText: (
     <p className="baryon-strong-interaction">The Matrix is directed by euonymus</p>
   ),
-  relationPeriod: '(2019-10-16 - 2019-12-15)'
+  relationPeriod: '(2019-10-16 - 2019-12-15)',
+  object: {
+    getLinkPath: (str) => {
+      return (
+        <Link to="hoge">{str}</Link>
+      )
+    }
+  }
 }
 
 // export const actions = {

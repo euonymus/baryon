@@ -16,11 +16,11 @@ const useStyles = makeStyles({
 })
 
 const PropertyBox = (props) => {
-  const { propertyResource, graphPath } = props
+  const { propertyResource } = props
   const classes = useStyles()
   const gluonsList = propertyResource.gluonsRelated.map((interaction, key) => {
     return (
-      <Gluon key={key} interaction={interaction} graphPath={graphPath} />
+      <Gluon key={key} interaction={interaction} />
     )
   })
   return (
@@ -40,10 +40,6 @@ PropertyBox.propTypes = {
     property: PropTypes.string.isRequired,
     gluonsRelated: PropTypes.array.isRequired,
   }),
-  graphPath: PropTypes.string
-}
-PropertyBox.defaultProps = {
-  graphPath: '',
 }
 
 export default PropertyBox

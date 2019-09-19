@@ -5,6 +5,7 @@ import { LANGTYPE_ENG_LIKE } from '../constants/langtypes'
 
 class Interaction {
   langType = LANGTYPE_ENG_LIKE
+
   constructor(interactionRaw, langType = null, graphPath = '') {
     this.gluonKey = interactionRaw._fieldLookup.gluon
     this.gluon = new GluonUtil(interactionRaw.get(this.gluonKey), langType)
@@ -22,18 +23,18 @@ class Interaction {
     // These are needed in gluon component
     this.objectName = this.object.getName()
     this.objectImagePath = this.object.properties.image_path
-    this.relationText = this.relationText(this.langType)
+    this.relationText = this.relationTextBuilder()
     this.relationPeriod = this.gluon.period_str
   }
 
-  relationText(langType) {
+  relationTextBuilder() {
      let glue_sentence_before_link = ''
  	   let glue_sentence_after_link = ' '
 
      if (this.subject.identity.toString() === this.gluon.start.toString()) {
 
        glue_sentence_before_link = this.subject.getName()
- 	     if (langType === LANGTYPE_ENG_LIKE) {
+ 	     if (this.langType === LANGTYPE_ENG_LIKE) {
  		     glue_sentence_before_link += ' ' + this.gluon.getRelation()
  	     } else {
  		     glue_sentence_before_link += 'は'
@@ -47,7 +48,7 @@ class Interaction {
  	   } else if (this.subject.identity.toString() === this.gluon.end.toString()) {
 
        glue_sentence_before_link = ''
- 	     if (langType === LANGTYPE_ENG_LIKE) {
+ 	     if (this.langType === LANGTYPE_ENG_LIKE) {
          glue_sentence_after_link += this.gluon.getRelation() + ' ' + this.subject.getName() + ' '
   	   } else {
   		   glue_sentence_after_link += 'は' + this.subject.getName() + this.gluon.getRelation()
@@ -64,7 +65,7 @@ class Interaction {
      return (
        <p className="baryon-strong-interaction">
          {glue_sentence_before_link}
-         {this.object.getLinkPath()}
+         {this.object.getLinkPath(this.object.name)}
          {glue_sentence_after_link}
        </p>
  	   )

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import './assets/styles/baryon.css'
 // Material UI
 import { makeStyles } from '@material-ui/styles'
@@ -25,20 +24,21 @@ const useStyles = makeStyles({
 })
 
 const Gluon = (props) => {
-  const { interaction, graphPath } = props
+  const { interaction } = props
   const { objectName, objectImagePath, relationText, relationPeriod } = interaction
   const classes = useStyles()
+  const avatar = (
+    <ListItemAvatar className={classes.avatarListItem} >
+      <Avatar className={classes.avatar} >
+        <img className="baryon-gluon-image" src={objectImagePath} alt={objectName} />
+      </Avatar>
+    </ListItemAvatar>
+  )
   return (
     <div className="baryon-gluon-body">
       <Card className={classes.card}>
         <ListItem>
-          <Link to={`${graphPath}/${objectName}`}>
-            <ListItemAvatar className={classes.avatarListItem} >
-              <Avatar className={classes.avatar} >
-                <img className="baryon-gluon-image" src={objectImagePath} alt={objectName} />
-              </Avatar>
-            </ListItemAvatar>
-          </Link>
+          {interaction.object.getLinkPath(avatar)}
           <ListItemText primary={relationText} secondary={relationPeriod} />
         </ListItem>
       </Card>
@@ -52,11 +52,7 @@ Gluon.propTypes = {
     objectImagePath: PropTypes.string.isRequired,
     relationText: PropTypes.object.isRequired,
     relationPeriod: PropTypes.string.isRequired,
-  }),
-  graphPath: PropTypes.string
-}
-Gluon.defaultProps = {
-  graphPath: '',
+  })
 }
 
 export default Gluon
