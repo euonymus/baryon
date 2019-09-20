@@ -68,18 +68,20 @@ $ npm config set '@bit:registry' https://node.bit.dev
 $ npm i --save @bit/euonymus.baryon.baryon
 ```
 
-In your React Application
+In your React Application, call Baryon in JSX
 
 ```js
 import Baryon from '@bit/euonymus.baryon.baryon';
 
 function App() {
   return (
-			<Baryon quark_name="The Matrix" connection={{
-				uri: 'bolt://100.26.232.160:38652',
-				user: 'neo4j',
-				password:'wingnuts-additives-lids'
-			}} graphPath={false} />
+    <Baryon quark_name="The Matrix"
+            connection={{
+              uri: 'bolt://100.26.232.160:38652',
+              user: 'neo4j',
+              password:'wingnuts-additives-lids'
+            }}
+	    graphPath={false} />
   );
 }
 ```
