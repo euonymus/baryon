@@ -5,11 +5,11 @@
 Baryon is a react component that allows you to inspect neo4j graph in a simple and intuitive manner.
 This enables users to explore further relations from one node to another.
 
-## Steps to Run
+## Steps to Run sample app
 
-1. Setup your neo4j [sandbox](https://neo4j.com/sandbox-v2/)
+1. Create your [neo4j sandbox](https://neo4j.com/sandbox-v2/)
 
-2. Import my sample graph data into your neo4j sandbox
+2. Import sampledata.txt data into your neo4j sandbox
 
 Sample Graph data is here
 
@@ -48,9 +48,38 @@ $ npm install
 $ npm start
 ```
 
-## How to begin
+## How to Use sample app
 
 * Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 * Enter "The Matrix" in the form
 * Go explore
 
+
+
+## How to implement Baryon into your app
+
+Install Baryon as a node_module
+
+```bash
+# npm registryに bit を登録
+$ npm config set '@bit:registry' https://node.bit.dev
+
+# Install Baryon
+$ npm i --save @bit/euonymus.baryon.baryon
+```
+
+In your React Application
+
+```js
+import Baryon from '@bit/euonymus.baryon.baryon';
+
+function App() {
+  return (
+			<Baryon quark_name="The Matrix" connection={{
+				uri: 'bolt://100.26.232.160:38652',
+				user: 'neo4j',
+				password:'wingnuts-additives-lids'
+			}} graphPath={false} />
+  );
+}
+```
