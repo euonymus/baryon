@@ -86,7 +86,7 @@ class Baryon extends Component {
 
   render () {
     const { subject, targetProperties, isNoData } = this.state
-    const { quark_name, graphPath } = this.props
+    const { quark_name } = this.props
 
     if (!subject || (targetProperties.length === 0)) {
       let message = 'Loading...'
@@ -104,7 +104,7 @@ class Baryon extends Component {
     return (
       <div className="baryon-body">
         <MainQuark subject={subject} />
-        <Gluons targetProperties={targetProperties.data} graphPath={graphPath} />
+        <Gluons targetProperties={targetProperties.data} />
       </div>
     )
   }
