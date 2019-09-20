@@ -21,7 +21,6 @@ var _List = _interopRequireDefault(require("@material-ui/core/List"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import { Link } from 'react-router-dom'
 // Material UI
 var useStyles = (0, _styles.makeStyles)({
   root: {
@@ -32,14 +31,12 @@ var useStyles = (0, _styles.makeStyles)({
 });
 
 var PropertyBox = function PropertyBox(props) {
-  var propertyResource = props.propertyResource,
-      graphPath = props.graphPath;
+  var propertyResource = props.propertyResource;
   var classes = useStyles();
   var gluonsList = propertyResource.gluonsRelated.map(function (interaction, key) {
     return _react.default.createElement(_gluon.default, {
       key: key,
-      interaction: interaction,
-      graphPath: graphPath
+      interaction: interaction
     });
   });
   return _react.default.createElement("div", null, _react.default.createElement("h2", null, propertyResource.property), _react.default.createElement(_Card.default, {
@@ -53,11 +50,7 @@ PropertyBox.propTypes = {
   propertyResource: _propTypes.default.shape({
     property: _propTypes.default.string.isRequired,
     gluonsRelated: _propTypes.default.array.isRequired
-  }),
-  graphPath: _propTypes.default.string
-};
-PropertyBox.defaultProps = {
-  graphPath: ''
+  })
 };
 var _default = PropertyBox;
 exports.default = _default;

@@ -9,8 +9,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactRouterDom = require("react-router-dom");
-
 require("./assets/styles/baryon.css");
 
 var _styles = require("@material-ui/styles");
@@ -43,20 +41,14 @@ var useStyles = (0, _styles.makeStyles)({
 });
 
 var Gluon = function Gluon(props) {
-  var interaction = props.interaction,
-      graphPath = props.graphPath;
+  var interaction = props.interaction;
   var objectName = interaction.objectName,
       objectImagePath = interaction.objectImagePath,
       relationText = interaction.relationText,
       relationPeriod = interaction.relationPeriod;
   var classes = useStyles();
-  return _react.default.createElement("div", {
-    className: "baryon-gluon-body"
-  }, _react.default.createElement(_Card.default, {
-    className: classes.card
-  }, _react.default.createElement(_ListItem.default, null, _react.default.createElement(_reactRouterDom.Link, {
-    to: "".concat(graphPath, "/").concat(objectName)
-  }, _react.default.createElement(_ListItemAvatar.default, {
+
+  var avatar = _react.default.createElement(_ListItemAvatar.default, {
     className: classes.avatarListItem
   }, _react.default.createElement(_Avatar.default, {
     className: classes.avatar
@@ -64,7 +56,13 @@ var Gluon = function Gluon(props) {
     className: "baryon-gluon-image",
     src: objectImagePath,
     alt: objectName
-  })))), _react.default.createElement(_ListItemText.default, {
+  })));
+
+  return _react.default.createElement("div", {
+    className: "baryon-gluon-body"
+  }, _react.default.createElement(_Card.default, {
+    className: classes.card
+  }, _react.default.createElement(_ListItem.default, null, interaction.object.getLinkPath(avatar), _react.default.createElement(_ListItemText.default, {
     primary: relationText,
     secondary: relationPeriod
   }))));
@@ -76,11 +74,7 @@ Gluon.propTypes = {
     objectImagePath: _propTypes.default.string.isRequired,
     relationText: _propTypes.default.object.isRequired,
     relationPeriod: _propTypes.default.string.isRequired
-  }),
-  graphPath: _propTypes.default.string
-};
-Gluon.defaultProps = {
-  graphPath: ''
+  })
 };
 var _default = Gluon;
 exports.default = _default;

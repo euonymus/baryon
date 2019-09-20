@@ -23,6 +23,8 @@ var QuarkUtil = function QuarkUtil(quarkRaw) {
   var _this = this;
 
   var langType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _langtypes.LANGTYPE_ENG_LIKE;
+  var graphPath = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+  var onLinkClick = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
 
   _classCallCheck(this, QuarkUtil);
 
@@ -42,29 +44,43 @@ var QuarkUtil = function QuarkUtil(quarkRaw) {
     return _this.getByLang('description');
   });
 
-  _defineProperty(this, "getLinkPath", function () {
+  _defineProperty(this, "getLinkPath", function (str) {
+    if (_this.graphPath === false) {
+      return _react.default.createElement("button", {
+        className: "link-style-btn",
+        onClick: function onClick() {
+          _this.onLinkClick(_this.name, _this.langTyhpe);
+        }
+      }, str);
+    }
+
+    if (_this.langType === _langtypes.LANGTYPE_JP_LIKE && _this.properties.name && _this.properties.name !== 'NULL' || _this.langType === _langtypes.LANGTYPE_ENG_LIKE && _this.properties.en_name && _this.properties.en_name !== 'NULL') {
+      // return <a href={`/${this.getName()}`}>{this.getName()}</a>
+      return _react.default.createElement(_reactRouterDom.Link, {
+        to: "".concat(_this.graphPath, "/").concat(_this.getName())
+      }, str);
+    }
+
     var url = window.location.href;
     var arr = url.split("/");
     var scheme = arr[0];
     var domainString = arr[2];
     var prefix = '';
 
-    if (_this.langType === _langtypes.LANGTYPE_JP_LIKE && (!_this.properties.name || _this.properties.name === 'NULL')) {
+    if (_this.langType === _langtypes.LANGTYPE_JP_LIKE) {
       prefix = "".concat(scheme, "//").concat(domainString.split('.')[1]);
-    } else if (_this.langType === _langtypes.LANGTYPE_ENG_LIKE && (!_this.properties.en_name || _this.properties.en_name === 'NULL')) {
-      prefix = "".concat(scheme, "//ja.").concat(domainString);
     } else {
-      return _react.default.createElement(_reactRouterDom.Link, {
-        to: "/".concat(_this.getName())
-      }, _this.getName());
+      prefix = "".concat(scheme, "//ja.").concat(domainString);
     }
 
     return _react.default.createElement("a", {
-      href: "".concat(prefix, "/").concat(_this.getName())
-    }, _this.getName());
+      href: "".concat(prefix).concat(_this.graphPath, "/").concat(_this.getName())
+    }, str);
   });
 
   this.langType = langType;
+  this.graphPath = graphPath;
+  this.onLinkClick = onLinkClick;
   this.identity = quarkRaw.identity;
   this.labels = quarkRaw.labels;
   this.properties = quarkRaw.properties;

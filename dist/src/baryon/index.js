@@ -74,6 +74,48 @@ function (_Component) {
       targetProperties: []
     });
 
+    _defineProperty(_assertThisInitialized(_this), "readGraph", function (name, langType) {
+      var name_field = 'en_name';
+
+      if (langType === _langtypes.LANGTYPE_JP_LIKE) {
+        name_field = 'name';
+      }
+
+      var session = _this.driver.session();
+
+      var resultPromise = session.run("MATCH (subject {".concat(name_field, ": $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC"), {
+        name: name
+      });
+      resultPromise.then(function (result) {
+        session.close();
+        var gluons = result.records;
+        var singleRecord = gluons[0];
+        var subjectRaw = null;
+        var isNoData = true;
+
+        if (singleRecord) {
+          subjectRaw = singleRecord.get(0);
+          isNoData = false;
+        } else {
+          gluons = [];
+        }
+
+        var subject = null;
+        var targetProperties = [];
+
+        if (!isNoData) {
+          subject = new _quark.default(subjectRaw, langType, _this.props.graphPath);
+          targetProperties = new _properties.default(gluons, langType, _this.props.graphPath, _this.readGraph);
+        }
+
+        _this.setState({
+          subject: subject,
+          targetProperties: targetProperties,
+          isNoData: isNoData
+        });
+      });
+    });
+
     return _this;
   }
 
@@ -115,54 +157,13 @@ function (_Component) {
       }
     }
   }, {
-    key: "readGraph",
-    value: function readGraph(name, langType) {
-      var _this2 = this;
-
-      var name_field = 'en_name';
-
-      if (langType === _langtypes.LANGTYPE_JP_LIKE) {
-        name_field = 'name';
-      }
-
-      var session = this.driver.session();
-      var resultPromise = session.run("MATCH (subject {".concat(name_field, ": $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC"), {
-        name: name
-      });
-      resultPromise.then(function (result) {
-        session.close();
-        var gluons = result.records;
-        var singleRecord = gluons[0];
-        var subjectRaw = null;
-        var isNoData = true;
-
-        if (singleRecord) {
-          subjectRaw = singleRecord.get(0);
-          isNoData = false;
-        } else {
-          gluons = [];
-        }
-
-        var subject = new _quark.default(subjectRaw, langType);
-        var targetProperties = new _properties.default(gluons, langType);
-
-        _this2.setState({
-          subject: subject,
-          targetProperties: targetProperties,
-          isNoData: isNoData
-        });
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
           subject = _this$state.subject,
           targetProperties = _this$state.targetProperties,
           isNoData = _this$state.isNoData;
-      var _this$props2 = this.props,
-          quark_name = _this$props2.quark_name,
-          graphPath = _this$props2.graphPath;
+      var quark_name = this.props.quark_name;
 
       if (!subject || targetProperties.length === 0) {
         var message = 'Loading...';
@@ -179,8 +180,7 @@ function (_Component) {
       }, _react.default.createElement(_mainQuark.default, {
         subject: subject
       }), _react.default.createElement(_gluons.default, {
-        targetProperties: targetProperties.data,
-        graphPath: graphPath
+        targetProperties: targetProperties.data
       }));
     }
   }]);
@@ -195,7 +195,7 @@ Baryon.propTypes = {
     user: _propTypes.default.string.isRequired,
     password: _propTypes.default.string.isRequired
   }),
-  graphPath: _propTypes.default.string
+  graphPath: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.bool])
 };
 Baryon.defaultProps = {
   graphPath: ''

@@ -14,13 +14,11 @@ var _property_box = _interopRequireDefault(require("./property_box"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Gluons = function Gluons(props) {
-  var targetProperties = props.targetProperties,
-      graphPath = props.graphPath;
+  var targetProperties = props.targetProperties;
   var propertyList = targetProperties.map(function (propertyResource, key) {
     return _react.default.createElement(_property_box.default, {
       key: key,
-      propertyResource: propertyResource,
-      graphPath: graphPath
+      propertyResource: propertyResource
     });
   });
   return _react.default.createElement("div", {
@@ -29,11 +27,7 @@ var Gluons = function Gluons(props) {
 };
 
 Gluons.propTypes = {
-  targetProperties: _propTypes.default.array.isRequired,
-  graphPath: _propTypes.default.string
-};
-Gluons.defaultProps = {
-  graphPath: ''
+  targetProperties: _propTypes.default.array.isRequired
 };
 var _default = Gluons;
 exports.default = _default;

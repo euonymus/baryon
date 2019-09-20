@@ -28,6 +28,8 @@ var Interaction =
 function () {
   function Interaction(interactionRaw) {
     var langType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    var graphPath = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    var onLinkClick = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
 
     _classCallCheck(this, Interaction);
 
@@ -36,9 +38,9 @@ function () {
     this.gluonKey = interactionRaw._fieldLookup.gluon;
     this.gluon = new _gluon.default(interactionRaw.get(this.gluonKey), langType);
     this.subjectKey = interactionRaw._fieldLookup.subject;
-    this.subject = new _quark.default(interactionRaw.get(this.subjectKey), langType);
+    this.subject = new _quark.default(interactionRaw.get(this.subjectKey), langType, graphPath, onLinkClick);
     this.objectKey = interactionRaw._fieldLookup.object;
-    this.object = new _quark.default(interactionRaw.get(this.objectKey), langType);
+    this.object = new _quark.default(interactionRaw.get(this.objectKey), langType, graphPath, onLinkClick);
 
     if (langType) {
       this.langType = langType;
@@ -47,20 +49,20 @@ function () {
 
     this.objectName = this.object.getName();
     this.objectImagePath = this.object.properties.image_path;
-    this.relationText = this.relationText(this.langType);
+    this.relationText = this.relationTextBuilder();
     this.relationPeriod = this.gluon.period_str;
   }
 
   _createClass(Interaction, [{
-    key: "relationText",
-    value: function relationText(langType) {
+    key: "relationTextBuilder",
+    value: function relationTextBuilder() {
       var glue_sentence_before_link = '';
       var glue_sentence_after_link = ' ';
 
       if (this.subject.identity.toString() === this.gluon.start.toString()) {
         glue_sentence_before_link = this.subject.getName();
 
-        if (langType === _langtypes.LANGTYPE_ENG_LIKE) {
+        if (this.langType === _langtypes.LANGTYPE_ENG_LIKE) {
           glue_sentence_before_link += ' ' + this.gluon.getRelation();
         } else {
           glue_sentence_before_link += 'は';
@@ -75,7 +77,7 @@ function () {
       } else if (this.subject.identity.toString() === this.gluon.end.toString()) {
         glue_sentence_before_link = '';
 
-        if (langType === _langtypes.LANGTYPE_ENG_LIKE) {
+        if (this.langType === _langtypes.LANGTYPE_ENG_LIKE) {
           glue_sentence_after_link += this.gluon.getRelation() + ' ' + this.subject.getName() + ' ';
         } else {
           glue_sentence_after_link += 'は' + this.subject.getName() + this.gluon.getRelation();
@@ -92,7 +94,7 @@ function () {
 
       return _react.default.createElement("p", {
         className: "baryon-strong-interaction"
-      }, glue_sentence_before_link, this.object.getLinkPath(), glue_sentence_after_link);
+      }, glue_sentence_before_link, this.object.getLinkPath(this.object.name), glue_sentence_after_link);
     }
   }]);
 

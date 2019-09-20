@@ -32,11 +32,15 @@ function () {
     var _this = this;
 
     var langType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _langtypes.LANGTYPE_ENG_LIKE;
+    var graphPath = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    var onLinkClick = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
 
     _classCallCheck(this, Properties);
 
     this.langType = langType;
-    this.subject = new _interaction.default(gluons[0], langType).subject;
+    this.graphPath = graphPath;
+    this.onLinkClick = onLinkClick;
+    this.subject = new _interaction.default(gluons[0], langType, graphPath, onLinkClick).subject;
     var targetProperties = _qtype_properties.qtype_properties[this.subject.labels[0]];
     var data = [];
 
@@ -68,7 +72,7 @@ function () {
     }
 
     gluons.forEach(function (interactionRaw) {
-      var currentInteraction = new _interaction.default(interactionRaw, langType);
+      var currentInteraction = new _interaction.default(interactionRaw, langType, graphPath, onLinkClick);
       var notInArray = true;
       data.forEach(function (listedProperty) {
         if (listedProperty.gluonsRelated.length === 0) {
@@ -110,7 +114,7 @@ function () {
 
       var ret = [];
       gluons.forEach(function (interactionRaw) {
-        var currentInteraction = new _interaction.default(interactionRaw, _this2.langType);
+        var currentInteraction = new _interaction.default(interactionRaw, _this2.langType, _this2.graphPath, _this2.onLinkClick);
 
         if (currentInteraction.gluon.type === 'HAS_RELATION_TO') {
           return true; // as to continue
