@@ -55,7 +55,7 @@ $ npm start
 Install Baryon as a node_module
 
 ```bash
-# npm registryに bit を登録
+# Configuring Bit as a scoped registry for NPM
 $ npm config set '@bit:registry' https://node.bit.dev
 
 # Install Baryon
