@@ -9,7 +9,7 @@ This enables users to explore further relations from one node to another.
 
 1. Create your [neo4j sandbox](https://neo4j.com/sandbox-v2/)
 
-2. Import sampledata.txt data into your neo4j sandbox
+2. Import [sampledata.txt](https://github.com/graphhack/baryon/blob/master/sampledata.txt) data into your neo4j sandbox
 
 Sample Graph data is here
 
