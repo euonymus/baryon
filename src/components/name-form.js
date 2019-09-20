@@ -30,13 +30,17 @@ class NameForm extends Component {
     const isInvalid = !this.isValid(name)
 	  return (
       <div>
+        <br />
+        <br />
+        <h1>Baryon Example App</h1>
+        <br />
         <p>Please enter</p>
 
         <form onSubmit={this.onSubmit}>
           <TextField
             id='outlined-name'
             name='name'
-            label='Name'
+            label='Node Name'
             value={name}
             inputProps={
             {maxLength: "255"}
