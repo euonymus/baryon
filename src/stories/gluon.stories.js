@@ -18,7 +18,7 @@ export const interaction = {
   object: {
     getLinkPath: (str) => {
       return (
-        <Link to="hoge">{str}</Link>
+        <Link to="name 1">{str}</Link>
       )
     }
   }

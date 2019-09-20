@@ -126,7 +126,7 @@ exports[`Storyshots Gluons default 1`] = `
               disabled={false}
             >
               <a
-                href="/name 2"
+                href="/name 1"
                 onClick={[Function]}
               >
                 <div
@@ -237,7 +237,7 @@ exports[`Storyshots Gluons default 1`] = `
               disabled={false}
             >
               <a
-                href="/name 2"
+                href="/name 1"
                 onClick={[Function]}
               >
                 <div
@@ -480,7 +480,7 @@ exports[`Storyshots PropertyBox default 1`] = `
             disabled={false}
           >
             <a
-              href="/name 2"
+              href="/name 1"
               onClick={[Function]}
             >
               <div
