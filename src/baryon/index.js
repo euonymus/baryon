@@ -48,7 +48,7 @@ class Baryon extends Component {
     }
   }
 
-  readGraph(name, langType) {
+  readGraph = (name, langType) => {
     let name_field = 'en_name'
     if (langType === LANGTYPE_JP_LIKE) {
       name_field = 'name'
@@ -78,7 +78,7 @@ class Baryon extends Component {
       let targetProperties = []
       if (!isNoData) {
 	      subject = new QuarkUtil(subjectRaw, langType, this.props.graphPath)
-        targetProperties = new Properties(gluons, langType, this.props.graphPath)
+        targetProperties = new Properties(gluons, langType, this.props.graphPath, this.readGraph)
       }
       this.setState({subject, targetProperties, isNoData})
     })
@@ -116,7 +116,7 @@ Baryon.propTypes = {
     user: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
   }),
-  graphPath: PropTypes.string
+  graphPath: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 }
 Baryon.defaultProps = {
   graphPath: '',

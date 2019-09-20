@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import Util from './common'
 import { LANGTYPE_ENG_LIKE, LANGTYPE_JP_LIKE } from '../constants/langtypes'
 class QuarkUtil {
-  constructor(quarkRaw, langType = LANGTYPE_ENG_LIKE, graphPath = '') {
+  constructor(quarkRaw, langType = LANGTYPE_ENG_LIKE, graphPath = '', onLinkClick = () => {}) {
     this.langType = langType
     this.graphPath = graphPath
+    this.onLinkClick = onLinkClick
 
     this.identity = quarkRaw.identity
     this.labels = quarkRaw.labels
@@ -36,6 +37,10 @@ class QuarkUtil {
     return this.getByLang('description')
   }
   getLinkPath = (str) => {
+    if (this.graphPath === false) {
+      return <button className="link-style-btn" onClick={() => { this.onLinkClick(this.name, this.langTyhpe) }}>{str}</button>
+    }
+
     if (((this.langType === LANGTYPE_JP_LIKE) && this.properties.name && (this.properties.name !== 'NULL'))
         || ((this.langType === LANGTYPE_ENG_LIKE) && this.properties.en_name && (this.properties.en_name !== 'NULL'))) {
       // return <a href={`/${this.getName()}`}>{this.getName()}</a>

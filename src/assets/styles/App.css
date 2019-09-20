@@ -25,3 +25,15 @@
     transform: rotate(360deg);
   }
 }
+
+button.link-style-btn {
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #0033cc;
+}
+button.link-style-btn:hover {
+  text-decoration: underline;
+  color: #002080;
+}
