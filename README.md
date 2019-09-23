@@ -1,5 +1,5 @@
 
-<img src="https://raw.githubusercontent.com/graphhack/baryon/materials/screen_shots/alice_perry_grew.jpg" width="600">
+<img src="https://raw.githubusercontent.com/euonymus/baryon/materials/screen_shots/alice_perry_grew.jpg" width="600">
 
 
 Baryon is a react component that allows you to inspect neo4j graph in a simple and intuitive manner.
@@ -9,12 +9,12 @@ This enables users to explore further relations from one node to another.
 
 1. Create your [neo4j sandbox](https://neo4j.com/sandbox-v2/)
 
-2. Import [sampledata.txt](https://github.com/graphhack/baryon/blob/master/sampledata.txt) data into your neo4j sandbox
+2. Import [sampledata.txt](https://github.com/euonymus/baryon/blob/master/sampledata.txt) data into your neo4j sandbox
 
 3. git clone this project
 
 ```
-$ git clone git@github.com:graphhack/baryon.git
+$ git clone git@github.com:euonymus/baryon.git
 $ cd baryon
 ```
 
