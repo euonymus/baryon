@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import PropertyBox from './property-box'
 
 const Gluons = (props) => {
-  const { targetProperties } = props
+  const { targetProperties, hasSecondLevel } = props
 
   const propertyList = targetProperties.map((propertyResource, key) => {
     return (
-      <PropertyBox key={key} propertyResource={propertyResource} />
+      <PropertyBox key={key} propertyResource={propertyResource} hasSecondLevel={hasSecondLevel} />
     )
   })
 
@@ -20,6 +20,10 @@ const Gluons = (props) => {
 
 Gluons.propTypes = {
   targetProperties: PropTypes.array.isRequired,
+  hasSecondLevel: PropTypes.bool.isRequired,
+}
+Gluons.defaultProps = {
+  hasSecondLevel: false
 }
 
 export default Gluons

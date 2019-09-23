@@ -13,7 +13,7 @@ class Home extends Component {
       <div>
         {
           this.props.match.params.name ? (
-            <Baryon quark_name={this.props.match.params.name} connection={{ uri, user, password }} graphPath={graphPath} />
+            <Baryon quark_name={this.props.match.params.name} connection={{ uri, user, password }} graphPath={graphPath} hasSecondLevel={true} />
           ) : (
             <NameForm />
           )

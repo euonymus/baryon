@@ -16,11 +16,11 @@ const useStyles = makeStyles({
 })
 
 const PropertyBox = (props) => {
-  const { propertyResource } = props
+  const { propertyResource, hasSecondLevel } = props
   const classes = useStyles()
   const gluonsList = propertyResource.gluonsRelated.map((interaction, key) => {
     return (
-      <Gluon key={key} interaction={interaction} />
+      <Gluon key={key} interaction={interaction} hasSecondLevel={hasSecondLevel} />
     )
   })
   return (
@@ -40,6 +40,10 @@ PropertyBox.propTypes = {
     property: PropTypes.string.isRequired,
     gluonsRelated: PropTypes.array.isRequired,
   }),
+  hasSecondLevel: PropTypes.bool.isRequired,
+}
+PropertyBox.defaultProps = {
+  hasSecondLevel: false
 }
 
 export default PropertyBox

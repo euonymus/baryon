@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import './assets/styles/baryon.css'
 import SecondGluons from './second-gluons'
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 })
 
 const Gluon = (props) => {
-  const { interaction } = props
+  const { interaction, hasSecondLevel } = props
   const { objectName, objectImagePath, relationText, relationPeriod, seconds } = interaction
   const classes = useStyles()
 
@@ -43,12 +43,16 @@ const Gluon = (props) => {
           {interaction.object.getLinkPath(avatar)}
           <ListItemText primary={relationText} secondary={relationPeriod} />
         </ListItem>
-        <ListItem>
-          <h3>Secondary Relationships</h3>
-        </ListItem>
-        <ListItem>
-          <SecondGluons gluons={seconds} />
-        </ListItem>
+        { (hasSecondLevel && (seconds.length !== 0)) && (
+          <Fragment>
+            <ListItem>
+              <h3>Secondary Relationships</h3>
+            </ListItem>
+            <ListItem>
+              <SecondGluons gluons={seconds} />
+            </ListItem>
+          </Fragment>
+        )}
       </Card>
     </div>
   )
@@ -60,7 +64,11 @@ Gluon.propTypes = {
     objectImagePath: PropTypes.string.isRequired,
     relationText: PropTypes.object.isRequired,
     relationPeriod: PropTypes.string.isRequired,
-  })
+  }),
+  hasSecondLevel: PropTypes.bool.isRequired,
+}
+Gluon.defaultProps = {
+  hasSecondLevel: false
 }
 
 export default Gluon

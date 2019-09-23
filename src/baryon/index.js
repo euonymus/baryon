@@ -53,10 +53,17 @@ class Baryon extends Component {
     if (langType === LANGTYPE_JP_LIKE) {
       name_field = 'name'
     }
+
+    let cypher = ''
+    if (this.props.hasSecondLevel) {
+      cypher = `MATCH (subject {${name_field}: $name})-[gluon]-(object)-[second_gluon]-(second_object) RETURN subject, gluon, object, second_gluon, second_object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`
+    } else {
+      cypher = `MATCH (subject {${name_field}: $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`
+    }
+
     const session = this.driver.session()
     const resultPromise = session.run(
-      // `MATCH (subject {${name_field}: $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`,
-      `MATCH (subject {${name_field}: $name})-[gluon]-(object)-[second_gluon]-(second_object) RETURN subject, gluon, object, second_gluon, second_object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`,
+      cypher,
       {name}
     )
     resultPromise.then(result => {
@@ -87,7 +94,7 @@ class Baryon extends Component {
 
   render () {
     const { subject, targetProperties, isNoData } = this.state
-    const { quark_name } = this.props
+    const { quark_name, hasSecondLevel } = this.props
 
     if (!subject || (targetProperties.length === 0)) {
       let message = 'Loading...'
@@ -105,7 +112,7 @@ class Baryon extends Component {
     return (
       <div className="baryon-body">
         <MainQuark subject={subject} />
-        <Gluons targetProperties={targetProperties.data} />
+        <Gluons targetProperties={targetProperties.data} hasSecondLevel={hasSecondLevel} />
       </div>
     )
   }
@@ -117,10 +124,12 @@ Baryon.propTypes = {
     user: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
   }),
-  graphPath: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+  graphPath: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  hasSecondLevel: PropTypes.bool.isRequired,
 }
 Baryon.defaultProps = {
   graphPath: '',
+  hasSecondLevel: false
 }
 
 export default Baryon
