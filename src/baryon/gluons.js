@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import PropertyBox from './property_box'
+import PropertyBox from './property-box'
 
 const Gluons = (props) => {
   const { targetProperties } = props
