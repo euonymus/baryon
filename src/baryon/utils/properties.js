@@ -79,13 +79,46 @@ class Properties {
       targetPropertyGtypes.forEach(targetPropertyGtype => {
         if (currentInteraction.gluon.type === targetPropertyGtype.gluon_type) {
           if (targetPropertyGtype.direction === 0) {
-            ret.push(currentInteraction)
+
+            let isFirstTime = true
+            ret.forEach(first => {
+              if (first.gluon.identity.toString() === currentInteraction.gluon.identity.toString()) {
+                isFirstTime = false
+                first.seconds.push(currentInteraction.seconds[0])
+              }
+            })
+            if (isFirstTime) {
+              ret.push(currentInteraction)
+            }
+
           } else if ((targetPropertyGtype.direction === 1) &&
                      (this.subject.identity.toString() === currentInteraction.gluon.start.toString()) ) {
-            ret.push(currentInteraction)
+
+            let isFirstTime = true
+            ret.forEach(first => {
+              if (first.gluon.identity.toString() === currentInteraction.gluon.identity.toString()) {
+                isFirstTime = false
+                first.seconds.push(currentInteraction.seconds[0])
+              }
+            })
+            if (isFirstTime) {
+              ret.push(currentInteraction)
+            }
+
           } else if ((targetPropertyGtype.direction === 2) &&
                      (this.subject.identity.toString() === currentInteraction.gluon.end.toString()) ) {
-            ret.push(currentInteraction)
+
+            let isFirstTime = true
+            ret.forEach(first => {
+              if (first.gluon.identity.toString() === currentInteraction.gluon.identity.toString()) {
+                isFirstTime = false
+                first.seconds.push(currentInteraction.seconds[0])
+              }
+            })
+            if (isFirstTime) {
+              ret.push(currentInteraction)
+            }
+
           }
         }
       })

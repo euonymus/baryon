@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './assets/styles/baryon.css'
+import SecondGluons from './second-gluons'
 // Material UI
 import { makeStyles } from '@material-ui/styles'
 import Card from '@material-ui/core/Card'
@@ -25,8 +26,9 @@ const useStyles = makeStyles({
 
 const Gluon = (props) => {
   const { interaction } = props
-  const { objectName, objectImagePath, relationText, relationPeriod } = interaction
+  const { objectName, objectImagePath, relationText, relationPeriod, seconds } = interaction
   const classes = useStyles()
+
   const avatar = (
     <ListItemAvatar className={classes.avatarListItem} >
       <Avatar className={classes.avatar} >
@@ -40,6 +42,12 @@ const Gluon = (props) => {
         <ListItem>
           {interaction.object.getLinkPath(avatar)}
           <ListItemText primary={relationText} secondary={relationPeriod} />
+        </ListItem>
+        <ListItem>
+          <h3>Secondary Relationships</h3>
+        </ListItem>
+        <ListItem>
+          <SecondGluons gluons={seconds} />
         </ListItem>
       </Card>
     </div>

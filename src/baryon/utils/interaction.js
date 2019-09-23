@@ -25,50 +25,76 @@ class Interaction {
     this.objectImagePath = this.object.properties.image_path
     this.relationText = this.relationTextBuilder()
     this.relationPeriod = this.gluon.period_str
+
+
+    if (interactionRaw._fieldLookup.second_gluon) {
+      const gluon2Key = interactionRaw._fieldLookup.second_gluon
+      const object2Key = interactionRaw._fieldLookup.second_object
+
+      const gluon2 = new GluonUtil(interactionRaw.get(gluon2Key), langType)
+      const object2 = new QuarkUtil(interactionRaw.get(object2Key), langType, graphPath, onLinkClick)
+
+      const second = {
+        gluon: gluon2,
+        object: object2,
+        objectName: object2.getName(),
+        objectImagePath: object2.properties.image_path,
+        relationPeriod: gluon2.period_str
+      }
+      this.seconds = [second]
+      this.seconds[0].relationText = this.relationTextBuilder(2)
+    }
   }
 
-  relationTextBuilder() {
-     let glue_sentence_before_link = ''
- 	   let glue_sentence_after_link = ' '
+  relationTextBuilder(level = 1) {
+    let glue_sentence_before_link = ''
+ 	  let glue_sentence_after_link = ' '
 
-     if (this.subject.identity.toString() === this.gluon.start.toString()) {
+    let object = this.object
+    let gluon = this.gluon
+    if (level === 2) {
+      object = this.seconds[0].object
+      gluon = this.seconds[0].gluon
+    }
 
-       glue_sentence_before_link = this.subject.getName()
- 	     if (this.langType === LANGTYPE_ENG_LIKE) {
- 		     glue_sentence_before_link += ' ' + this.gluon.getRelation()
- 	     } else {
- 		     glue_sentence_before_link += 'は'
-         glue_sentence_after_link += this.gluon.getRelation()
- 	     }
- 	     glue_sentence_before_link += ' '
-       if (this.gluon.properties.suffix) {
- 	       glue_sentence_after_link += this.gluon.properties.suffix
-       }
+    if (this.subject.identity.toString() === gluon.start.toString()) {
 
- 	   } else if (this.subject.identity.toString() === this.gluon.end.toString()) {
+      glue_sentence_before_link = this.subject.getName()
+ 	    if (this.langType === LANGTYPE_ENG_LIKE) {
+ 		    glue_sentence_before_link += ' ' + gluon.getRelation()
+ 	    } else {
+ 		    glue_sentence_before_link += 'は'
+        glue_sentence_after_link += gluon.getRelation()
+ 	    }
+ 	    glue_sentence_before_link += ' '
+      if (gluon.properties.suffix) {
+ 	      glue_sentence_after_link += gluon.properties.suffix
+      }
 
-       glue_sentence_before_link = ''
- 	     if (this.langType === LANGTYPE_ENG_LIKE) {
-         glue_sentence_after_link += this.gluon.getRelation() + ' ' + this.subject.getName() + ' '
-  	   } else {
-  		   glue_sentence_after_link += 'は' + this.subject.getName() + this.gluon.getRelation()
-  	   }
-  	   glue_sentence_before_link += ' '
-       if (this.gluon.properties.suffix) {
-  	     glue_sentence_after_link += this.gluon.properties.suffix
-       }
+ 	  } else if (this.subject.identity.toString() === gluon.end.toString()) {
 
- 	   } else {
- 	     return ''
-     }
+      glue_sentence_before_link = ''
+ 	    if (this.langType === LANGTYPE_ENG_LIKE) {
+        glue_sentence_after_link += gluon.getRelation() + ' ' + this.subject.getName() + ' '
+  	  } else {
+  		  glue_sentence_after_link += 'は' + this.subject.getName() + gluon.getRelation()
+  	  }
+  	  glue_sentence_before_link += ' '
+      if (gluon.properties.suffix) {
+  	    glue_sentence_after_link += gluon.properties.suffix
+      }
 
-     return (
-       <p className="baryon-strong-interaction">
-         {glue_sentence_before_link}
-         {this.object.getLinkPath(this.object.name)}
-         {glue_sentence_after_link}
-       </p>
- 	   )
-   }
+ 	  } else {
+ 	    return ''
+    }
+
+    return (
+      <p className="baryon-strong-interaction">
+        {glue_sentence_before_link}
+        {object.getLinkPath(object.name)}
+        {glue_sentence_after_link}
+      </p>
+ 	  )
+  }
 }
 export default Interaction
