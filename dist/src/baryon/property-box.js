@@ -31,12 +31,14 @@ var useStyles = (0, _styles.makeStyles)({
 });
 
 var PropertyBox = function PropertyBox(props) {
-  var propertyResource = props.propertyResource;
+  var propertyResource = props.propertyResource,
+      hasSecondLevel = props.hasSecondLevel;
   var classes = useStyles();
   var gluonsList = propertyResource.gluonsRelated.map(function (interaction, key) {
     return _react.default.createElement(_gluon.default, {
       key: key,
-      interaction: interaction
+      interaction: interaction,
+      hasSecondLevel: hasSecondLevel
     });
   });
   return _react.default.createElement("div", null, _react.default.createElement("h2", null, propertyResource.property), _react.default.createElement(_Card.default, {
@@ -50,9 +52,13 @@ PropertyBox.propTypes = {
   propertyResource: _propTypes.default.shape({
     property: _propTypes.default.string.isRequired,
     gluonsRelated: _propTypes.default.array.isRequired
-  })
+  }),
+  hasSecondLevel: _propTypes.default.bool.isRequired
+};
+PropertyBox.defaultProps = {
+  hasSecondLevel: false
 };
 var _default = PropertyBox;
 exports.default = _default;
 
-//# sourceMappingURL=property_box.js.map
+//# sourceMappingURL=property-box.js.map

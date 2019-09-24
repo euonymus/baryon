@@ -71,7 +71,8 @@ function (_Component) {
       // NOTE: Default has to be false, so user will see Loading..., when loading.
       quark_name: null,
       subject: null,
-      targetProperties: []
+      targetProperties: [],
+      hasSecondLevel: false
     });
 
     _defineProperty(_assertThisInitialized(_this), "readGraph", function (name, langType) {
@@ -81,9 +82,19 @@ function (_Component) {
         name_field = 'name';
       }
 
+      var hasSecondLevel = _this.props.hasSecondLevel;
+      var cypher = '';
+
+      if (hasSecondLevel) {
+        // cypher = `MATCH (subject {${name_field}: $name})-[gluon]-(object)-[second_gluon]-(second_object) RETURN subject, gluon, object, second_gluon, second_object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`
+        cypher = "MATCH (subject {".concat(name_field, ": $name})-[gluon*1..2]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon[0].start WHEN null THEN {} ELSE gluon[0].start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC");
+      } else {
+        cypher = "MATCH (subject {".concat(name_field, ": $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC");
+      }
+
       var session = _this.driver.session();
 
-      var resultPromise = session.run("MATCH (subject {".concat(name_field, ": $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC"), {
+      var resultPromise = session.run(cypher, {
         name: name
       });
       resultPromise.then(function (result) {
@@ -111,7 +122,8 @@ function (_Component) {
         _this.setState({
           subject: subject,
           targetProperties: targetProperties,
-          isNoData: isNoData
+          isNoData: isNoData,
+          hasSecondLevel: hasSecondLevel
         });
       });
     });
@@ -152,7 +164,7 @@ function (_Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
-      if (prevProps.quark_name !== this.props.quark_name) {
+      if (prevProps.quark_name !== this.props.quark_name || prevProps.hasSecondLevel !== this.props.hasSecondLevel) {
         this.readGraph(this.props.quark_name, this.state.langType);
       }
     }
@@ -162,7 +174,8 @@ function (_Component) {
       var _this$state = this.state,
           subject = _this$state.subject,
           targetProperties = _this$state.targetProperties,
-          isNoData = _this$state.isNoData;
+          isNoData = _this$state.isNoData,
+          hasSecondLevel = _this$state.hasSecondLevel;
       var quark_name = this.props.quark_name;
 
       if (!subject || targetProperties.length === 0) {
@@ -180,7 +193,8 @@ function (_Component) {
       }, _react.default.createElement(_mainQuark.default, {
         subject: subject
       }), _react.default.createElement(_gluons.default, {
-        targetProperties: targetProperties.data
+        targetProperties: targetProperties.data,
+        hasSecondLevel: hasSecondLevel
       }));
     }
   }]);
@@ -195,10 +209,12 @@ Baryon.propTypes = {
     user: _propTypes.default.string.isRequired,
     password: _propTypes.default.string.isRequired
   }),
-  graphPath: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.bool])
+  graphPath: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.bool]),
+  hasSecondLevel: _propTypes.default.bool.isRequired
 };
 Baryon.defaultProps = {
-  graphPath: ''
+  graphPath: '',
+  hasSecondLevel: false
 };
 var _default = Baryon;
 exports.default = _default;

@@ -17,6 +17,8 @@ var _langtypes = require("../constants/langtypes");
 
 var _interaction = _interopRequireDefault(require("./interaction"));
 
+var _quark = _interopRequireDefault(require("./quark"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -40,7 +42,12 @@ function () {
     this.langType = langType;
     this.graphPath = graphPath;
     this.onLinkClick = onLinkClick;
-    this.subject = new _interaction.default(gluons[0], langType, graphPath, onLinkClick).subject;
+    this.allNodes = {};
+    gluons.forEach(function (gluon) {
+      var identity = gluon.toObject().object.identity.toString();
+      _this.allNodes[identity] = new _quark.default(gluon.toObject().object, langType, graphPath, onLinkClick);
+    });
+    this.subject = new _interaction.default(gluons[0], this.allNodes, langType, graphPath, onLinkClick).subject;
     var targetProperties = _qtype_properties.qtype_properties[this.subject.labels[0]];
     var data = [];
 
@@ -72,7 +79,7 @@ function () {
     }
 
     gluons.forEach(function (interactionRaw) {
-      var currentInteraction = new _interaction.default(interactionRaw, langType, graphPath, onLinkClick);
+      var currentInteraction = new _interaction.default(interactionRaw, _this.allNodes, langType, graphPath, onLinkClick);
       var notInArray = true;
       data.forEach(function (listedProperty) {
         if (listedProperty.gluonsRelated.length === 0) {
@@ -114,7 +121,7 @@ function () {
 
       var ret = [];
       gluons.forEach(function (interactionRaw) {
-        var currentInteraction = new _interaction.default(interactionRaw, _this2.langType, _this2.graphPath, _this2.onLinkClick);
+        var currentInteraction = new _interaction.default(interactionRaw, _this2.allNodes, _this2.langType, _this2.graphPath, _this2.onLinkClick);
 
         if (currentInteraction.gluon.type === 'HAS_RELATION_TO') {
           return true; // as to continue
@@ -123,11 +130,50 @@ function () {
         targetPropertyGtypes.forEach(function (targetPropertyGtype) {
           if (currentInteraction.gluon.type === targetPropertyGtype.gluon_type) {
             if (targetPropertyGtype.direction === 0) {
-              ret.push(currentInteraction);
+              var isFirstTime = true;
+              ret.forEach(function (first) {
+                if (first.gluon.identity.toString() === currentInteraction.gluon.identity.toString()) {
+                  isFirstTime = false;
+
+                  if (currentInteraction.seconds.length !== 0) {
+                    first.seconds.push(currentInteraction.seconds[0]);
+                  }
+                }
+              });
+
+              if (isFirstTime) {
+                ret.push(currentInteraction);
+              }
             } else if (targetPropertyGtype.direction === 1 && _this2.subject.identity.toString() === currentInteraction.gluon.start.toString()) {
-              ret.push(currentInteraction);
+              var _isFirstTime = true;
+              ret.forEach(function (first) {
+                if (first.gluon.identity.toString() === currentInteraction.gluon.identity.toString()) {
+                  _isFirstTime = false;
+
+                  if (currentInteraction.seconds.length !== 0) {
+                    first.seconds.push(currentInteraction.seconds[0]);
+                  }
+                }
+              });
+
+              if (_isFirstTime) {
+                ret.push(currentInteraction);
+              }
             } else if (targetPropertyGtype.direction === 2 && _this2.subject.identity.toString() === currentInteraction.gluon.end.toString()) {
-              ret.push(currentInteraction);
+              var _isFirstTime2 = true;
+              ret.forEach(function (first) {
+                if (first.gluon.identity.toString() === currentInteraction.gluon.identity.toString()) {
+                  _isFirstTime2 = false;
+
+                  if (currentInteraction.seconds.length !== 0) {
+                    first.seconds.push(currentInteraction.seconds[0]);
+                  }
+                }
+              });
+
+              if (_isFirstTime2) {
+                ret.push(currentInteraction);
+              }
             }
           }
         });

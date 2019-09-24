@@ -26,24 +26,79 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var Interaction =
 /*#__PURE__*/
 function () {
-  function Interaction(interactionRaw) {
-    var langType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    var graphPath = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
-    var onLinkClick = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
+  function Interaction(interactionRaw, allNodes) {
+    var _this = this;
+
+    var langType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+    var graphPath = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+    var onLinkClick = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : function () {};
 
     _classCallCheck(this, Interaction);
 
     _defineProperty(this, "langType", _langtypes.LANGTYPE_ENG_LIKE);
 
-    this.gluonKey = interactionRaw._fieldLookup.gluon;
-    this.gluon = new _gluon.default(interactionRaw.get(this.gluonKey), langType);
-    this.subjectKey = interactionRaw._fieldLookup.subject;
-    this.subject = new _quark.default(interactionRaw.get(this.subjectKey), langType, graphPath, onLinkClick);
-    this.objectKey = interactionRaw._fieldLookup.object;
-    this.object = new _quark.default(interactionRaw.get(this.objectKey), langType, graphPath, onLinkClick);
+    _defineProperty(this, "isArray", function (obj) {
+      return Object.prototype.toString.call(obj) === '[object Array]';
+    });
+
+    var interactionObject = interactionRaw.toObject();
 
     if (langType) {
       this.langType = langType;
+    }
+
+    this.subject = new _quark.default(interactionObject.subject, langType, graphPath, onLinkClick);
+    this.object = new _quark.default(interactionObject.object, langType, graphPath, onLinkClick);
+    var gluonRaw = interactionObject.gluon;
+
+    if (this.isArray(gluonRaw)) {
+      var interactionList = gluonRaw.map(function (interaction) {
+        var gluon = new _gluon.default(interaction, langType);
+        var subject = null;
+        var object = null;
+
+        if (_this.subject.identity.toString() === gluon.start.toString()) {
+          subject = _this.subject;
+          object = allNodes[gluon.end.toString()];
+        } else if (_this.object.identity.toString() === gluon.start.toString()) {
+          subject = allNodes[gluon.end.toString()];
+          object = _this.object;
+        } else if (_this.subject.identity.toString() === gluon.end.toString()) {
+          subject = _this.subject;
+          object = allNodes[gluon.start.toString()];
+        } else if (_this.object.identity.toString() === gluon.end.toString()) {
+          subject = allNodes[gluon.start.toString()];
+          object = _this.object;
+        }
+
+        return {
+          gluon: gluon,
+          subject: subject,
+          object: object
+        };
+      });
+      this.gluon = interactionList[0].gluon;
+      this.object = interactionList[0].object;
+
+      if (interactionList.length >= 2) {
+        var gluon2 = interactionList[1].gluon;
+        var object2 = interactionList[1].object;
+        var second = {
+          gluon: gluon2,
+          object: object2,
+          objectName: object2.getName(),
+          objectImagePath: object2.properties.image_path,
+          relationPeriod: gluon2.period_str
+        };
+        this.seconds = [second];
+        this.seconds[0].relationText = this.relationTextBuilder(2);
+      } else {
+        this.seconds = [];
+      }
+    } else {
+      var gluon = gluonRaw;
+      this.gluon = new _gluon.default(gluon, langType);
+      this.object = new _quark.default(interactionObject.object, langType, graphPath, onLinkClick);
     } // These are needed in gluon component
 
 
@@ -56,37 +111,45 @@ function () {
   _createClass(Interaction, [{
     key: "relationTextBuilder",
     value: function relationTextBuilder() {
+      var level = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       var glue_sentence_before_link = '';
       var glue_sentence_after_link = ' ';
+      var object = this.object;
+      var gluon = this.gluon;
 
-      if (this.subject.identity.toString() === this.gluon.start.toString()) {
+      if (level === 2) {
+        object = this.seconds[0].object;
+        gluon = this.seconds[0].gluon;
+      }
+
+      if (this.subject.identity.toString() === gluon.start.toString()) {
         glue_sentence_before_link = this.subject.getName();
 
         if (this.langType === _langtypes.LANGTYPE_ENG_LIKE) {
-          glue_sentence_before_link += ' ' + this.gluon.getRelation();
+          glue_sentence_before_link += ' ' + gluon.getRelation();
         } else {
           glue_sentence_before_link += 'は';
-          glue_sentence_after_link += this.gluon.getRelation();
+          glue_sentence_after_link += gluon.getRelation();
         }
 
         glue_sentence_before_link += ' ';
 
-        if (this.gluon.properties.suffix) {
-          glue_sentence_after_link += this.gluon.properties.suffix;
+        if (gluon.properties.suffix) {
+          glue_sentence_after_link += gluon.properties.suffix;
         }
-      } else if (this.subject.identity.toString() === this.gluon.end.toString()) {
+      } else if (this.subject.identity.toString() === gluon.end.toString()) {
         glue_sentence_before_link = '';
 
         if (this.langType === _langtypes.LANGTYPE_ENG_LIKE) {
-          glue_sentence_after_link += this.gluon.getRelation() + ' ' + this.subject.getName() + ' ';
+          glue_sentence_after_link += gluon.getRelation() + ' ' + this.subject.getName() + ' ';
         } else {
-          glue_sentence_after_link += 'は' + this.subject.getName() + this.gluon.getRelation();
+          glue_sentence_after_link += 'は' + this.subject.getName() + gluon.getRelation();
         }
 
         glue_sentence_before_link += ' ';
 
-        if (this.gluon.properties.suffix) {
-          glue_sentence_after_link += this.gluon.properties.suffix;
+        if (gluon.properties.suffix) {
+          glue_sentence_after_link += gluon.properties.suffix;
         }
       } else {
         return '';
@@ -94,7 +157,7 @@ function () {
 
       return _react.default.createElement("p", {
         className: "baryon-strong-interaction"
-      }, glue_sentence_before_link, this.object.getLinkPath(this.object.name), glue_sentence_after_link);
+      }, glue_sentence_before_link, object.getLinkPath(object.name), glue_sentence_after_link);
     }
   }]);
 
