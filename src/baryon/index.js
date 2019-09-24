@@ -58,7 +58,8 @@ class Baryon extends Component {
     const { hasSecondLevel } = this.props
     let cypher = ''
     if (hasSecondLevel) {
-      cypher = `MATCH (subject {${name_field}: $name})-[gluon]-(object)-[second_gluon]-(second_object) RETURN subject, gluon, object, second_gluon, second_object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`
+      // cypher = `MATCH (subject {${name_field}: $name})-[gluon]-(object)-[second_gluon]-(second_object) RETURN subject, gluon, object, second_gluon, second_object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`
+      cypher = `MATCH (subject {${name_field}: $name})-[gluon*1..2]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon[0].start WHEN null THEN {} ELSE gluon[0].start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`
     } else {
       cypher = `MATCH (subject {${name_field}: $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`
     }
