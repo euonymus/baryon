@@ -21,6 +21,8 @@ var _langSubdomain = require("./constants/lang-subdomain");
 
 var _langtypes = require("./constants/langtypes");
 
+var _loader = _interopRequireDefault(require("./assets/images/loader.gif"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
@@ -72,7 +74,8 @@ function (_Component) {
       quark_name: null,
       subject: null,
       targetProperties: [],
-      hasSecondLevel: false
+      hasSecondLevel: false,
+      isCypherProcessing: false
     });
 
     _defineProperty(_assertThisInitialized(_this), "readGraph", function (name, langType) {
@@ -123,8 +126,13 @@ function (_Component) {
           subject: subject,
           targetProperties: targetProperties,
           isNoData: isNoData,
-          hasSecondLevel: hasSecondLevel
+          hasSecondLevel: hasSecondLevel,
+          isCypherProcessing: false
         });
+      });
+
+      _this.setState({
+        isCypherProcessing: true
       });
     });
 
@@ -175,17 +183,25 @@ function (_Component) {
           subject = _this$state.subject,
           targetProperties = _this$state.targetProperties,
           isNoData = _this$state.isNoData,
-          hasSecondLevel = _this$state.hasSecondLevel;
+          hasSecondLevel = _this$state.hasSecondLevel,
+          isCypherProcessing = _this$state.isCypherProcessing;
       var quark_name = this.props.quark_name;
 
-      if (!subject || targetProperties.length === 0) {
-        var message = 'Loading...';
+      if (isNoData) {
+        return _react.default.createElement("div", null, _react.default.createElement("h1", null, quark_name), _react.default.createElement("p", null, "Not Found"));
+      }
 
-        if (isNoData) {
-          message = 'Not Found';
-        }
-
-        return _react.default.createElement("div", null, _react.default.createElement("h1", null, quark_name), _react.default.createElement("p", null, message));
+      if (isCypherProcessing || !subject || targetProperties.length === 0) {
+        return _react.default.createElement("div", {
+          id: "loader-bg"
+        }, _react.default.createElement("div", {
+          id: "loader"
+        }, _react.default.createElement("img", {
+          src: _loader.default,
+          width: "80",
+          height: "80",
+          alt: "Now Loading..."
+        }), _react.default.createElement("p", null, "Now Loading...")));
       }
 
       return _react.default.createElement("div", {
