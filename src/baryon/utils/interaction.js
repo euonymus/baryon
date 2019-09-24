@@ -6,25 +6,62 @@ import { LANGTYPE_ENG_LIKE } from '../constants/langtypes'
 class Interaction {
   langType = LANGTYPE_ENG_LIKE
 
-  constructor(interactionRaw, langType = null, graphPath = '', onLinkClick = () => {}) {
-    this.gluonKey = interactionRaw._fieldLookup.gluon
-
-    const gluonRaw = interactionRaw.get(this.gluonKey)
-    let gluon = gluonRaw
-    if (this.isArray(gluonRaw)) {
-      gluon = gluonRaw.shift()
-    }
-
-    this.gluon = new GluonUtil(gluon, langType)
-
-    this.subjectKey = interactionRaw._fieldLookup.subject
-    this.subject = new QuarkUtil(interactionRaw.get(this.subjectKey), langType, graphPath, onLinkClick)
-
-    this.objectKey = interactionRaw._fieldLookup.object
-    this.object = new QuarkUtil(interactionRaw.get(this.objectKey), langType, graphPath, onLinkClick)
+  constructor(interactionRaw, allNodes, langType = null, graphPath = '', onLinkClick = () => {}) {
+    const interactionObject = interactionRaw.toObject()
 
     if (langType) {
       this.langType = langType
+    }
+    this.subject = new QuarkUtil(interactionObject.subject, langType, graphPath, onLinkClick)
+    this.object = new QuarkUtil(interactionObject.object, langType, graphPath, onLinkClick)
+
+    const gluonRaw = interactionObject.gluon
+    if (this.isArray(gluonRaw)) {
+      const interactionList = gluonRaw.map(interaction => {
+        const gluon = new GluonUtil(interaction, langType)
+        let subject = null
+        let object = null
+
+        if (this.subject.identity.toString() === gluon.start.toString()) {
+          subject = this.subject
+          object = allNodes[gluon.end.toString()]
+        } else if (this.object.identity.toString() === gluon.start.toString()) {
+          subject = allNodes[gluon.end.toString()]
+          object = this.object
+        } else if (this.subject.identity.toString() === gluon.end.toString()) {
+          subject = this.subject
+          object = allNodes[gluon.start.toString()]
+        } else if (this.object.identity.toString() === gluon.end.toString()) {
+          subject = allNodes[gluon.start.toString()]
+          object = this.object
+        }
+        return { gluon, subject, object }
+      })
+
+      this.gluon = interactionList[0].gluon
+      this.object = interactionList[0].object
+
+      if (interactionList.length >= 2) {
+        const gluon2 = interactionList[1].gluon
+        const object2 = interactionList[1].object
+
+        const second = {
+          gluon: gluon2,
+          object: object2,
+          objectName: object2.getName(),
+          objectImagePath: object2.properties.image_path,
+          relationPeriod: gluon2.period_str
+        }
+        this.seconds = [second]
+        this.seconds[0].relationText = this.relationTextBuilder(2)
+      } else {
+        this.seconds = []
+      }
+    } else {
+      const gluon = gluonRaw
+
+      this.gluon = new GluonUtil(gluon, langType)
+      this.object = new QuarkUtil(interactionObject.object, langType, graphPath, onLinkClick)
     }
 
     // These are needed in gluon component
@@ -32,27 +69,6 @@ class Interaction {
     this.objectImagePath = this.object.properties.image_path
     this.relationText = this.relationTextBuilder()
     this.relationPeriod = this.gluon.period_str
-
-
-    if (this.isArray(gluonRaw) && (gluonRaw.length !== 0)) {
-      const gluon2Raw = gluonRaw.shift()
-      // console.log(11)
-      //     console.log(this.object)
-      // console.log(gluon2Raw)
-
-      const gluon2 = new GluonUtil(interactionRaw.get(gluon2Key), langType)
-      const object2 = new QuarkUtil(interactionRaw.get(object2Key), langType, graphPath, onLinkClick)
-
-      const second = {
-        gluon: gluon2,
-        object: object2,
-        objectName: object2.getName(),
-        objectImagePath: object2.properties.image_path,
-        relationPeriod: gluon2.period_str
-      }
-      this.seconds = [second]
-      this.seconds[0].relationText = this.relationTextBuilder(2)
-    }
   }
 
   isArray = (obj) => {

@@ -17,10 +17,8 @@ class Properties {
       const identity = gluon.toObject().object.identity.toString()
       this.allNodes[identity] = new QuarkUtil(gluon.toObject().object, langType, graphPath, onLinkClick)
     })
-    console.log(this.allNodes)
 
-
-    this.subject = new Interaction(gluons[0], langType, graphPath, onLinkClick).subject
+    this.subject = new Interaction(gluons[0], this.allNodes, langType, graphPath, onLinkClick).subject
     const targetProperties = qtype_properties[this.subject.labels[0]]
 
     const data = []
@@ -45,7 +43,7 @@ class Properties {
       property = 'その他'
     }
     gluons.forEach(interactionRaw => {
-      const currentInteraction = new Interaction(interactionRaw, langType, graphPath, onLinkClick)
+      const currentInteraction = new Interaction(interactionRaw, this.allNodes, langType, graphPath, onLinkClick)
       let notInArray = true
       data.forEach(listedProperty => {
         if (listedProperty.gluonsRelated.length === 0) {
@@ -80,7 +78,7 @@ class Properties {
     }
     const ret = []
     gluons.forEach(interactionRaw => {
-      const currentInteraction = new Interaction(interactionRaw, this.langType, this.graphPath, this.onLinkClick)
+      const currentInteraction = new Interaction(interactionRaw, this.allNodes, this.langType, this.graphPath, this.onLinkClick)
       if (currentInteraction.gluon.type === 'HAS_RELATION_TO') {
         return true // as to continue
       }
@@ -92,7 +90,9 @@ class Properties {
             ret.forEach(first => {
               if (first.gluon.identity.toString() === currentInteraction.gluon.identity.toString()) {
                 isFirstTime = false
-                first.seconds.push(currentInteraction.seconds[0])
+                if (currentInteraction.seconds.length !== 0) {
+                  first.seconds.push(currentInteraction.seconds[0])
+                }
               }
             })
             if (isFirstTime) {
@@ -106,7 +106,9 @@ class Properties {
             ret.forEach(first => {
               if (first.gluon.identity.toString() === currentInteraction.gluon.identity.toString()) {
                 isFirstTime = false
-                first.seconds.push(currentInteraction.seconds[0])
+                if (currentInteraction.seconds.length !== 0) {
+                  first.seconds.push(currentInteraction.seconds[0])
+                }
               }
             })
             if (isFirstTime) {
@@ -120,13 +122,14 @@ class Properties {
             ret.forEach(first => {
               if (first.gluon.identity.toString() === currentInteraction.gluon.identity.toString()) {
                 isFirstTime = false
-                first.seconds.push(currentInteraction.seconds[0])
+                if (currentInteraction.seconds.length !== 0) {
+                  first.seconds.push(currentInteraction.seconds[0])
+                }
               }
             })
             if (isFirstTime) {
               ret.push(currentInteraction)
             }
-
           }
         }
       })
