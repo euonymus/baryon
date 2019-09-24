@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch } from 'react-router-dom'
 import { storiesOf } from '@storybook/react'
 
-import PropertyBox from '../baryon/property_box'
+import PropertyBox from '../baryon/property-box'
 import { interaction } from './gluon.stories'
 
 export const propertyResource = {

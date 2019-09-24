@@ -3,7 +3,7 @@ import { BrowserRouter, Switch } from 'react-router-dom'
 import { storiesOf } from '@storybook/react'
 
 import Gluons from '../baryon/gluons'
-import { propertyResource } from './property_box.stories'
+import { propertyResource } from './property-box.stories'
 
 export const propertyResources = [
   propertyResource,
