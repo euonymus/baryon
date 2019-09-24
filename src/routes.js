@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 // components
 import ScrollToTop   from './components/scroll_to_top';
 // pages
-import Home from './pages/home';
+import HomeContainer from './pages/home-container';
 
 class AppRoutes extends Component {
   render () {
@@ -11,8 +11,8 @@ class AppRoutes extends Component {
       <BrowserRouter>
         <ScrollToTop />
         <Switch>
-          <Route path='/:name' exact component={Home}/>
-          <Route path='/' exact component={Home}/>
+          <Route path='/:name' exact component={HomeContainer}/>
+          <Route path='/' exact component={HomeContainer}/>
         </Switch>
       </BrowserRouter>
 	  )

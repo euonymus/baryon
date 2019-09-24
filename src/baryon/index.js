@@ -16,7 +16,8 @@ class Baryon extends Component {
     isNoData: false,  // NOTE: Default has to be false, so user will see Loading..., when loading.
     quark_name: null,
     subject: null,
-    targetProperties: []
+    targetProperties: [],
+    hasSecondLevel: false
   }
 
   componentDidMount() {
@@ -54,8 +55,9 @@ class Baryon extends Component {
       name_field = 'name'
     }
 
+    const { hasSecondLevel } = this.props
     let cypher = ''
-    if (this.props.hasSecondLevel) {
+    if (hasSecondLevel) {
       cypher = `MATCH (subject {${name_field}: $name})-[gluon]-(object)-[second_gluon]-(second_object) RETURN subject, gluon, object, second_gluon, second_object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`
     } else {
       cypher = `MATCH (subject {${name_field}: $name})-[gluon]-(object) RETURN subject, gluon, object ORDER BY (CASE gluon.start WHEN null THEN {} ELSE gluon.start END) DESC, (CASE object.start WHEN null THEN {} ELSE object.start END) DESC`
@@ -88,13 +90,13 @@ class Baryon extends Component {
 	      subject = new QuarkUtil(subjectRaw, langType, this.props.graphPath)
         targetProperties = new Properties(gluons, langType, this.props.graphPath, this.readGraph)
       }
-      this.setState({subject, targetProperties, isNoData})
+      this.setState({subject, targetProperties, isNoData, hasSecondLevel})
     })
   }
 
   render () {
-    const { subject, targetProperties, isNoData } = this.state
-    const { quark_name, hasSecondLevel } = this.props
+    const { subject, targetProperties, isNoData, hasSecondLevel } = this.state
+    const { quark_name } = this.props
 
     if (!subject || (targetProperties.length === 0)) {
       let message = 'Loading...'
