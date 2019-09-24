@@ -35,10 +35,10 @@ function Home(props) {
     <div>
       <div>
         <Button variant="contained" color={firstColor} className={classes.button} onClick={() => onButtonClick(false)}>
-          First level
+          No Second level
         </Button>
         <Button variant="contained" color={secondColor} className={classes.button} onClick={() => onButtonClick(true)}>
-          Second level
+          With Second level
         </Button>
       </div>
 

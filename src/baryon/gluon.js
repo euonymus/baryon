@@ -18,10 +18,13 @@ const useStyles = makeStyles({
   avatarListItem: {
     width: 150,
   },
-  avatar: {
-    width: 130,
-    height: 130,
-  },
+  // NOTE: This used to work, but suddenly stopped working.
+  //       The reason is that makeStyles style is imported before MuiAvatar is impoted.
+  //       It's hard to change the order because this is treated by transpiler, so I decided to put style inline.
+  // avatar: {
+  //   width: 130,
+  //   height: 130,
+  // },
 })
 
 const Gluon = (props) => {
@@ -31,7 +34,7 @@ const Gluon = (props) => {
 
   const avatar = (
     <ListItemAvatar className={classes.avatarListItem} >
-      <Avatar className={classes.avatar} >
+      <Avatar className={classes.avatar} style={{width: 130, height: 130}}>
         <img className="baryon-gluon-image" src={objectImagePath} alt={objectName} />
       </Avatar>
     </ListItemAvatar>
