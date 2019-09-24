@@ -10,6 +10,8 @@ import Properties from './utils/properties'
 import { LANG_SUBDOMAIN_JP_LIKE } from './constants/lang-subdomain'
 import { LANGTYPE_ENG_LIKE, LANGTYPE_JP_LIKE } from './constants/langtypes'
 
+import loader from './assets/images/loader.gif'
+
 class Baryon extends Component {
   state = {
     langType: LANGTYPE_ENG_LIKE,
@@ -17,7 +19,8 @@ class Baryon extends Component {
     quark_name: null,
     subject: null,
     targetProperties: [],
-    hasSecondLevel: false
+    hasSecondLevel: false,
+    isCypherProcessing: false
   }
 
   componentDidMount() {
@@ -91,25 +94,33 @@ class Baryon extends Component {
 	      subject = new QuarkUtil(subjectRaw, langType, this.props.graphPath)
         targetProperties = new Properties(gluons, langType, this.props.graphPath, this.readGraph)
       }
-      this.setState({subject, targetProperties, isNoData, hasSecondLevel})
+      this.setState({subject, targetProperties, isNoData, hasSecondLevel, isCypherProcessing: false})
     })
+    this.setState({isCypherProcessing: true})
   }
 
   render () {
-    const { subject, targetProperties, isNoData, hasSecondLevel } = this.state
+    const { subject, targetProperties, isNoData, hasSecondLevel, isCypherProcessing } = this.state
     const { quark_name } = this.props
 
-    if (!subject || (targetProperties.length === 0)) {
-      let message = 'Loading...'
-      if (isNoData) {
-        message = 'Not Found'
-      }
+    if (isNoData) {
 	    return (
         <div>
           <h1>{quark_name}</h1>
-          <p>{message}</p>
+          <p>Not Found</p>
         </div>
 	    )
+    }
+
+    if (isCypherProcessing || !subject || (targetProperties.length === 0)) {
+      return (
+        <div id="loader-bg">
+          <div id="loader">
+            <img src={loader} width="80" height="80" alt="Now Loading..." />
+            <p>Now Loading...</p>
+          </div>
+        </div>
+      )
     }
 
     return (
@@ -120,6 +131,7 @@ class Baryon extends Component {
     )
   }
 }
+
 Baryon.propTypes = {
   quark_name: PropTypes.string.isRequired,
   connection: PropTypes.shape({
