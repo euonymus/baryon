@@ -44,7 +44,7 @@ class Baryon extends Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    if (prevProps.quark_name !== this.props.quark_name) {
+    if ((prevProps.quark_name !== this.props.quark_name) || (prevProps.hasSecondLevel !== this.props.hasSecondLevel)) {
       this.readGraph(this.props.quark_name, this.state.langType)
     }
   }
