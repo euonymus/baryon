@@ -5,14 +5,22 @@ import { qtype_properties } from '../constants/qtype_properties'
 import { property_gtypes } from '../constants/property_gtypes'
 import { LANGTYPE_ENG_LIKE, LANGTYPE_JP_LIKE } from '../constants/langtypes'
 import Interaction from './interaction'
+import QuarkUtil from './quark'
 
 class Properties {
   constructor(gluons, langType = LANGTYPE_ENG_LIKE, graphPath = '', onLinkClick = () => {}) {
     this.langType = langType
     this.graphPath = graphPath
     this.onLinkClick = onLinkClick
-    this.subject = new Interaction(gluons[0], langType, graphPath, onLinkClick).subject
+    this.allNodes = {}
+    gluons.forEach(gluon => {
+      const identity = gluon.toObject().object.identity.toString()
+      this.allNodes[identity] = new QuarkUtil(gluon.toObject().object, langType, graphPath, onLinkClick)
+    })
+    console.log(this.allNodes)
 
+
+    this.subject = new Interaction(gluons[0], langType, graphPath, onLinkClick).subject
     const targetProperties = qtype_properties[this.subject.labels[0]]
 
     const data = []

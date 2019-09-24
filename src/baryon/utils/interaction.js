@@ -8,7 +8,14 @@ class Interaction {
 
   constructor(interactionRaw, langType = null, graphPath = '', onLinkClick = () => {}) {
     this.gluonKey = interactionRaw._fieldLookup.gluon
-    this.gluon = new GluonUtil(interactionRaw.get(this.gluonKey), langType)
+
+    const gluonRaw = interactionRaw.get(this.gluonKey)
+    let gluon = gluonRaw
+    if (this.isArray(gluonRaw)) {
+      gluon = gluonRaw.shift()
+    }
+
+    this.gluon = new GluonUtil(gluon, langType)
 
     this.subjectKey = interactionRaw._fieldLookup.subject
     this.subject = new QuarkUtil(interactionRaw.get(this.subjectKey), langType, graphPath, onLinkClick)
@@ -27,9 +34,11 @@ class Interaction {
     this.relationPeriod = this.gluon.period_str
 
 
-    if (interactionRaw._fieldLookup.second_gluon) {
-      const gluon2Key = interactionRaw._fieldLookup.second_gluon
-      const object2Key = interactionRaw._fieldLookup.second_object
+    if (this.isArray(gluonRaw) && (gluonRaw.length !== 0)) {
+      const gluon2Raw = gluonRaw.shift()
+      // console.log(11)
+      //     console.log(this.object)
+      // console.log(gluon2Raw)
 
       const gluon2 = new GluonUtil(interactionRaw.get(gluon2Key), langType)
       const object2 = new QuarkUtil(interactionRaw.get(object2Key), langType, graphPath, onLinkClick)
@@ -44,6 +53,10 @@ class Interaction {
       this.seconds = [second]
       this.seconds[0].relationText = this.relationTextBuilder(2)
     }
+  }
+
+  isArray = (obj) => {
+    return Object.prototype.toString.call(obj) === '[object Array]';
   }
 
   relationTextBuilder(level = 1) {

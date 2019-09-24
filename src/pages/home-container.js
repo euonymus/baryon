@@ -4,7 +4,7 @@ import Home from '../components/home'
 
 class HomeContainer extends Component {
   state = {
-    hasSecondLevel: false
+    hasSecondLevel: true
   }
 
   onButtonClick = (hasSecondLevel) => {
