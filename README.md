@@ -1,27 +1,27 @@
 
 <img src="https://raw.githubusercontent.com/euonymus/baryon/materials/screen_shots/alice_perry_grew.jpg" width="600">
 
-
-Baryon is a react component that allows you to inspect neo4j graph in a simple and intuitive manner.
+Baryon is a react component that allows you to inspect neo4j graph simply and intuitively.
 This enables users to explore further relations from one node to another.
+
+-> [Link to Youtube Video](https://youtu.be/1yNPHG9HTWs)
+
 
 ## Features
 
-* Baryon provide you a simple ui to inspect neo4j graph data
+* Baryon provides you a simple ui to inspect neo4j graph data
 * Subject node appears in the main area
-* Relationships appear in the list
-* Each relationships are written in sentences powered by RDF triple
-* Each nodes and relationships can have start-date and end-date
+* Relationships appear in a list
+* Each relationship is expressed in sentence powered by RDF triple
+* Each node or relationship can have start-date and end-date
 * Relationships are sorted by start-date of relationships then start-date of nodes
-* A list of secondary relationships on each connected nodes is available
-* Configuration of On / Off secondary relationship list
-* Each node-label have their node-label-properties
-* Relations are categorized depending on relationship types
-	* Each node-label-property is a collection of relationship types
-	* ex: Both BROTHER_OF and SISTER_OF go into sibling
-* Configuration of URL path to Baryon ui
-
--> [Link to Youtube Video](https://youtu.be/1yNPHG9HTWs)
+* Secondary relationships on each connected node is listed below the node
+* Secondary relationship list can be configured to be On / Off 
+* Each node-label has their node-label-properties
+* Relations are categorized depending on relationship-types
+	* Each node-label-property is a collection of relationship-types
+	* ex: Both BROTHER_OF and SISTER_OF go into sibling node-label-property
+* URL path to Baryon ui on your app can be configured
 
 
 ## Steps to Run sample app
@@ -56,20 +56,18 @@ $ npm install
 
 6. Start npm project
 
-
 ```
 $ npm start
 ```
 
 ## How to Use sample app
 
-* Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-* Enter "**The Matrix**" in the form. (In the case you use the [sampledata.txt](https://github.com/euonymus/baryon/blob/master/sampledata.txt))
+* Open [http://localhost:3000](http://localhost:3000) in your browser.
+* Enter "**The Matrix**" in the form. (In the case of you used [sampledata.txt](https://github.com/euonymus/baryon/blob/master/sampledata.txt))
 * Go explore
 
 
-
-## How to implement Baryon into your app
+## How to implement Baryon into your React Application
 
 Install Baryon as a node_module
 
@@ -101,9 +99,9 @@ function App() {
 
 ## Configurations
 
-### On / Off secondary relationships
+### On and Off secondary relationship list
 
-Set ***hasSecondLevel*** props in boolean when you call Baryon Component in your JSX
+Set boolean ***hasSecondLevel*** props when you call Baryon Component in your JSX
 
 ```js
 function App() {
@@ -126,9 +124,9 @@ function App() {
 |true| Secondary Relationships are shown |
 |false| No Secondary Relationships |
 
-### Set path to Baryon ui
+### Set URL path to baryon ui on your app
 
-You can configure the path to the Baryon ui by setting graphPath props.
+You can configure the path to the baryon ui by setting graphPath props.
 
 for example, if you set graphPath like this
 
@@ -146,7 +144,7 @@ function App() {
 }
 ```
 
-Each links to other nodes in Baryon component will point to following path
+Each link to other node in baryon component will point to following path
 
 ```
 /graph/{node-name}
