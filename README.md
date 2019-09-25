@@ -116,6 +116,13 @@ function App() {
 }
 ```
 
+**hasSecondLevel** props configuration
+
+|hasSecondLevel props| Secondary Relationships|
+|---|---|
+|true| Secondary Relationships are shown |
+|false| No Secondary Relationships |
+
 ### Set path to Baryon ui
 
 You can configure the path to the Baryon ui by setting graphPath props.
@@ -142,7 +149,7 @@ Each links to other nodes in Baryon component will point to following path
 /graph/{node-name}
 ```
 
-graphPath props configuration
+**graphPath** props configuration
 
 |graphPath props|URL|
 |---|---|
