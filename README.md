@@ -14,7 +14,7 @@ This enables users to explore further relations from one node to another.
 * Relationships appear in a list
 * Each relationship is expressed in sentence powered by RDF triple
 * Each node or relationship can have start-date and end-date
-* Relationships are sorted by start-date of relationships then start-date of nodes
+* Relationships are sorted by start-date of relationships, then start-date of nodes
 * Secondary relationships on each connected node is listed below the node
 * Secondary relationship list can be configured to be On / Off 
 * Each node-label has their node-label-properties
