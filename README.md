@@ -159,3 +159,38 @@ Each link to other node in baryon component will point to following path
 |empty string| /{node-name} |
 
 
+## Data Structure
+
+### Actionable node properties
+
+|property|explanation|example|
+|---|---|---|
+|name|Japanese node name|ピコ太郎|
+|en_name|English node name|Pikotaro|
+|description|Japanese Explanation|ピコ太郎は日本のコメディアン|
+|en_description|English Explanation|Pikotaro is a Japanese comedian, television personality and entertainer|
+|image_path|Image URL|[https://ilyricsbuzz.com/wp-content/uploads/2016/10/Pen-Pineapple-Apple-Pen.jpeg](https://ilyricsbuzz.com/wp-content/uploads/2016/10/Pen-Pineapple-Apple-Pen.jpeg)|
+|start|Start date of the node|1973-07-17|
+|end|End date of the node|2080-07-17|
+|start_accuracy|year / month / null are allowed|month|
+|end_accuracy|year / month / null are allowed|year|
+|is_momentary|Flag of if the node lifetime is momentary|false|
+|url|Official URL of the Node|[https://avex-management.jp/artists/talent/TKDMA](https://avex-management.jp/artists/talent/TKDMA)|
+
+Sorry for the inconvenience caused by property name and en_name.
+The reason why I did this was, I needed to deal with my pre-existed Japanese data at first.
+
+
+### Actionable relationship properties
+
+|property|explanation|example|
+|---|---|---|
+|relation|Relation between nodes|was created by|
+|start|Start date of the node|1973-07-17|
+|end|End date of the node|2080-07-17|
+|start_accuracy|year / month / null are allowed|month|
+|end_accuracy|year / month / null are allowed|year|
+|is_momentary|Flag of if the node lifetime is momentary|false|
+
+
+
