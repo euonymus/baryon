@@ -21,6 +21,9 @@ This enables users to explore further relations from one node to another.
 	* ex: Both BROTHER_OF and SISTER_OF go into sibling
 * Configuration of URL path to Baryon ui
 
+-> [Link to Youtube Video](https://youtu.be/1yNPHG9HTWs)
+
+
 ## Steps to Run sample app
 
 1. Create your [neo4j sandbox](https://neo4j.com/sandbox-v2/)
